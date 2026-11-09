@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Proyectos Campestres & Urbanos | Inversión Inmobiliaria</title>
+  
+  <!-- Estilos Modulares (Separados por responsabilidad) -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+
+  <!-- Barra de Notificación Superior -->
+  <div class="top-banner">
+    <div class="container top-banner-content">
+      <span class="badge-live">Oportunidad de Inversión</span>
+      <p>Lotes campestres con escrituras al día y financiación directa</p>
+    </div>
+  </div>
+
+  <!-- Encabezado y Navegación -->
+  <header class="main-header">
+    <div class="container header-container">
+      <a href="#" class="brand-logo">
+        <span class="brand-icon">🏡</span>
+        <div class="brand-text">
+          <span class="brand-name">Inversiones Inmobiliarias</span>
+          <span class="brand-tagline">Lotes & Casas Campestres</span>
+        </div>
+      </a>
+      <a href="#contacto" class="btn-cta-header">Agendar Visita</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Sección 1: Hero (Atracción Principal) -->
+    <section class="hero-section" id="inicio">
+      <div class="container hero-container">
+        <span class="hero-badge">Tu patrimonio seguro en tierra</span>
+        <h1 class="hero-title">Encuentra el Lote o Casa Campestre de Tus Sueños</h1>
+        <p class="hero-subtitle">
+          Proyectos seleccionados con alta valorización, vías de acceso pavimentadas, servicios públicos completos y facilidades de pago sin intermediarios.
+        </p>
+        <div class="hero-actions">
+          <a href="#proyectos" class="btn btn-primary">Ver Proyectos Disponibles</a>
+          <a href="#contacto" class="btn btn-secondary">Hablar por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 2: Catálogo de 5 Proyectos Base -->
+    <section class="projects-section" id="proyectos">
+      <div class="container">
+        <div class="section-title-group">
+          <span class="section-tag">Portafolio Activo</span>
+          <h2 class="section-heading">Proyectos Disponibles para Entrega</h2>
+          <p class="section-subheading">Selecciona el proyecto que más te interesa para conocer su ficha técnica y agendar una visita al terreno.</p>
+        </div>
+
+        <!-- Cuadrícula donde se renderizan las tarjetas -->
+        <div class="projects-grid" id="projectsContainer">
+          <!-- El archivo data-projects.js y main.js llenarán esto automáticamente -->
+          <noscript>
+            <p>Por favor habilita JavaScript en tu navegador para ver los proyectos disponibles.</p>
+          </noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 3: Formulario de Captura Rápida (Lead Magnet) -->
+    <section class="contact-section" id="contacto">
+      <div class="container contact-container">
+        <div class="contact-card">
+          <div class="contact-header">
+            <span class="contact-tag">Atención Inmediata 24/7</span>
+            <h3>Recibe la Lista de Precios y Ficha Técnica por WhatsApp</h3>
+            <p>Deja tus datos y nuestro asistente virtual te enviará la información oficial al instante.</p>
+          </div>
+
+          <form id="leadForm" class="lead-form" novalidate>
+            <div class="form-group">
+              <label for="leadName">Nombre Completo:</label>
+              <input type="text" id="leadName" name="nombre" class="form-control" placeholder="Ej: Juan Pérez" required>
+              <span class="error-msg" id="nameError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="leadPhone">Número de WhatsApp (Colombia):</label>
+              <div class="phone-input-wrapper">
+                <span class="phone-prefix">+57</span>
+                <input type="tel" id="leadPhone" name="telefono" class="form-control phone-input" placeholder="310 123 4567" maxlength="10" required>
+              </div>
+              <span class="error-msg" id="phoneError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="projectInterest">Proyecto de Mayor Interés:</label>
+              <select id="projectInterest" name="proyecto" class="form-control">
+                <option value="General">Quiero asesoría general sobre todos los lotes</option>
+                <!-- Opciones dinámicas alimentadas por data-projects.js -->
+              </select>
+            </div>
+
+            <button type="submit" id="submitBtn" class="btn btn-submit">
+              <span>📲 Recibir Ficha por WhatsApp</span>
+            </button>
+            <p class="form-disclaimer">🔒 Tus datos están 100% seguros. No enviamos spam.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de Página -->
+  <footer class="main-footer">
+    <div class="container footer-content">
+      <p>© 2026 Inversiones Inmobiliarias. Todos los derechos reservados.</p>
+      <p class="footer-sub">Atención personalizada y visitas guiadas a terreno.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts Modulares Desacoplados -->
+  <script src="js/data-projects.js"></script>
+  <script src="js/form-validation.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
