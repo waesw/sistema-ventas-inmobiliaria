@@ -2,130 +2,630 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Proyectos Campestres & Urbanos | Inversión Inmobiliaria</title>
+  <!-- Viewport optimizado para iOS notch, isla dinámica y safe-area en Android -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" id="metaDescription" content="Venta de lotes, casas y apartamentos campestres con escrituras al día, servicios públicos y financiación directa. Fichas técnicas instantáneas 24/7 vía WhatsApp.">
+  <!-- Evita que Safari en iPhone formatee números como enlaces azules -->
+  <meta name="format-detection" content="telephone=no">
+  <!-- Color de la barra de navegación del navegador en celulares -->
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title id="pageTitle">Lotes & Casas Campestres | Inversión Inmobiliaria Segura</title>
   
-  <!-- Estilos Modulares (Separados por responsabilidad) -->
+  <!-- CSS Modular (< 1.000 líneas por archivo - Cero fuentes pesadas de terceros) -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
 
-  <!-- Barra de Notificación Superior -->
-  <div class="top-banner">
-    <div class="container top-banner-content">
-      <span class="badge-live">Oportunidad de Inversión</span>
-      <p>Lotes campestres con escrituras al día y financiación directa</p>
+  <!-- =======================================================================
+       1. BARRA SUPERIOR DE CONFIANZA LEGAL (Activable / Desactivable)
+       ======================================================================= -->
+  <aside class="top-announcement" data-section="announcement" aria-label="Garantía legal">
+    <div class="container top-announcement-inner">
+      <div class="announcement-left">
+        <span class="badge-legal">🔒 100% Legal</span>
+        <p class="announcement-text" data-bind="legalAnnouncement">Escrituras públicas individuales en notaría, licencias al día y servicios públicos.</p>
+      </div>
+      <div class="announcement-right">
+        <!-- Enlaces Oficiales de Redes Sociales (TikTok, Instagram, Facebook) -->
+        <div class="announcement-socials" id="headerSocials">
+          <a href="#" class="social-icon-link" id="linkSocialFbTop" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘</a>
+          <a href="#" class="social-icon-link" id="linkSocialIgTop" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸</a>
+          <a href="#" class="social-icon-link" id="linkSocialTtTop" target="_blank" rel="noopener noreferrer" aria-label="TikTok">🎵</a>
+        </div>
+        <a href="#contacto" class="link-quick-contact">Atención 24/7 vía WhatsApp</a>
+      </div>
     </div>
-  </div>
+  </aside>
 
-  <!-- Encabezado y Navegación -->
-  <header class="main-header">
-    <div class="container header-container">
-      <a href="#" class="brand-logo">
-        <span class="brand-icon">🏡</span>
-        <div class="brand-text">
-          <span class="brand-name">Inversiones Inmobiliarias</span>
-          <span class="brand-tagline">Lotes & Casas Campestres</span>
+  <!-- =======================================================================
+       2. ENCABEZADO Y NAVEGACIÓN CROSS-BROWSER (PC + Menú Hamburguesa Móvil)
+       ======================================================================= -->
+  <header class="site-header" id="header" data-section="header">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand-identity" aria-label="Ir al inicio">
+        <span class="brand-logo-slot" data-bind="brandLogo">
+          <span class="brand-symbol" aria-hidden="true">🏡</span>
+        </span>
+        <div class="brand-info">
+          <span class="brand-title" data-bind="brandName">Terranova Inmobiliaria</span>
+          <span class="brand-subtitle" data-bind="brandSubtitle">Lotes & Parcelaciones Campestres</span>
         </div>
       </a>
-      <a href="#contacto" class="btn-cta-header">Agendar Visita</a>
+
+      <!-- Menú Desktop Horizontal -->
+      <nav class="desktop-nav" aria-label="Navegación principal de escritorio">
+        <ul class="nav-links-list">
+          <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+          <li><a href="#beneficios" class="nav-link">Beneficios</a></li>
+          <li><a href="#video-recorrido" class="nav-link">Video</a></li>
+          <li><a href="#proceso" class="nav-link">¿Cómo Comprar?</a></li>
+          <li><a href="#faq" class="nav-link">Preguntas</a></li>
+          <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Acciones de Cabecera -->
+      <div class="header-action-group">
+        <a href="#contacto" class="btn btn-header-cta">
+          <span>Agendar Visita</span>
+          <span aria-hidden="true">→</span>
+        </a>
+
+        <!-- Botón Hamburguesa Táctil (Mínimo 44x44px) -->
+        <button type="button" class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileDrawer">
+          <span class="hamburger-bar" aria-hidden="true"></span>
+          <span class="hamburger-bar" aria-hidden="true"></span>
+          <span class="hamburger-bar" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Cajón Desplegable para Móviles -->
+    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <nav class="mobile-nav" aria-label="Menú de navegación móvil">
+        <ul class="mobile-nav-list">
+          <li><a href="#proyectos" class="mobile-nav-link">🏘️ Proyectos Disponibles</a></li>
+          <li><a href="#beneficios" class="mobile-nav-link">⭐ Beneficios & Legalidad</a></li>
+          <li><a href="#video-recorrido" class="mobile-nav-link">🎬 Video del Terreno</a></li>
+          <li><a href="#proceso" class="mobile-nav-link">📋 Proceso de Compra</a></li>
+          <li><a href="#faq" class="mobile-nav-link">❓ Preguntas Frecuentes</a></li>
+          <li><a href="#contacto" class="mobile-nav-link">📞 Contacto & Visitas</a></li>
+        </ul>
+        <div class="mobile-drawer-cta">
+          <a href="#contacto" class="btn btn-primary btn-block">Agendar Visita Guiada</a>
+        </div>
+      </nav>
     </div>
   </header>
 
-  <main>
-    <!-- Sección 1: Hero (Atracción Principal) -->
-    <section class="hero-section" id="inicio">
-      <div class="container hero-container">
-        <span class="hero-badge">Tu patrimonio seguro en tierra</span>
-        <h1 class="hero-title">Encuentra el Lote o Casa Campestre de Tus Sueños</h1>
-        <p class="hero-subtitle">
-          Proyectos seleccionados con alta valorización, vías de acceso pavimentadas, servicios públicos completos y facilidades de pago sin intermediarios.
-        </p>
-        <div class="hero-actions">
-          <a href="#proyectos" class="btn btn-primary">Ver Proyectos Disponibles</a>
-          <a href="#contacto" class="btn btn-secondary">Hablar por WhatsApp</a>
+  <main id="mainContent">
+
+    <!-- =====================================================================
+         3. HERO: PROPUESTA DE VALOR Y CAPTURA RÁPIDA (First Contentful Paint < 0.4s)
+         ===================================================================== -->
+    <section class="hero-section" id="inicio" data-section="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            <span data-bind="heroTag">Preventa Exclusiva • Alta Valorización</span>
+          </div>
+          <h1 class="hero-headline" data-bind="heroHeadline">
+            Invierte en Tierra Segura: <span class="highlight-text">Lotes Campestres</span> Listos para Escriturar
+          </h1>
+          <p class="hero-description" data-bind="heroDescription">
+            Parcelas y proyectos residenciales con vías pavimentadas, acometidas de agua, luz y financiación directa sin intermediarios bancarios.
+          </p>
+
+          <div class="hero-badges-row">
+            <div class="hero-badge-item">
+              <span class="badge-icon" aria-hidden="true">📜</span>
+              <div class="badge-item-text">
+                <strong>Escritura Individual</strong>
+                <span>Folio de matrícula independiente</span>
+              </div>
+            </div>
+            <div class="hero-badge-item">
+              <span class="badge-icon" aria-hidden="true">💧</span>
+              <div class="badge-item-text">
+                <strong>Servicios Listos</strong>
+                <span>Agua y energía al lindero</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-cta-group">
+            <a href="#proyectos" class="btn btn-primary btn-lg">Explorar Proyectos</a>
+            <a href="#contacto" class="btn btn-outline btn-lg">Fichas por WhatsApp</a>
+          </div>
+        </div>
+
+        <!-- Formulario Rápido en Hero -->
+        <div class="quick-inquiry-card">
+          <div class="inquiry-header">
+            <span class="inquiry-status-chip">⚡ Respuesta Inmediata</span>
+            <h3>Consulta Precios y Disponibilidad</h3>
+            <p>Recibe fotos de alta resolución, planos topográficos y listas de precios al instante.</p>
+          </div>
+          
+          <form class="lead-capture-form" id="heroLeadForm" action="javascript:void(0);" novalidate>
+            <input type="hidden" name="proyecto" value="General">
+            <input type="hidden" name="origen" value="hero_rapido">
+
+            <div class="form-field">
+              <label for="heroName">Nombre Completo:</label>
+              <input type="text" id="heroName" name="nombre" class="input-text" placeholder="Ej: Fernando Restrepo" autocomplete="name" minlength="3" maxlength="60" required>
+              <span class="field-error-text" id="heroNameError" aria-live="polite"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="heroPhone">WhatsApp (Colombia):</label>
+              <div class="phone-input-group">
+                <span class="flag-prefix">+57</span>
+                <input type="tel" id="heroPhone" name="telefono" class="input-text phone-input" placeholder="312 345 6789" autocomplete="tel" inputmode="numeric" pattern="3[0-9]{9}" maxlength="10" title="Ingresa un celular de 10 dígitos que inicie por 3" required>
+              </div>
+              <span class="field-error-text" id="heroPhoneError" aria-live="polite"></span>
+            </div>
+
+            <button type="submit" class="btn btn-submit-hero">
+              <span>📲 Recibir Ficha Técnica Completa</span>
+            </button>
+            <p class="privacy-note">🔒 Respetamos tu privacidad. Cero spam.</p>
+          </form>
         </div>
       </div>
     </section>
 
-    <!-- Sección 2: Catálogo de 5 Proyectos Base -->
-    <section class="projects-section" id="proyectos">
+    <!-- =====================================================================
+         4. BENEFICIOS Y GARANTÍAS DE COMPRA
+         ===================================================================== -->
+    <section class="benefits-section" id="beneficios" data-section="benefits">
       <div class="container">
-        <div class="section-title-group">
-          <span class="section-tag">Portafolio Activo</span>
-          <h2 class="section-heading">Proyectos Disponibles para Entrega</h2>
-          <p class="section-subheading">Selecciona el proyecto que más te interesa para conocer su ficha técnica y agendar una visita al terreno.</p>
+        <div class="section-heading-box text-center">
+          <span class="sub-label">¿Por qué invertir con nosotros?</span>
+          <h2 class="section-title">Seguridad Jurídica y Calidad de Vida</h2>
+          <p class="section-lead">Diseñado para familias que buscan su casa de campo y para inversionistas que buscan alta plusvalía.</p>
         </div>
 
-        <!-- Cuadrícula donde se renderizan las tarjetas -->
-        <div class="projects-grid" id="projectsContainer">
-          <!-- El archivo data-projects.js y main.js llenarán esto automáticamente -->
+        <div class="benefits-grid" id="benefitsContainer">
+          <article class="benefit-card">
+            <div class="benefit-icon" aria-hidden="true">📑</div>
+            <h3>Legalidad y Escritura Inmediata</h3>
+            <p>Desenglobe aprobado y folio de matrícula individual para registro directo en notaría.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon" aria-hidden="true">🛣️</div>
+            <h3>Vías de Acceso y Topografía Favorable</h3>
+            <p>Acceso vehicular garantizado desde la vía principal y vías internas recebadas de fácil rodamiento.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon" aria-hidden="true">💡</div>
+            <h3>Acometidas de Agua y Luz</h3>
+            <p>Puntos de conexión eléctrica y acueducto entregados a la entrada de cada lote.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon" aria-hidden="true">📈</div>
+            <h3>Alta Valorización Garantizada</h3>
+            <p>Zonas de alta expansión turística y campestre con plusvalía sostenida año tras año.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. CATÁLOGO ACTIVO: HASTA 5 PROYECTOS (Lotes, Casas, Apartamentos)
+         Tratamiento Automático de Fotos (aspect-ratio: 16/9 y object-fit: cover)
+         ===================================================================== -->
+    <section class="projects-section" id="proyectos" data-section="projects">
+      <div class="container">
+        <div class="section-heading-box">
+          <div class="heading-split">
+            <div>
+              <span class="sub-label">Catálogo Activo</span>
+              <h2 class="section-title">Proyectos Disponibles</h2>
+              <p class="section-lead">Lotes, casas y apartamentos campestres adaptados a tu presupuesto y estilo de vida.</p>
+            </div>
+            
+            <!-- Barra de Filtros Completa: Lotes, Casas y Apartamentos -->
+            <div class="projects-filter-bar" id="projectsFilterBar" role="tablist" aria-label="Filtrar proyectos">
+              <button class="filter-chip active" role="tab" aria-selected="true" data-filter="todos">Todos</button>
+              <button class="filter-chip" role="tab" aria-selected="false" data-filter="lote">Lotes</button>
+              <button class="filter-chip" role="tab" aria-selected="false" data-filter="casa">Casas</button>
+              <button class="filter-chip" role="tab" aria-selected="false" data-filter="apartamento">Apartamentos</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contenedor dinámico estructurado alimentado por data-projects.js -->
+        <div class="projects-cards-grid" id="projectsContainer">
           <noscript>
-            <p>Por favor habilita JavaScript en tu navegador para ver los proyectos disponibles.</p>
+            <p class="no-script-notice">Por favor activa JavaScript en tu navegador para interactuar con el catálogo de proyectos.</p>
           </noscript>
         </div>
       </div>
     </section>
 
-    <!-- Sección 3: Formulario de Captura Rápida (Lead Magnet) -->
-    <section class="contact-section" id="contacto">
-      <div class="container contact-container">
-        <div class="contact-card">
-          <div class="contact-header">
-            <span class="contact-tag">Atención Inmediata 24/7</span>
-            <h3>Recibe la Lista de Precios y Ficha Técnica por WhatsApp</h3>
-            <p>Deja tus datos y nuestro asistente virtual te enviará la información oficial al instante.</p>
+    <!-- =====================================================================
+         6. MÓDULO DE VIDEO SHOWCASE: RECORRIDO EN TERRENO (Activable / Desactivable)
+         Soporte para videos de YouTube, Vimeo, TikTok o MP4 sin congelar la web
+         ===================================================================== -->
+    <section class="video-section" id="video-recorrido" data-section="video-showcase">
+      <div class="container">
+        <div class="section-heading-box text-center">
+          <span class="sub-label">Recorrido Visual</span>
+          <h2 class="section-title">Conoce Nuestros Proyectos en Video</h2>
+          <p class="section-lead">Mira el estado real de los terrenos, vías de acceso y linderos grabados en campo.</p>
+        </div>
+
+        <div class="video-facade-card">
+          <!-- Contenedor fluido 16:9 que no se desconfigura en celular ni en PC -->
+          <div class="video-responsive-wrapper" id="videoContainer">
+            <!-- Portada ligera Facade: Cero pantalla blanca; solo descarga el video si se presiona Play -->
+            <div class="video-placeholder" id="videoPlaceholder">
+              <img src="assets/images/video_thumb.jpg" alt="Portada de video del proyecto campestre" class="video-thumb-img" loading="lazy" decoding="async">
+              <button type="button" class="btn-play-video" id="btnPlayVideo" aria-label="Reproducir video del proyecto">
+                <span class="play-icon-triangle" aria-hidden="true">▶</span>
+              </button>
+            </div>
+            <!-- Iframe o video nativo insertado bajo demanda por JS -->
+            <div class="video-embed-slot" id="videoEmbedSlot" style="display: none;"></div>
+          </div>
+          <div class="video-caption-bar">
+            <span class="video-badge-pill">🎥 Grabación en Terreno</span>
+            <span class="video-caption-text" data-bind="videoCaption">Recorrido por la parcelación campestre y vías principales de acceso.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         7. METODOLOGÍA DE COMPRA EN 4 PASOS
+         ===================================================================== -->
+    <section class="process-section" id="proceso" data-section="process">
+      <div class="container">
+        <div class="section-heading-box text-center">
+          <span class="sub-label">Paso a Paso</span>
+          <h2 class="section-title">¿Cómo Adquirir Tu Terreno?</h2>
+          <p class="section-lead">Un proceso transparente, guiado y sin letras pequeñas.</p>
+        </div>
+
+        <div class="process-steps-grid">
+          <div class="process-step-item">
+            <span class="step-badge">1</span>
+            <h4>Elige tu Proyecto</h4>
+            <p>Revisa en la web el metraje, ubicación y características de tu preferencia.</p>
+          </div>
+          <div class="process-step-item">
+            <span class="step-badge">2</span>
+            <h4>Ficha por WhatsApp</h4>
+            <p>El bot te envía al instante planos, fotos y alternativas de pago a tu celular.</p>
+          </div>
+          <div class="process-step-item">
+            <span class="step-badge">3</span>
+            <h4>Visita Guiada</h4>
+            <p>Recorremos el terreno contigo para que camines el lote y verifiques sus linderos.</p>
+          </div>
+          <div class="process-step-item">
+            <span class="step-badge">4</span>
+            <h4>Firma y Escritura</h4>
+            <p>Formalización notarial con acompañamiento jurídico y entrega de tu inmueble.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         8. FORMULARIO CENTRAL DE CAPTURA Y CIERRE
+         ===================================================================== -->
+    <section class="capture-section" id="contacto" data-section="capture">
+      <div class="container">
+        <div class="capture-wrapper">
+          <div class="capture-text-column">
+            <span class="sub-label text-light">Asesoría Inmediata</span>
+            <h2 class="capture-headline">¿Deseas Conocer los Precios de Preventa?</h2>
+            <p class="capture-copy">
+              Déjanos tus datos para recibir en WhatsApp la carpeta digital completa: planos, coordenadas satelitales y tablas de financiación directa.
+            </p>
+            <ul class="capture-perks-list">
+              <li><span class="check-bullet" aria-hidden="true">✓</span> Respuesta automática en menos de 60 segundos vía WhatsApp.</li>
+              <li><span class="check-bullet" aria-hidden="true">✓</span> Asesoría personalizada en planes de pago directo.</li>
+              <li><span class="check-bullet" aria-hidden="true">✓</span> Agenda abierta para visitas guiadas de lunes a domingo.</li>
+            </ul>
           </div>
 
-          <form id="leadForm" class="lead-form" novalidate>
-            <div class="form-group">
-              <label for="leadName">Nombre Completo:</label>
-              <input type="text" id="leadName" name="nombre" class="form-control" placeholder="Ej: Juan Pérez" required>
-              <span class="error-msg" id="nameError"></span>
-            </div>
+          <div class="capture-form-column">
+            <div class="form-container-card">
+              <form id="mainLeadForm" class="conversion-form" action="javascript:void(0);" novalidate>
+                <input type="hidden" name="origen" value="formulario_principal">
 
-            <div class="form-group">
-              <label for="leadPhone">Número de WhatsApp (Colombia):</label>
-              <div class="phone-input-wrapper">
-                <span class="phone-prefix">+57</span>
-                <input type="tel" id="leadPhone" name="telefono" class="form-control phone-input" placeholder="310 123 4567" maxlength="10" required>
-              </div>
-              <span class="error-msg" id="phoneError"></span>
-            </div>
+                <div class="form-group">
+                  <label for="mainName" class="form-label">Nombre y Apellido:</label>
+                  <input type="text" id="mainName" name="nombre" class="form-input" placeholder="Ingresa tu nombre completo" autocomplete="name" minlength="3" maxlength="60" required>
+                  <span class="field-error-text" id="mainNameError" aria-live="polite"></span>
+                </div>
 
-            <div class="form-group">
-              <label for="projectInterest">Proyecto de Mayor Interés:</label>
-              <select id="projectInterest" name="proyecto" class="form-control">
-                <option value="General">Quiero asesoría general sobre todos los lotes</option>
-                <!-- Opciones dinámicas alimentadas por data-projects.js -->
-              </select>
-            </div>
+                <div class="form-group">
+                  <label for="mainPhone" class="form-label">Número de WhatsApp:</label>
+                  <div class="phone-input-combo">
+                    <span class="country-prefix">+57</span>
+                    <input type="tel" id="mainPhone" name="telefono" class="form-input phone-field" placeholder="310 123 4567" autocomplete="tel" inputmode="numeric" pattern="3[0-9]{9}" maxlength="10" title="Ingresa un celular de 10 dígitos que inicie por 3" required>
+                  </div>
+                  <span class="field-error-text" id="mainPhoneError" aria-live="polite"></span>
+                </div>
 
-            <button type="submit" id="submitBtn" class="btn btn-submit">
-              <span>📲 Recibir Ficha por WhatsApp</span>
-            </button>
-            <p class="form-disclaimer">🔒 Tus datos están 100% seguros. No enviamos spam.</p>
-          </form>
+                <div class="form-group">
+                  <label for="mainProject" class="form-label">Proyecto de Tu Interés:</label>
+                  <select id="mainProject" name="proyecto" class="form-select">
+                    <option value="General">Quiero información general de todos los proyectos</option>
+                  </select>
+                </div>
+
+                <button type="submit" id="mainSubmitButton" class="btn btn-submit-full">
+                  <span>📲 Enviar y Recibir Información Inmediata</span>
+                </button>
+                <p class="form-footnote">🛡️ Respetamos tu privacidad. Tus datos están protegidos y no enviamos spam.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         9. PREGUNTAS FRECUENTES (FAQ Acordeón Cross-Browser)
+         ===================================================================== -->
+    <section class="faq-section" id="faq" data-section="faq">
+      <div class="container max-w-reading">
+        <div class="section-heading-box text-center">
+          <span class="sub-label">Dudas Comunes</span>
+          <h2 class="section-title">Preguntas Frecuentes de Inversionistas</h2>
+        </div>
+
+        <div class="accordion-list" id="faqAccordionContainer">
+          <details class="faq-accordion-item">
+            <summary class="faq-question">
+              <span>¿Los lotes cuentan con escritura pública individual?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Sí, absolutamente todos nuestros proyectos cuentan con desenglobe aprobado y folio de matrícula inmobiliaria individual para escrituración directa por notaría.</p>
+            </div>
+          </details>
+
+          <details class="faq-accordion-item">
+            <summary class="faq-question">
+              <span>¿Qué facilidades de pago o financiación ofrecen?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Ofrecemos financiación directa con la constructora: separas con un porcentaje inicial y el saldo restante se distribuye en cuotas mensuales sin intereses bancarios.</p>
+            </div>
+          </details>
+
+          <details class="faq-accordion-item">
+            <summary class="faq-question">¿Puedo agendar una visita un sábado o domingo?</summary>
+            <div class="faq-answer">
+              <p>Sí, atendemos visitas guiadas de lunes a domingo. Tras dejar tus datos, coordinaremos la fecha y hora que mejor se ajuste a tu itinerario.</p>
+            </div>
+          </details>
+
+          <details class="faq-accordion-item">
+            <summary class="faq-question">
+              <span>¿Cómo se entregan los servicios públicos?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Cada lote se entrega con punto de conexión de energía eléctrica y acometida de acueducto veredal o potable lista al lindero de la parcela.</p>
+            </div>
+          </details>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Pie de Página -->
-  <footer class="main-footer">
-    <div class="container footer-content">
-      <p>© 2026 Inversiones Inmobiliarias. Todos los derechos reservados.</p>
-      <p class="footer-sub">Atención personalizada y visitas guiadas a terreno.</p>
+  <!-- =======================================================================
+       10. BOTÓN FLOTANTE WHATSAPP (Apertura Directa de Chat / Lead)
+       ======================================================================= -->
+  <aside class="floating-contact" data-section="floating-whatsapp" aria-label="Contacto rápido WhatsApp">
+    <a href="#" class="floating-wa-btn" id="floatingWaButton" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp">
+      <span class="wa-float-icon" aria-hidden="true">💬</span>
+      <span class="wa-float-text">¿Dudas? Chatea 24/7</span>
+    </a>
+  </aside>
+
+  <!-- =======================================================================
+       11. PIE DE PÁGINA PROFESIONAL CON REDES Y ACCESO ADMIN
+       ======================================================================= -->
+  <footer class="site-footer" data-section="footer">
+    <div class="container footer-layout">
+      <div class="footer-brand-box">
+        <span class="footer-brand-title" data-bind="brandName">Terranova Inmobiliaria</span>
+        <p class="footer-brand-desc" data-bind="footerBrandDesc">Desarrollo y comercialización de proyectos campestres con visión patrimonial y seguridad jurídica integral.</p>
+        
+        <!-- Redes Sociales en Footer (TikTok, Instagram, Facebook) -->
+        <div class="footer-social-links">
+          <a href="#" class="footer-social-btn" id="linkSocialFbFooter" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
+          <a href="#" class="footer-social-btn" id="linkSocialIgFooter" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+          <a href="#" class="footer-social-btn" id="linkSocialTtFooter" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TikTok</a>
+        </div>
+      </div>
+
+      <div class="footer-links-box">
+        <span class="footer-heading">Navegación</span>
+        <ul class="footer-links-menu">
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#beneficios">Beneficios</a></li>
+          <li><a href="#video-recorrido">Video</a></li>
+          <li><a href="#proceso">Proceso de Compra</a></li>
+          <li><a href="#faq">Preguntas</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-legal-box">
+        <span class="footer-heading">Transparencia</span>
+        <p>Proyectos regulados bajo la normatividad de ordenamiento territorial vigente en Colombia.</p>
+        <div class="legal-bottom-bar">
+          <span class="legal-copy">© 2026 <span data-bind="brandName">Terranova Inmobiliaria</span>. Todos los derechos reservados.</span>
+          <!-- Candado discreto de Super Administrador -->
+          <button type="button" id="adminTriggerBtn" class="btn-admin-lock" aria-label="Administración del Sistema" title="Acceso Super Admin">🔐</button>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <!-- Scripts Modulares Desacoplados -->
-  <script src="js/data-projects.js"></script>
-  <script src="js/form-validation.js"></script>
-  <script src="js/main.js"></script>
+  <!-- =======================================================================
+       12. MODAL DEL PANEL DE ADMINISTRACIÓN (SUPER ADMIN COMPLETO)
+       Gestiona Identidad, Redes, Colores, Toggles y los 5 Proyectos con Fotos/Videos
+       ======================================================================= -->
+  <div id="adminModal" class="admin-modal" aria-hidden="true" role="dialog" aria-labelledby="adminTitle">
+    <div class="admin-modal-overlay" id="adminOverlay"></div>
+    <div class="admin-modal-window">
+      <div class="admin-modal-header">
+        <div class="admin-title-wrap">
+          <span class="admin-badge">Super Admin</span>
+          <h2 id="adminTitle">Panel de Configuración Rápida</h2>
+        </div>
+        <button type="button" id="adminCloseBtn" class="btn-close-modal" aria-label="Cerrar modal">&times;</button>
+      </div>
+
+      <!-- Pantalla 1: Login por PIN -->
+      <div id="adminAuthScreen" class="admin-screen">
+        <p class="admin-helper">Ingresa el PIN de seguridad de Super Administrador para editar la página:</p>
+        <form id="adminPinForm" action="javascript:void(0);">
+          <div class="form-field">
+            <label for="adminPinInput">PIN de Acceso:</label>
+            <input type="password" id="adminPinInput" class="input-text" placeholder="••••••••" maxlength="20" required>
+            <span id="pinErrorMsg" class="field-error-text"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Ingresar al Panel</button>
+        </form>
+      </div>
+
+      <!-- Pantalla 2: Panel de Gestión Visual en Vivo -->
+      <div id="adminDashboardScreen" class="admin-screen" style="display: none;">
+        <div class="admin-tabs-nav" role="tablist">
+          <button type="button" class="admin-tab active" data-tab="general">Identidad & Redes</button>
+          <button type="button" class="admin-tab" data-tab="colores">Colores & Estilo</button>
+          <button type="button" class="admin-tab" data-tab="proyectos">Gestor de Proyectos</button>
+          <button type="button" class="admin-tab" data-tab="secciones">Activar Secciones</button>
+        </div>
+
+        <form id="adminSettingsForm" action="javascript:void(0);">
+          <!-- Pestaña A: Identidad & Redes -->
+          <div class="admin-tab-content active" id="tabGeneral">
+            <div class="admin-form-grid">
+              <div class="form-field">
+                <label for="cfgBrandName">Nombre de la Inmobiliaria:</label>
+                <input type="text" id="cfgBrandName" class="input-text">
+              </div>
+              <div class="form-field">
+                <label for="cfgBrandSubtitle">Subtítulo / Especialidad:</label>
+                <input type="text" id="cfgBrandSubtitle" class="input-text">
+              </div>
+              <div class="form-field">
+                <label for="cfgWhatsapp">Número Oficial de WhatsApp:</label>
+                <input type="tel" id="cfgWhatsapp" class="input-text" placeholder="573123456789">
+              </div>
+              <div class="form-field">
+                <label for="cfgLogoUrl">URL del Logo (Opcional):</label>
+                <input type="url" id="cfgLogoUrl" class="input-text" placeholder="assets/logo.png o https://...">
+              </div>
+              <div class="form-field">
+                <label for="cfgFacebook">Enlace de Facebook:</label>
+                <input type="url" id="cfgFacebook" class="input-text" placeholder="https://facebook.com/...">
+              </div>
+              <div class="form-field">
+                <label for="cfgInstagram">Enlace de Instagram:</label>
+                <input type="url" id="cfgInstagram" class="input-text" placeholder="https://instagram.com/...">
+              </div>
+              <div class="form-field">
+                <label for="cfgTiktok">Enlace de TikTok:</label>
+                <input type="url" id="cfgTiktok" class="input-text" placeholder="https://tiktok.com/@...">
+              </div>
+              <div class="form-field">
+                <label for="cfgVideoUrl">URL del Video de los Lotes (YouTube/MP4):</label>
+                <input type="url" id="cfgVideoUrl" class="input-text" placeholder="https://youtube.com/watch?v=...">
+              </div>
+            </div>
+          </div>
+
+          <!-- Pestaña B: Colores y Apariencia -->
+          <div class="admin-tab-content" id="tabColores" style="display: none;">
+            <div class="admin-form-grid">
+              <div class="form-field">
+                <label for="cfgColorPrimary">Color Principal (Fondo oscuro / Encabezados):</label>
+                <input type="color" id="cfgColorPrimary" class="input-color-picker" value="#0f172a">
+              </div>
+              <div class="form-field">
+                <label for="cfgColorAccent">Color de Acento / Botones (Llamados a la acción):</label>
+                <input type="color" id="cfgColorAccent" class="input-color-picker" value="#2563eb">
+              </div>
+            </div>
+          </div>
+
+          <!-- Pestaña C: Gestor Completo de Proyectos, Inmuebles y Fotos -->
+          <div class="admin-tab-content" id="tabProyectos" style="display: none;">
+            <p class="admin-helper">Modifica los datos de cada uno de los 5 proyectos. El sistema adapta las fotos automáticamente a 16:9 sin deformarlas.</p>
+            <div class="admin-projects-editor" id="adminProjectsEditorContainer">
+              <!-- Renderizado dinámicamente por js/admin.js con inputs para nombre, precio, metraje, foto y tipología -->
+            </div>
+          </div>
+
+          <!-- Pestaña D: Activar / Desactivar Secciones -->
+          <div class="admin-tab-content" id="tabSecciones" style="display: none;">
+            <p class="admin-helper">Enciende o apaga secciones completas con un clic:</p>
+            <div class="admin-toggles-list">
+              <label class="toggle-control">
+                <input type="checkbox" id="toggleAnnouncement" checked>
+                <span>Barra Superior de Legalidad y Redes</span>
+              </label>
+              <label class="toggle-control">
+                <input type="checkbox" id="toggleBenefits" checked>
+                <span>Módulo de Beneficios y Garantías</span>
+              </label>
+              <label class="toggle-control">
+                <input type="checkbox" id="toggleVideo" checked>
+                <span>Módulo de Video Showcase del Terreno</span>
+              </label>
+              <label class="toggle-control">
+                <input type="checkbox" id="toggleProcess" checked>
+                <span>Módulo de Proceso en 4 Pasos</span>
+              </label>
+              <label class="toggle-control">
+                <input type="checkbox" id="toggleFaq" checked>
+                <span>Módulo de Preguntas Frecuentes (FAQ)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Botones de Acción del Panel -->
+          <div class="admin-actions-bar">
+            <button type="button" id="btnExportConfig" class="btn btn-outline">📥 Exportar Copia JSON</button>
+            <button type="submit" id="btnSaveConfig" class="btn btn-primary">💾 Guardar Cambios en Vivo</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       13. SCRIPTS MODULARES (< 1.000 líneas cada uno - Carga diferida)
+       ======================================================================= -->
+  <script src="js/config.js" defer></script>
+  <script src="js/data-projects.js" defer></script>
+  <script src="js/form-validation.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/admin.js" defer></script>
 </body>
 </html>
