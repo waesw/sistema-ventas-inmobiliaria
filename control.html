@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Mesa de Control Privada | Terranova Inmobiliaria</title>
+  
+  <style>
+    :root {
+      --ctrl-bg: #0b132b;
+      --ctrl-surface: #1c2541;
+      --ctrl-surface-alt: #243054;
+      --ctrl-border: #334155;
+      --ctrl-primary: #38bdf8;
+      --ctrl-primary-hover: #0284c7;
+      --ctrl-success: #10b981;
+      --ctrl-danger: #ef4444;
+      --ctrl-text: #f8fafc;
+      --ctrl-text-muted: #94a3b8;
+      --ctrl-radius: 10px;
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-stack);
+      background-color: var(--ctrl-bg);
+      color: var(--ctrl-text);
+      line-height: 1.5;
+      min-height: 100vh;
+      padding: 20px 16px;
+    }
+
+    .control-container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .control-header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background-color: var(--ctrl-surface);
+      border: 1px solid var(--ctrl-border);
+      border-radius: var(--ctrl-radius);
+      padding: 18px 24px;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 640px) {
+      .control-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge-secure {
+      background-color: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-link-public {
+      background-color: rgba(56, 189, 248, 0.15);
+      color: var(--ctrl-primary);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      transition: all 0.2s;
+    }
+
+    .btn-link-public:hover {
+      background-color: var(--ctrl-primary);
+      color: #0b132b;
+    }
+
+    .lock-screen-box {
+      max-width: 420px;
+      margin: 60px auto;
+      background-color: var(--ctrl-surface);
+      border: 1px solid var(--ctrl-border);
+      border-radius: var(--ctrl-radius);
+      padding: 32px 28px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .lock-icon-giant {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    .lock-title {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .lock-subtitle {
+      font-size: 0.88rem;
+      color: var(--ctrl-text-muted);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--ctrl-text-muted);
+      margin-bottom: 6px;
+    }
+
+    .input-control {
+      width: 100%;
+      padding: 12px 14px;
+      background-color: #0b132b;
+      border: 1px solid var(--ctrl-border);
+      border-radius: 6px;
+      color: #ffffff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .input-control:focus {
+      border-color: var(--ctrl-primary);
+    }
+
+    .btn-primary-action {
+      width: 100%;
+      background-color: var(--ctrl-primary);
+      color: #0b132b;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn-primary-action:hover {
+      background-color: var(--ctrl-primary-hover);
+    }
+
+    .pin-error {
+      color: var(--ctrl-danger);
+      font-size: 0.82rem;
+      margin-top: 8px;
+      display: block;
+      min-height: 20px;
+    }
+
+    .control-dashboard {
+      background-color: var(--ctrl-surface);
+      border: 1px solid var(--ctrl-border);
+      border-radius: var(--ctrl-radius);
+      padding: 24px;
+    }
+
+    .tabs-bar {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid var(--ctrl-border);
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      padding: 10px 16px;
+      border-radius: 6px;
+      background-color: transparent;
+      color: var(--ctrl-text-muted);
+      border: 1px solid transparent;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background-color: var(--ctrl-surface-alt);
+      color: var(--ctrl-primary);
+      border-color: var(--ctrl-border);
+    }
+
+    .panel-tab-content {
+      display: none;
+    }
+
+    .panel-tab-content.active {
+      display: block;
+    }
+
+    .grid-fields-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    @media (min-width: 680px) {
+      .grid-fields-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .color-picker-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px;
+      background-color: #0b132b;
+      border: 1px solid var(--ctrl-border);
+      border-radius: 6px;
+    }
+
+    .color-input-field {
+      width: 48px;
+      height: 38px;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    .project-edit-card {
+      background-color: #0b132b;
+      border: 1px solid var(--ctrl-border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .project-edit-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--ctrl-border);
+    }
+
+    .project-num-badge {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--ctrl-primary);
+    }
+
+    .toggle-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background-color: #0b132b;
+      border: 1px solid var(--ctrl-border);
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .toggle-label-text {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .toggle-switch {
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+    }
+
+    .save-actions-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--ctrl-border);
+    }
+
+    @media (min-width: 600px) {
+      .save-actions-bar {
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+    }
+
+    .btn-save-live {
+      background-color: var(--ctrl-success);
+      color: #ffffff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .btn-save-live:hover {
+      opacity: 0.9;
+    }
+
+    .btn-export-backup {
+      background-color: transparent;
+      color: var(--ctrl-text-muted);
+      border: 1px solid var(--ctrl-border);
+      padding: 12px 18px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-export-backup:hover {
+      color: #ffffff;
+      border-color: #64748b;
+    }
+
+    .toast-notice {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: var(--ctrl-success);
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="control-container">
+
+    <header class="control-header">
+      <div class="brand-group">
+        <span style="font-size: 1.8rem;" aria-hidden="true">🎛️</span>
+        <div>
+          <h1 style="font-size: 1.15rem; font-weight: 800;">Mesa de Control Privada</h1>
+          <p style="font-size: 0.78rem; color: var(--ctrl-text-muted);">Administración sin código para Terranova Inmobiliaria</p>
+        </div>
+      </div>
+      <div class="header-links">
+        <span class="badge-secure">🔒 Sesión Cifrada</span>
+        <a href="index.html" class="btn-link-public" target="_blank" rel="noopener noreferrer">Ver Vitrina en Vivo ↗</a>
+      </div>
+    </header>
+
+    <div id="authScreen" class="lock-screen-box">
+      <div class="lock-icon-giant" aria-hidden="true">🔐</div>
+      <h2 class="lock-title">Acceso Restringido</h2>
+      <p class="lock-subtitle">Ingresa tu clave maestra para acceder al centro de mando:</p>
+
+      <form id="pinAuthForm" action="javascript:void(0);">
+        <div class="form-group">
+          <label for="masterPin">PIN de Seguridad:</label>
+          <input type="password" id="masterPin" class="input-control" placeholder="••••" maxlength="8" autofocus required>
+          <span id="pinError" class="pin-error"></span>
+        </div>
+        <button type="submit" class="btn-primary-action">Desbloquear Mesa de Control</button>
+      </form>
+      <p style="font-size: 0.72rem; color: #64748b; margin-top: 14px;">Clave inicial predeterminada: <strong>2026</strong></p>
+    </div>
+
+    <main id="dashboardScreen" class="control-dashboard" style="display: none;">
+      
+      <nav class="tabs-bar" role="tablist">
+        <button type="button" class="tab-btn active" onclick="switchTab('tabIdentidad')">1. Identidad & Redes</button>
+        <button type="button" class="tab-btn" onclick="switchTab('tabColores')">2. Colores en Vivo</button>
+        <button type="button" class="tab-btn" onclick="switchTab('tabProyectos')">3. Gestor de los 5 Proyectos</button>
+        <button type="button" class="tab-btn" onclick="switchTab('tabSecciones')">4. Interruptores de Secciones</button>
+      </nav>
+
+      <form id="controlSettingsForm" action="javascript:void(0);">
+        
+        <div id="tabIdentidad" class="panel-tab-content active">
+          <div class="grid-fields-2">
+            <div class="form-group">
+              <label for="ctrlBrandName">Nombre Comercial de la Inmobiliaria:</label>
+              <input type="text" id="ctrlBrandName" class="input-control" value="Terranova Inmobiliaria">
+            </div>
+            <div class="form-group">
+              <label for="ctrlBrandSubtitle">Especialidad o Eslogan:</label>
+              <input type="text" id="ctrlBrandSubtitle" class="input-control" value="Lotes & Parcelaciones Campestres">
+            </div>
+            <div class="form-group">
+              <label for="ctrlWhatsapp">Número Oficial de WhatsApp (Receptor de Leads):</label>
+              <input type="tel" id="ctrlWhatsapp" class="input-control" value="573123456789">
+            </div>
+            <div class="form-group">
+              <label for="ctrlLogoUrl">Ruta o URL del Logotipo:</label>
+              <input type="text" id="ctrlLogoUrl" class="input-control" placeholder="assets/images/logo.png">
+            </div>
+            <div class="form-group">
+              <label for="ctrlFacebook">Enlace Oficial de Facebook:</label>
+              <input type="url" id="ctrlFacebook" class="input-control" placeholder="https://facebook.com/tupagina">
+            </div>
+            <div class="form-group">
+              <label for="ctrlInstagram">Enlace Oficial de Instagram:</label>
+              <input type="url" id="ctrlInstagram" class="input-control" placeholder="https://instagram.com/tucuenta">
+            </div>
+            <div class="form-group">
+              <label for="ctrlTiktok">Enlace Oficial de TikTok:</label>
+              <input type="url" id="ctrlTiktok" class="input-control" placeholder="https://tiktok.com/@tucuenta">
+            </div>
+            <div class="form-group">
+              <label for="ctrlVideoUrl">Enlace de Video del Terreno (YouTube / MP4):</label>
+              <input type="url" id="ctrlVideoUrl" class="input-control" placeholder="https://youtube.com/watch?v=...">
+            </div>
+          </div>
+        </div>
+
+        <div id="tabColores" class="panel-tab-content">
+          <p style="font-size: 0.88rem; color: var(--ctrl-text-muted); margin-bottom: 20px;">
+            Selecciona los colores de la marca con un clic. La vitrina se actualiza automáticamente:
+          </p>
+          <div class="grid-fields-2">
+            <div class="form-group">
+              <label for="pickerPrimary">Color Principal (Encabezados, barra superior y footer):</label>
+              <div class="color-picker-box">
+                <input type="color" id="pickerPrimary" class="color-input-field" value="#0f172a">
+                <span id="hexPrimary" style="font-size: 0.85rem; font-family: monospace;">#0f172a</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="pickerAccent">Color de Acento (Botones de acción y enlaces):</label>
+              <div class="color-picker-box">
+                <input type="color" id="pickerAccent" class="color-input-field" value="#2563eb">
+                <span id="hexAccent" style="font-size: 0.85rem; font-family: monospace;">#2563eb</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="tabProyectos" class="panel-tab-content">
+          <p style="font-size: 0.88rem; color: var(--ctrl-text-muted); margin-bottom: 16px;">
+            Edita los datos de cada uno de los 5 proyectos. El sistema adapta automáticamente las fotos a 16:9 sin deformarlas:
+          </p>
+
+          <div class="project-edit-card">
+            <div class="project-edit-header">
+              <span class="project-num-badge">PROYECTO 1</span>
+              <select id="p1_tipo" class="input-control" style="width: auto; padding: 4px 10px;">
+                <option value="lote" selected>Lote Campestre</option>
+                <option value="casa">Casa Campestre</option>
+                <option value="apartamento">Apartamento</option>
+              </select>
+            </div>
+            <div class="grid-fields-2">
+              <div class="form-group">
+                <label>Título del Inmueble:</label>
+                <input type="text" id="p1_titulo" class="input-control" value="Reserva del Bosque - Lote #14">
+              </div>
+              <div class="form-group">
+                <label>Precio en COP:</label>
+                <input type="text" id="p1_precio" class="input-control" value="$ 115.000.000">
+              </div>
+              <div class="form-group">
+                <label>Metraje / Área:</label>
+                <input type="text" id="p1_area" class="input-control" value="500 m² Planos">
+              </div>
+              <div class="form-group">
+                <label>Estado Comercial:</label>
+                <select id="p1_estado" class="input-control">
+                  <option value="disponible" selected>Disponible</option>
+                  <option value="preventa">En Preventa</option>
+                  <option value="vendido">Vendido</option>
+                </select>
+              </div>
+              <div class="form-group" style="grid-column: 1 / -1;">
+                <label>Ruta o URL de la Foto Principal:</label>
+                <input type="text" id="p1_foto" class="input-control" placeholder="assets/images/lote1.jpg">
+              </div>
+            </div>
+          </div>
+
+          <div class="project-edit-card">
+            <div class="project-edit-header">
+              <span class="project-num-badge">PROYECTO 2</span>
+              <select id="p2_tipo" class="input-control" style="width: auto; padding: 4px 10px;">
+                <option value="lote">Lote Campestre</option>
+                <option value="casa" selected>Casa Campestre</option>
+                <option value="apartamento">Apartamento</option>
+              </select>
+            </div>
+            <div class="grid-fields-2">
+              <div class="form-group">
+                <label>Título del Inmueble:</label>
+                <input type="text" id="p2_titulo" class="input-control" value="Villa Campestre Los Pinos - Modelo A">
+              </div>
+              <div class="form-group">
+                <label>Precio en COP:</label>
+                <input type="text" id="p2_precio" class="input-control" value="$ 340.000.000">
+              </div>
+              <div class="form-group">
+                <label>Metraje / Área:</label>
+                <input type="text" id="p2_area" class="input-control" value="180 m² Construidos">
+              </div>
+              <div class="form-group">
+                <label>Estado Comercial:</label>
+                <select id="p2_estado" class="input-control">
+                  <option value="disponible">Disponible</option>
+                  <option value="preventa" selected>En Preventa</option>
+                  <option value="vendido">Vendido</option>
+                </select>
+              </div>
+              <div class="form-group" style="grid-column: 1 / -1;">
+                <label>Ruta o URL de la Foto Principal:</label>
+                <input type="text" id="p2_foto" class="input-control" placeholder="assets/images/casa1.jpg">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="tabSecciones" class="panel-tab-content">
+          <p style="font-size: 0.88rem; color: var(--ctrl-text-muted); margin-bottom: 16px;">
+            Enciende o apaga secciones completas de la vitrina comercial con un clic:
+          </p>
+
+          <div class="toggle-row">
+            <span class="toggle-label-text">Barra Superior de Legalidad y Redes</span>
+            <input type="checkbox" id="toggle_announcement" class="toggle-switch" checked>
+          </div>
+
+          <div class="toggle-row">
+            <span class="toggle-label-text">Módulo de Beneficios & Legalidad</span>
+            <input type="checkbox" id="toggle_benefits" class="toggle-switch" checked>
+          </div>
+
+          <div class="toggle-row">
+            <span class="toggle-label-text">Módulo de Video Showcase del Terreno</span>
+            <input type="checkbox" id="toggle_video" class="toggle-switch" checked>
+          </div>
+
+          <div class="toggle-row">
+            <span class="toggle-label-text">Módulo de Proceso de Compra en 4 Pasos</span>
+            <input type="checkbox" id="toggle_process" class="toggle-switch" checked>
+          </div>
+
+          <div class="toggle-row">
+            <span class="toggle-label-text">Módulo de Preguntas Frecuentes (FAQ)</span>
+            <input type="checkbox" id="toggle_faq" class="toggle-switch" checked>
+          </div>
+        </div>
+
+        <div class="save-actions-bar">
+          <button type="button" class="btn-export-backup" onclick="exportBackup()">📥 Descargar Respaldo JSON</button>
+          <button type="submit" class="btn-save-live">💾 Guardar Cambios en Vivo</button>
+        </div>
+      </form>
+    </main>
+
+  </div>
+
+  <div id="saveToast" class="toast-notice">✅ Cambios guardados con éxito. Refresca la vitrina para verlos.</div>
+
+  <script>
+    const MASTER_PIN = "2026";
+
+    document.getElementById('pinAuthForm').addEventListener('submit', function() {
+      const pin = document.getElementById('masterPin').value.trim();
+      const err = document.getElementById('pinError');
+      if (pin === MASTER_PIN) {
+        document.getElementById('authScreen').style.display = 'none';
+        document.getElementById('dashboardScreen').style.display = 'block';
+        loadSettingsToForm();
+      } else {
+        err.textContent = "PIN incorrecto. Intenta nuevamente.";
+      }
+    });
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.panel-tab-content').forEach(panel => panel.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    document.getElementById('pickerPrimary').addEventListener('input', e => {
+      document.getElementById('hexPrimary').textContent = e.target.value;
+    });
+    document.getElementById('pickerAccent').addEventListener('input', e => {
+      document.getElementById('hexAccent').textContent = e.target.value;
+    });
+
+    document.getElementById('controlSettingsForm').addEventListener('submit', function() {
+      const configData = {
+        brandName: document.getElementById('ctrlBrandName').value,
+        brandSubtitle: document.getElementById('ctrlBrandSubtitle').value,
+        whatsapp: document.getElementById('ctrlWhatsapp').value,
+        logoUrl: document.getElementById('ctrlLogoUrl').value,
+        facebook: document.getElementById('ctrlFacebook').value,
+        instagram: document.getElementById('ctrlInstagram').value,
+        tiktok: document.getElementById('ctrlTiktok').value,
+        videoUrl: document.getElementById('ctrlVideoUrl').value,
+        colorPrimary: document.getElementById('pickerPrimary').value,
+        colorAccent: document.getElementById('pickerAccent').value,
+        toggles: {
+          announcement: document.getElementById('toggle_announcement').checked,
+          benefits: document.getElementById('toggle_benefits').checked,
+          video: document.getElementById('toggle_video').checked,
+          process: document.getElementById('toggle_process').checked,
+          faq: document.getElementById('toggle_faq').checked
+        }
+      };
+
+      localStorage.setItem('TERRANOVA_SITE_CONFIG', JSON.stringify(configData));
+      
+      const toast = document.getElementById('saveToast');
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 3500);
+    });
+
+    function loadSettingsToForm() {
+      const saved = localStorage.getItem('TERRANOVA_SITE_CONFIG');
+      if (!saved) return;
+      try {
+        const data = JSON.parse(saved);
+        if (data.brandName) document.getElementById('ctrlBrandName').value = data.brandName;
+        if (data.brandSubtitle) document.getElementById('ctrlBrandSubtitle').value = data.brandSubtitle;
+        if (data.whatsapp) document.getElementById('ctrlWhatsapp').value = data.whatsapp;
+        if (data.logoUrl) document.getElementById('ctrlLogoUrl').value = data.logoUrl;
+        if (data.facebook) document.getElementById('ctrlFacebook').value = data.facebook;
+        if (data.instagram) document.getElementById('ctrlInstagram').value = data.instagram;
+        if (data.tiktok) document.getElementById('ctrlTiktok').value = data.tiktok;
+        if (data.videoUrl) document.getElementById('ctrlVideoUrl').value = data.videoUrl;
+        if (data.colorPrimary) {
+          document.getElementById('pickerPrimary').value = data.colorPrimary;
+          document.getElementById('hexPrimary').textContent = data.colorPrimary;
+        }
+        if (data.colorAccent) {
+          document.getElementById('pickerAccent').value = data.colorAccent;
+          document.getElementById('hexAccent').textContent = data.colorAccent;
+        }
+        if (data.toggles) {
+          document.getElementById('toggle_announcement').checked = data.toggles.announcement;
+          document.getElementById('toggle_benefits').checked = data.toggles.benefits;
+          document.getElementById('toggle_video').checked = data.toggles.video;
+          document.getElementById('toggle_process').checked = data.toggles.process;
+          document.getElementById('toggle_faq').checked = data.toggles.faq;
+        }
+      } catch(e) {}
+    }
+
+    function exportBackup() {
+      const saved = localStorage.getItem('TERRANOVA_SITE_CONFIG') || "{}";
+      const blob = new Blob([saved], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `config_terranova_${new Date().toISOString().slice(0,10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
