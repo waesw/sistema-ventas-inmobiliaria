@@ -1,0 +1,233 @@
+/* ==========================================================================
+   MOBILE.CSS - Adaptabilidad Quirúrgica para Smartphones (360px a 480px)
+   Garantiza que la web se maneje con una sola mano sin desbordamientos.
+   Cumple las 9 Directivas de Ingeniería. Límite: < 1.000 líneas.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. AJUSTES GLOBALES PARA PANTALLAS PEQUEÑAS (<= 767px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  
+  /* Reducción de espaciado vertical para evitar scroll excesivo */
+  section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .section-heading-box {
+    margin-bottom: 24px;
+    text-align: left;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    line-height: 1.25;
+  }
+
+  .section-lead {
+    font-size: var(--text-sm);
+  }
+
+  /* 2. Barra Superior y Cabecera Compacta */
+  .top-announcement {
+    padding: 6px 0;
+  }
+
+  .announcement-text {
+    font-size: 0.72rem;
+    line-height: 1.35;
+  }
+
+  .top-announcement-inner {
+    gap: 4px;
+  }
+
+  .announcement-right {
+    gap: 10px;
+  }
+
+  .site-header {
+    padding: 8px 0;
+  }
+
+  .brand-title {
+    font-size: 0.92rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.65rem;
+  }
+
+  .btn-header-cta {
+    display: none; /* En celular se oculta para dar prioridad total al menú hamburguesa */
+  }
+
+  /* 3. Hero Móvil de Alto Impacto */
+  .hero-section {
+    padding-top: 24px;
+    padding-bottom: 36px;
+  }
+
+  .hero-grid {
+    gap: 28px;
+  }
+
+  .hero-headline {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .hero-description {
+    font-size: var(--text-sm);
+    margin-bottom: 18px;
+  }
+
+  .hero-badges-row {
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .hero-badge-item {
+    padding: 8px 10px;
+  }
+
+  .badge-item-text strong {
+    font-size: var(--text-xs);
+  }
+
+  .badge-item-text span {
+    font-size: 0.7rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  /* 4. Formularios Móviles Táctiles */
+  .quick-inquiry-card,
+  .form-container-card {
+    padding: 20px 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .inquiry-header h3 {
+    font-size: var(--text-lg);
+  }
+
+  .input-text,
+  .form-input,
+  .form-select {
+    min-height: 48px; /* Tamaño generoso para tocar con pulgar */
+    font-size: 16px;  /* Blindaje estricto contra auto-zoom en Safari */
+  }
+
+  /* 5. Catálogo de Proyectos (1 Columna Fluida) */
+  .projects-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .project-card-body {
+    padding: 16px;
+  }
+
+  .project-card-title {
+    font-size: 1.1rem;
+  }
+
+  .project-card-footer {
+    padding-top: 12px;
+  }
+
+  .price-value {
+    font-size: 1.15rem;
+  }
+
+  /* 6. Video Showcase en Pantalla Pequeña */
+  .video-responsive-wrapper {
+    min-height: 220px;
+  }
+
+  .btn-play-video {
+    width: 54px;
+    height: 54px;
+    font-size: 1.2rem;
+  }
+
+  .video-caption-bar {
+    padding: 10px 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  /* 7. Proceso en 4 Pasos */
+  .process-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .process-step-item {
+    padding: 16px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .step-badge {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  /* 8. Botón Flotante Ergonómico */
+  .floating-contact {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .floating-wa-btn {
+    padding: 10px 16px;
+    font-size: var(--text-xs);
+  }
+
+  /* 9. Pie de Página Compacto */
+  .site-footer {
+    padding: 36px 0 20px;
+  }
+
+  .footer-layout {
+    gap: 24px;
+  }
+
+  .legal-bottom-bar {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. BLINDAJE PARA PANTALLAS EXTRA PEQUEÑAS (<= 380px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 380px) {
+  .hero-headline {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .filter-chip {
+    padding: 6px 12px;
+    font-size: var(--text-xs);
+  }
+}
