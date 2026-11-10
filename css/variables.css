@@ -1,0 +1,62 @@
+/* ==========================================================================
+   VARIABLES.CSS - Sistema de Diseño y Tokens Centralizados
+   Conectado al Panel Super Admin: los cambios en el panel actualizan estas variables.
+   Límite de ingeniería: < 1.000 líneas.
+   ========================================================================== */
+
+:root {
+  /* 1. Colores Corporativos Principales (Modificables desde el Panel Super Admin) */
+  --color-primary: #0f172a;       /* Fondo oscuro, encabezados y textos principales */
+  --color-primary-light: #1e293b; /* Superficie de tarjetas oscuras y footer */
+  --color-accent: #2563eb;        /* Botones de acción, enlaces y llamados principales */
+  --color-accent-hover: #1d4ed8;  /* Interacción hover en botones */
+  --color-accent-soft: #eff6ff;   /* Fondo tenue para cajas activas y filtros */
+
+  /* 2. Colores de Conversión y Estados Comerciales */
+  --color-whatsapp: #25d366;      /* Verde oficial de WhatsApp */
+  --color-whatsapp-hover: #128c7e;
+  --color-success: #059669;       /* Verde esmeralda de confianza y legalidad */
+  --color-warning: #d97706;       /* Ámbar para "Preventa" */
+  --color-danger: #dc2626;        /* Rojo para alertas o errores de formulario */
+
+  /* 3. Superficies, Fondos y Bordes */
+  --bg-body: #f8fafc;             /* Gris neutro claro para fondo de lectura */
+  --bg-surface: #ffffff;          /* Blanco puro para tarjetas, modales y formularios */
+  --bg-subtle: #f1f5f9;           /* Gris tenue para secciones alternas */
+  --border-color: #e2e8f0;        /* Borde estándar sutil */
+  --border-focus: #2563eb;        /* Borde activo al escribir en un campo */
+  --border-error: #dc2626;        /* Borde al fallar validación */
+
+  /* 4. Tipografía Nativa de Alto Rendimiento (0ms de latencia, sin fuentes lentas) */
+  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  --text-xs: 0.75rem;    /* 12px - Notas legales y etiquetas */
+  --text-sm: 0.875rem;   /* 14px - Subtítulos, inputs y menú */
+  --text-base: 1rem;     /* 16px - Texto general (Piso obligatorio contra zoom en iOS) */
+  --text-lg: 1.125rem;   /* 18px - Titulillos destacados */
+  --text-xl: 1.25rem;    /* 20px - Títulos de tarjetas de proyectos */
+  --text-2xl: 1.5rem;    /* 24px - Títulos de sección en celular */
+  --text-3xl: 1.875rem;  /* 30px - Títulos de sección en PC */
+  --text-4xl: 2.25rem;   /* 36px - Título principal Hero en celular */
+  --text-5xl: 3rem;      /* 48px - Título principal Hero en PC */
+
+  /* 5. Geometría Universal de Medios (Tratamiento Automático de Fotos y Videos) */
+  --aspect-ratio-media: 16 / 9;   /* Estandarización obligatoria 16:9 sin deformaciones */
+  --container-max-width: 1140px;  /* Ancho máximo de cuadrícula */
+  --touch-target-min: 44px;       /* Tamaño mínimo táctil para dedos en celulares */
+
+  /* 6. Radios y Sombras */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+  --shadow-modal: 0 20px 25px -5px rgba(0, 0, 0, 0.25);
+
+  /* 7. Transiciones Suaves */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+}

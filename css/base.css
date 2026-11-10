@@ -1,0 +1,132 @@
+/* ==========================================================================
+   BASE.CSS - Reseteo Universal, Tipografía Nativa y Utilidades Base
+   Optimizado para carga en < 0.4s sin pantallas en blanco ni desconfiguraciones.
+   Límite de ingeniería: < 1.000 líneas.
+   ========================================================================== */
+
+/* 1. Reseteo Universal sin Código Basura */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-base);
+  font-size: var(--text-base);
+  line-height: 1.55;
+  color: var(--color-primary);
+  background-color: var(--bg-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* 2. Tipografía Semántica Fluida (Se ajusta sola de Celular a PC) */
+h1, h2, h3, h4 {
+  color: var(--color-primary);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl)); }
+h2 { font-size: clamp(var(--text-2xl), 4vw, var(--text-3xl)); }
+h3 { font-size: clamp(var(--text-xl), 3vw, var(--text-2xl)); }
+h4 { font-size: var(--text-lg); }
+
+p {
+  color: #334155;
+  margin-bottom: 0.75rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* 3. Tratamiento Automático de Fotos y Videos (Cero Deformaciones) */
+img,
+video,
+iframe {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Clase Maestra: Fuerza encuadre automático 16:9 sin aplastar la foto */
+.img-auto-fit {
+  width: 100%;
+  aspect-ratio: var(--aspect-ratio-media);
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 4. Normalización de Formularios (Piso de 16px contra zoom involuntario en iPhone) */
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: var(--text-base); /* Obligatorio: evita que Safari haga zoom en celular */
+  line-height: inherit;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* 5. Contenedores de Cuadrícula Responsivos */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+.max-w-reading {
+  max-width: 820px;
+}
+
+/* 6. Utilidades Generales */
+.text-center { text-align: center; }
+
+.highlight-text {
+  color: var(--color-accent);
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-success) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
