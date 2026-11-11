@@ -1,266 +1,271 @@
-/* ==========================================================================
-   MOBILE.CSS - Adaptabilidad Quirúrgica para Smartphones (360px a 767px)
-   Garantiza usabilidad táctil con una sola mano, sin desbordamiento horizontal.
-   Cumple las 9 Directivas de Ingeniería. Límite: < 1.000 líneas.
-   ========================================================================== */
+/**
+ * ========================================================================
+ * TERRANOVA DESARROLLOS INMOBILIARIOS
+ * ARCHIVO: css/mobile.css
+ * ESTÁNDAR: Discovery Land Company (Quiet Luxury Mobile-First)
+ * PROPÓSITO: Adaptabilidad táctil quirúrgica para smartphones (<= 767px)
+ * DIRECTIVAS: D4 (Touch >=44px, Inputs 16px iOS, Notch), D6 (<1.000 líneas)
+ * ========================================================================
+ */
 
-/* --------------------------------------------------------------------------
-   1. AJUSTES GLOBALES PARA PANTALLAS PEQUEÑAS (<= 767px)
-   -------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------
+ * 1. SMARTPHONES ESTÁNDAR (<= 767px)
+ * ------------------------------------------------------------------------ */
 @media (max-width: 767px) {
-  
-  /* Reducción de espaciado vertical para evitar scroll excesivo */
-  section {
-    padding-top: 44px;
-    padding-bottom: 44px;
+
+  /* Ritmo Vertical Optimizado para Lectura en Celular */
+  .master-portfolio-section,
+  .urbanism-criteria-section,
+  .cinema-showcase-section,
+  .notarial-process-section,
+  .concierge-inquiry-section,
+  .faq-luxury-section {
+    padding-block: 56px;
   }
 
   .section-editorial-header {
-    margin-bottom: 28px;
-    text-align: left;
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    gap: var(--space-md);
   }
 
-  .section-title {
-    font-size: 1.65rem;
-    line-height: 1.25;
-  }
-
-  .section-lead {
-    font-size: var(--text-sm);
-  }
-
-  /* 2. Barra Superior y Cintillo Institucional Compacto */
-  .top-announcement {
-    padding: 6px 0;
-  }
-
-  .top-announcement-inner {
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
-  }
-
-  .announcement-left {
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .badge-legal-shield {
-    font-size: 0.68rem;
-    padding: 2px 8px;
-  }
-
-  .announcement-text {
-    font-size: 0.72rem;
-    line-height: 1.35;
-  }
-
-  .announcement-right {
-    gap: 10px;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .btn-top-concierge {
-    font-size: 0.7rem;
-    padding: 4px 10px;
-  }
-
-  /* 3. Cabecera y Marca Tipográfica */
-  .site-header {
-    padding: 10px 0;
-  }
-
-  .brand-wordmark {
-    font-size: 1.05rem;
-    letter-spacing: 0.16em;
-  }
-
-  .brand-tag-luxury {
-    font-size: 0.52rem;
-    letter-spacing: 0.08em;
-  }
-
-  .header-action-group .btn-luxury-outline {
-    display: none; /* En celular se oculta para dar prioridad total al menú táctil */
-  }
-
-  /* 4. Hero Cinematográfico y Buscador */
-  .hero-cinematic-section {
-    padding-top: 40px;
-    padding-bottom: 48px;
-  }
-
-  .hero-editorial-badge {
-    font-size: 0.68rem;
-    padding: 4px 12px;
-    margin-bottom: 18px;
-  }
-
-  .hero-display-title {
-    font-size: clamp(1.75rem, 7.5vw, 2.3rem);
+  .section-serif-headline {
+    font-size: 1.75rem;
     line-height: 1.2;
-    margin-bottom: 16px;
   }
 
-  .hero-lead-text {
-    font-size: var(--text-sm);
-    margin-bottom: 24px;
-  }
-
-  .property-finder-card {
-    padding: 18px 14px;
-    border-radius: var(--radius-md);
-  }
-
-  .finder-header-tabs {
-    margin-bottom: 16px;
-    padding-bottom: 10px;
-  }
-
-  .finder-form-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .finder-select,
-  .btn-finder-search {
-    min-height: 48px; /* Tamaño táctil ergonómico */
-  }
-
-  /* 5. Catálogo Maestro y Tabla de Unidades */
-  .projects-master-grid {
-    gap: 32px;
-  }
-
-  .project-macro-meta {
-    padding: 20px 16px;
-  }
-
-  .macro-title {
-    font-size: 1.25rem;
-  }
-
-  .project-units-inventory {
-    padding: 18px 14px;
-  }
-
-  .units-table th,
-  .units-table td {
-    padding: 10px 8px;
-    font-size: 0.78rem;
-  }
-
-  .btn-unit-inquire {
-    padding: 6px 10px;
-    font-size: 0.7rem;
-  }
-
-  /* 6. Video Cinema Showcase */
-  .video-cinema-wrapper {
-    min-height: 240px;
-  }
-
-  .btn-play-cinema {
-    width: 58px;
-    height: 58px;
-  }
-
-  .svg-play-triangle {
-    width: 22px;
-    height: 22px;
-  }
-
-  .video-facade-meta {
-    left: 16px;
-    bottom: 16px;
-  }
-
-  /* 7. Proceso Notarial y Beneficios */
-  .benefits-luxury-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .benefit-card-luxury {
-    padding: 24px 18px;
-  }
-
-  .process-timeline-luxury {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .timeline-step {
-    padding: 20px 16px;
-  }
-
-  /* 8. Formulario de Captura Luxury */
-  .luxury-form {
-    padding: 24px 18px;
-    border-radius: var(--radius-md);
-  }
-
-  .form-input-clean,
-  .form-select-clean {
-    min-height: 48px;
-    font-size: 16px; /* Protección estricta contra zoom automático en iOS */
-  }
-
-  .combo-prefix {
-    font-size: var(--text-sm);
-  }
-
-  /* 9. Botón WhatsApp Flotante Ergonómico */
-  .floating-concierge {
-    bottom: 16px;
-    right: 16px;
-  }
-
-  .floating-concierge-btn {
-    padding: 10px 16px;
-    font-size: var(--text-xs);
-  }
-
-  /* 10. Pie de Página Compacto */
-  .site-footer {
-    padding: 40px 0 24px;
-  }
-
-  .footer-layout {
-    gap: 28px;
-    margin-bottom: 28px;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   2. BLINDAJE PARA PANTALLAS EXTRA PEQUEÑAS (<= 380px)
-   -------------------------------------------------------------------------- */
-@media (max-width: 380px) {
-  .hero-display-title {
-    font-size: 1.55rem;
-  }
-
-  .container {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .brand-wordmark {
+  .section-lead-paragraph {
     font-size: 0.95rem;
+  }
+
+  /* Cabecera Flotante Compacta */
+  .header-shell {
+    gap: var(--space-xs);
+  }
+
+  .header-block-left,
+  .header-block-right {
+    flex: 0 0 auto;
+  }
+
+  .header-block-center {
+    flex: 1;
+  }
+
+  .brand-title-serif {
+    font-size: 1.08rem;
+    letter-spacing: 0.2em;
+  }
+
+  .brand-subtitle-tech {
+    display: none; /* En móvil se prioriza la limpieza del monograma */
+  }
+
+  .menu-text-label {
+    font-size: 0.68rem;
+  }
+
+  .btn-concierge-ghost {
+    padding-inline: 10px;
+    font-size: 0.65rem;
     letter-spacing: 0.12em;
   }
 
-  .macro-title {
-    font-size: 1.15rem;
+  /* Hero Cinematográfico 100dvh */
+  .hero-cinematic-100vh {
+    min-height: 560px;
   }
 
-  .floating-concierge-btn span {
-    display: none; /* En pantallas diminutas solo muestra el icono de WhatsApp */
+  .hero-forefront-content {
+    padding-top: calc(var(--safe-area-top) + 84px);
   }
 
-  .floating-concierge-btn {
-    padding: 12px;
-    border-radius: 50%;
+  .hero-serif-title {
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+  }
+
+  .hero-tagline-text {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .hero-dock-bar {
+    padding-bottom: calc(var(--safe-area-bottom) + 18px);
+  }
+
+  /* Cuadrícula de los 5 Proyectos (Cero Desbordamiento en 360px) */
+  .projects-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .project-card-data-body {
+    padding: 22px 18px;
+    gap: var(--space-md);
+  }
+
+  .project-serif-name {
+    font-size: 1.35rem;
+  }
+
+  .project-specs-quiet-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    padding-block: var(--space-sm);
+  }
+
+  .spec-quiet-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .project-actions-footer {
+    grid-template-columns: 1fr;
+    gap: var(--space-xs);
+  }
+
+  .btn-project-dossier,
+  .btn-project-inspect-quick {
+    min-height: 48px;
+    width: 100%;
+  }
+
+  /* Criterios Técnicos y Protocolo Notarial */
+  .criteria-cards-grid,
+  .protocol-steps-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+  }
+
+  .criterion-luxury-card {
+    padding-top: var(--space-lg);
+  }
+
+  .protocol-step-box {
+    padding-left: var(--space-lg);
+  }
+
+  /* Reproductor de Video 16:9 */
+  .cinema-screen-chassis {
+    margin-top: var(--space-xl);
+  }
+
+  .btn-play-minimal {
+    width: 60px;
+    height: 60px;
+  }
+
+  .play-triangle-svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cinema-caption-meta {
+    left: var(--space-md);
+    right: var(--space-md);
+    bottom: var(--space-md);
+  }
+
+  /* Formulario Concierge (Directiva 4: 16px iOS) */
+  .concierge-double-card {
+    padding: 24px 18px;
+    gap: var(--space-xl);
+  }
+
+  .field-input-tech,
+  .field-select-tech {
+    font-size: 16px;
+    height: 48px;
+  }
+
+  .btn-submit-luxury {
+    width: 100%;
+    padding-inline: 18px;
+    font-size: 0.7rem;
+  }
+
+  /* Modal de Inventario de Unidades */
+  .terranova-quiet-modal-backdrop {
+    padding: var(--space-xs);
+  }
+
+  .modal-card-header,
+  .modal-card-body {
+    padding: 18px 16px;
+  }
+
+  .table-responsive-wrapper {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .luxury-units-table th,
+  .luxury-units-table td {
+    padding: 10px 12px;
+    font-size: 0.78rem;
+  }
+
+  .modal-footer-cta .btn-submit-luxury {
+    width: 100%;
+  }
+
+  /* Concierge Flotante Discreto */
+  .floating-concierge-zone {
+    bottom: calc(var(--safe-area-bottom) + 16px);
+    right: 16px;
+  }
+
+  .concierge-quiet-pill {
+    padding: 10px 14px;
+    font-size: 0.625rem;
+  }
+
+  /* Pie de Página */
+  .site-footer-luxury {
+    padding-top: var(--space-2xl);
+  }
+}
+
+/* ------------------------------------------------------------------------
+ * 2. PANTALLAS EXTRA PEQUEÑAS (<= 380px)
+ * ------------------------------------------------------------------------ */
+@media (max-width: 380px) {
+  .luxury-container {
+    padding-inline: 16px;
+  }
+
+  .site-header-luxury {
+    padding-inline: 14px;
+  }
+
+  .brand-compass-svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .brand-title-serif {
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+  }
+
+  .btn-concierge-ghost {
+    padding-inline: 8px;
+    font-size: 0.6rem;
+  }
+
+  .hero-serif-title {
+    font-size: 1.75rem;
+  }
+
+  .concierge-pill-text {
+    display: none; /* En pantallas diminutas deja solo el punto indicador táctil 44x44 */
+  }
+
+  .concierge-quiet-pill {
+    padding: 0;
+    width: 44px;
+    height: 44px;
+    justify-content: center;
   }
 }
