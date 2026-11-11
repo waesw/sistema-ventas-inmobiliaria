@@ -749,7 +749,7 @@ body.luxury-body {
   line-height: var(--leading-relaxed);
 }
 
-/* Chassis de Video 16:9 */
+/* Chassis de Video 16:9 (Corrección de capas para centrado perfecto del botón Play) */
 .cinema-screen-chassis {
   width: 100%;
   max-width: 1200px;
@@ -776,15 +776,19 @@ body.luxury-body {
 }
 
 .cinema-facade-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  z-index: 0;
 }
 
 .cinema-facade-dimmer {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background-color: rgba(17, 17, 17, 0.35);
   transition: background-color var(--transition-fast);
 }
@@ -795,7 +799,7 @@ body.luxury-body {
 
 .btn-play-minimal {
   position: relative;
-  z-index: var(--z-base);
+  z-index: 2;
   min-height: var(--touch-target-min);
   min-width: var(--touch-target-min);
   width: 76px;
@@ -831,7 +835,7 @@ body.luxury-body {
   bottom: var(--space-xl);
   left: var(--space-xl);
   right: var(--space-xl);
-  z-index: var(--z-base);
+  z-index: 2;
   display: flex;
   flex-direction: column;
   gap: var(--space-2xs);
