@@ -1,62 +1,131 @@
-/* ==========================================================================
-   VARIABLES.CSS - Sistema de Diseño y Tokens Centralizados
-   Conectado al Panel Super Admin: los cambios en el panel actualizan estas variables.
-   Límite de ingeniería: < 1.000 líneas.
-   ========================================================================== */
+/**
+ * ========================================================================
+ * TERRANOVA DESARROLLOS INMOBILIARIOS
+ * ARCHIVO: css/variables.css
+ * ESTÁNDAR: Discovery Land Company (Quiet Luxury Luminoso)
+ * BASE: Marfil cálido (#FAF9F5 / #F4F3EE), Arena suave y Blanco puro.
+ * CONTROL: Variables preparadas para sobreescritura desde control.html
+ * ========================================================================
+ */
 
 :root {
-  /* 1. Colores Corporativos Principales (Modificables desde el Panel Super Admin) */
-  --color-primary: #0f172a;       /* Fondo oscuro, encabezados y textos principales */
-  --color-primary-light: #1e293b; /* Superficie de tarjetas oscuras y footer */
-  --color-accent: #2563eb;        /* Botones de acción, enlaces y llamados principales */
-  --color-accent-hover: #1d4ed8;  /* Interacción hover en botones */
-  --color-accent-soft: #eff6ff;   /* Fondo tenue para cajas activas y filtros */
+  /* ------------------------------------------------------------------------
+   * 1. PALETA CROMÁTICA LUMINOSA (Estándar Discovery Land Co)
+   * Fondos claros, aireados y naturales. Cero negro opresivo por defecto.
+   * ------------------------------------------------------------------------ */
+  /* Fondos Generales (Luz y Limpieza) */
+  --color-bg-canvas: #FAF9F5;           /* Marfil claro / arena suave Discovery */
+  --color-bg-surface: #FFFFFF;          /* Blanco puro para tarjetas y bloques */
+  --color-bg-subtle: #F3F1EA;           /* Tono arena tenue para alternancia de secciones */
+  --color-bg-dock: rgba(250, 249, 245, 0.92); /* Fondo translúcido claro para cabecera al scroll */
 
-  /* 2. Colores de Conversión y Estados Comerciales */
-  --color-whatsapp: #25d366;      /* Verde oficial de WhatsApp */
-  --color-whatsapp-hover: #128c7e;
-  --color-success: #059669;       /* Verde esmeralda de confianza y legalidad */
-  --color-warning: #d97706;       /* Ámbar para "Preventa" */
-  --color-danger: #dc2626;        /* Rojo para alertas o errores de formulario */
+  /* Textos Principales (Lectura Editorial de Alta Gama) */
+  --color-text-main: #141414;           /* Grafito profundo de alta legibilidad */
+  --color-text-muted: #55534E;          /* Piedra / arcilla para subtítulos */
+  --color-text-subtle: #8A857B;         /* Metadatos técnicos y numeraciones */
 
-  /* 3. Superficies, Fondos y Bordes */
-  --bg-body: #f8fafc;             /* Gris neutro claro para fondo de lectura */
-  --bg-surface: #ffffff;          /* Blanco puro para tarjetas, modales y formularios */
-  --bg-subtle: #f1f5f9;           /* Gris tenue para secciones alternas */
-  --border-color: #e2e8f0;        /* Borde estándar sutil */
-  --border-focus: #2563eb;        /* Borde activo al escribir en un campo */
-  --border-error: #dc2626;        /* Borde al fallar validación */
+  /* Bordes & Separadores Finos */
+  --color-border-subtle: rgba(20, 20, 20, 0.08);
+  --color-border-medium: rgba(20, 20, 20, 0.15);
+  --color-border-focus: #141414;
 
-  /* 4. Tipografía Nativa de Alto Rendimiento (0ms de latencia, sin fuentes lentas) */
-  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  
-  --text-xs: 0.75rem;    /* 12px - Notas legales y etiquetas */
-  --text-sm: 0.875rem;   /* 14px - Subtítulos, inputs y menú */
-  --text-base: 1rem;     /* 16px - Texto general (Piso obligatorio contra zoom en iOS) */
-  --text-lg: 1.125rem;   /* 18px - Titulillos destacados */
-  --text-xl: 1.25rem;    /* 20px - Títulos de tarjetas de proyectos */
-  --text-2xl: 1.5rem;    /* 24px - Títulos de sección en celular */
-  --text-3xl: 1.875rem;  /* 30px - Títulos de sección en PC */
-  --text-4xl: 2.25rem;   /* 36px - Título principal Hero en celular */
-  --text-5xl: 3rem;      /* 48px - Título principal Hero en PC */
+  /* Entorno Hero (Única zona oscura cinematográfica para resaltar el paisaje) */
+  --color-hero-text: #FFFFFF;           /* Blanco óptico puro para el Hero */
+  --color-hero-muted: #D3CFCA;          /* Subtítulos en Hero */
+  --color-hero-border: rgba(255, 255, 255, 0.2);
+  --color-hero-pill-bg: rgba(20, 20, 20, 0.45);
+  --color-hero-vignette: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0.65) 0%,
+    rgba(10, 10, 10, 0.15) 35%,
+    rgba(10, 10, 10, 0.3) 70%,
+    rgba(10, 10, 10, 0.85) 100%
+  );
 
-  /* 5. Geometría Universal de Medios (Tratamiento Automático de Fotos y Videos) */
-  --aspect-ratio-media: 16 / 9;   /* Estandarización obligatoria 16:9 sin deformaciones */
-  --container-max-width: 1140px;  /* Ancho máximo de cuadrícula */
-  --touch-target-min: 44px;       /* Tamaño mínimo táctil para dedos en celulares */
+  /* Acentos de Tierra y Lujo Silencioso */
+  --color-tierra-cruda: #7D786F;
+  --color-oro-viejo: #B8976C;
+  --color-acento-hover: #000000;
 
-  /* 6. Radios y Sombras */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-full: 9999px;
+  /* ------------------------------------------------------------------------
+   * 2. SISTEMA TIPOGRÁFICO "QUIET LUXURY"
+   * ------------------------------------------------------------------------ */
+  --font-serif-editorial: "Didot", "Bodoni MT", "Cinzel", "Playfair Display", "Georgia", "Times New Roman", serif;
+  --font-sans-technical: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
-  --shadow-modal: 0 20px 25px -5px rgba(0, 0, 0, 0.25);
+  /* Escala de Tamaños */
+  --text-hero-headline: clamp(2.3rem, 5.5vw, 4.4rem);
+  --text-section-headline: clamp(1.8rem, 3.5vw, 2.6rem);
+  --text-card-title: clamp(1.15rem, 1.4vw, 1.35rem);
+  --text-body-lead: clamp(1.025rem, 1.2vw, 1.15rem);
+  --text-body-regular: 0.95rem;
+  --text-body-small: 0.85rem;
+  --text-tech-nav: 0.75rem;             /* Navegación mayúscula Discovery */
+  --text-tech-tag: 0.6875rem;           /* Kicker labels y numeraciones */
 
-  /* 7. Transiciones Suaves */
-  --transition-fast: 0.15s ease;
-  --transition-normal: 0.25s ease;
+  /* Espaciado Tipográfico (Tracking) */
+  --tracking-normal: 0;
+  --tracking-wide: 0.06em;
+  --tracking-wider: 0.18em;             /* Estándar técnico Discovery */
+  --tracking-widest: 0.28em;            /* Kicker labels */
+
+  /* Alturas de Línea */
+  --leading-none: 1;
+  --leading-tight: 1.15;
+  --leading-snug: 1.3;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+
+  /* ------------------------------------------------------------------------
+   * 3. DIRECTIVA 4: ERGONOMÍA TÁCTIL, iOS SAFARI & NOTCH
+   * ------------------------------------------------------------------------ */
+  --touch-target-min: 44px;             /* Mínimo táctil Apple/Google */
+  --input-font-size-safe: 16px;         /* Anula zoom forzado en iOS Safari */
+  --input-height-safe: 48px;
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-left: env(safe-area-inset-left, 0px);
+  --safe-area-right: env(safe-area-inset-right, 0px);
+
+  /* Despeje obligatorio de la cabecera fija contra colisiones de texto */
+  --header-clearance: calc(var(--safe-area-top) + 110px);
+
+  /* ------------------------------------------------------------------------
+   * 4. RITMO ESPACIAL & CONTENEDORES
+   * ------------------------------------------------------------------------ */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+  --space-section: clamp(72px, 8vw, 120px);
+
+  --container-max-width: 1360px;
+  --container-reading-width: 820px;
+  --container-padding: clamp(20px, 4vw, 56px);
+
+  /* Proporciones de Imagen y Video (Directiva 2) */
+  --aspect-cinematic: 16 / 9;
+
+  /* Capas de Profundidad */
+  --z-negative: -1;
+  --z-base: 1;
+  --z-dock: 20;
+  --z-floating: 50;
+  --z-header: 100;
+  --z-drawer-overlay: 200;
+
+  /* Sombras Sutiles de Lujo */
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.06);
+  --shadow-floating: 0 16px 40px rgba(0, 0, 0, 0.12);
+
+  /* Transiciones */
+  --transition-fast: 0.2s cubic-bezier(0.2, 0, 0, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }

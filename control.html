@@ -297,6 +297,7 @@
       cursor: pointer;
     }
 
+    /* Barra Inferior de Acciones con Importador de Empalme */
     .save-actions-bar {
       display: flex;
       flex-direction: column;
@@ -306,10 +307,11 @@
       border-top: 1px solid var(--ctrl-border);
     }
 
-    @media (min-width: 600px) {
+    @media (min-width: 680px) {
       .save-actions-bar {
         flex-direction: row;
         justify-content: flex-end;
+        align-items: center;
       }
     }
 
@@ -346,6 +348,24 @@
       border-color: #64748b;
     }
 
+    /* Botón Oficial de Empalme Automatizado (Directiva 9) */
+    .btn-import-backup {
+      background-color: rgba(56, 189, 248, 0.15);
+      color: var(--ctrl-primary);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      padding: 12px 18px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-import-backup:hover {
+      background-color: var(--ctrl-primary);
+      color: #0b132b;
+    }
+
     .toast-notice {
       display: none;
       position: fixed;
@@ -380,6 +400,7 @@
       </div>
     </header>
 
+    <!-- Pantalla 1: Login por PIN -->
     <div id="authScreen" class="lock-screen-box">
       <div class="lock-icon-giant" aria-hidden="true">🔐</div>
       <h2 class="lock-title">Acceso Restringido</h2>
@@ -396,6 +417,7 @@
       <p style="font-size: 0.72rem; color: #64748b; margin-top: 14px;">Clave inicial predeterminada: <strong>2026</strong></p>
     </div>
 
+    <!-- Pantalla 2: Centro de Mando Desbloqueado -->
     <main id="dashboardScreen" class="control-dashboard" style="display: none;">
       
       <nav class="tabs-bar" role="tablist">
@@ -407,6 +429,7 @@
 
       <form id="controlSettingsForm" action="javascript:void(0);">
         
+        <!-- Pestaña 1: Identidad y Canales -->
         <div id="tabIdentidad" class="panel-tab-content active">
           <div class="grid-fields-2">
             <div class="form-group">
@@ -444,6 +467,7 @@
           </div>
         </div>
 
+        <!-- Pestaña 2: Colores Corporativos -->
         <div id="tabColores" class="panel-tab-content">
           <p style="font-size: 0.88rem; color: var(--ctrl-text-muted); margin-bottom: 20px;">
             Selecciona los colores de la marca con un clic. La vitrina se actualiza automáticamente:
@@ -466,6 +490,7 @@
           </div>
         </div>
 
+        <!-- Pestaña 3: Gestor de los 5 Proyectos -->
         <div id="tabProyectos" class="panel-tab-content">
           <p style="font-size: 0.88rem; color: var(--ctrl-text-muted); margin-bottom: 16px;">
             Edita los datos de cada uno de los 5 proyectos. El sistema adapta automáticamente las fotos a 16:9 sin deformarlas:
@@ -546,6 +571,7 @@
           </div>
         </div>
 
+        <!-- Pestaña 4: Interruptores de Secciones -->
         <div id="tabSecciones" class="panel-tab-content">
           <p style="font-size: 0.88rem; color: var(--ctrl-text-muted); margin-bottom: 16px;">
             Enciende o apaga secciones completas de la vitrina comercial con un clic:
@@ -577,7 +603,14 @@
           </div>
         </div>
 
+        <!-- Barra Inferior de Acciones con Importador de Empalme en 1 Clic -->
         <div class="save-actions-bar">
+          <!-- Selector de archivo oculto -->
+          <input type="file" id="importFileInput" accept=".json" style="display: none;" onchange="importBackup(event)">
+          
+          <!-- Botón Oficial Directiva 9 -->
+          <button type="button" class="btn-import-backup" onclick="document.getElementById('importFileInput').click()">⚡ Importador de Empalme en 1 Clic</button>
+          
           <button type="button" class="btn-export-backup" onclick="exportBackup()">📥 Descargar Respaldo JSON</button>
           <button type="submit" class="btn-save-live">💾 Guardar Cambios en Vivo</button>
         </div>
@@ -591,6 +624,7 @@
   <script>
     const MASTER_PIN = "2026";
 
+    // 1. Acceso Seguro con PIN
     document.getElementById('pinAuthForm').addEventListener('submit', function() {
       const pin = document.getElementById('masterPin').value.trim();
       const err = document.getElementById('pinError');
@@ -603,6 +637,7 @@
       }
     });
 
+    // 2. Navegación por Pestañas
     function switchTab(tabId) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       document.querySelectorAll('.panel-tab-content').forEach(panel => panel.classList.remove('active'));
@@ -610,6 +645,7 @@
       document.getElementById(tabId).classList.add('active');
     }
 
+    // 3. Sincronización de Color en Tiempo Real
     document.getElementById('pickerPrimary').addEventListener('input', e => {
       document.getElementById('hexPrimary').textContent = e.target.value;
     });
@@ -617,7 +653,13 @@
       document.getElementById('hexAccent').textContent = e.target.value;
     });
 
+    // 4. Guardar Configuración Manual
     document.getElementById('controlSettingsForm').addEventListener('submit', function() {
+      saveFormDataToStorage();
+      showToast("✅ Cambios guardados con éxito en la memoria.");
+    });
+
+    function saveFormDataToStorage() {
       const configData = {
         brandName: document.getElementById('ctrlBrandName').value,
         brandSubtitle: document.getElementById('ctrlBrandSubtitle').value,
@@ -637,14 +679,10 @@
           faq: document.getElementById('toggle_faq').checked
         }
       };
-
       localStorage.setItem('TERRANOVA_SITE_CONFIG', JSON.stringify(configData));
-      
-      const toast = document.getElementById('saveToast');
-      toast.style.display = 'block';
-      setTimeout(() => { toast.style.display = 'none'; }, 3500);
-    });
+    }
 
+    // 5. Cargar Configuración al Formulario
     function loadSettingsToForm() {
       const saved = localStorage.getItem('TERRANOVA_SITE_CONFIG');
       if (!saved) return;
@@ -676,15 +714,46 @@
       } catch(e) {}
     }
 
+    // 6. Exportar Respaldo JSON
     function exportBackup() {
       const saved = localStorage.getItem('TERRANOVA_SITE_CONFIG') || "{}";
       const blob = new Blob([saved], { type: "application/json" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `config_terranova_${new Date().toISOString().slice(0,10)}.json`;
+      a.download = `respaldo_empalme_${new Date().toISOString().slice(0,10)}.json`;
       a.click();
       URL.revokeObjectURL(url);
+    }
+
+    // 7. MECANISMO A (DIRECTIVA 9): IMPORTADOR DE EMPALME EN 1 CLIC
+    function importBackup(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const importedData = JSON.parse(e.target.result);
+          // Inyección inmediata en LocalStorage
+          localStorage.setItem('TERRANOVA_SITE_CONFIG', JSON.stringify(importedData));
+          // Relleno inmediato de todos los campos en pantalla
+          loadSettingsToForm();
+          showToast("⚡ Empalme completado: Datos inyectados en 1 clic.");
+        } catch (err) {
+          alert("Error: El archivo seleccionado no tiene un formato JSON válido.");
+        }
+      };
+      reader.readAsText(file);
+      // Limpiar input para permitir recargar el mismo archivo si se desea
+      event.target.value = "";
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('saveToast');
+      toast.textContent = msg;
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 3500);
     }
   </script>
 </body>

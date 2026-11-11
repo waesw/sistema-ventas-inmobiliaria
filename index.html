@@ -3,443 +3,516 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" id="metaDescription" content="Venta de lotes, casas y apartamentos campestres con escrituras al día, servicios públicos y financiación directa. Fichas técnicas instantáneas 24/7 vía WhatsApp.">
+  <meta name="description" content="Terranova Desarrollos. Portafolio privado de parcelaciones campestres y fincas de recreo en Cundinamarca. Urbanismo de baja densidad y tradición notarial garantizada.">
   <meta name="format-detection" content="telephone=no">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#0d1117">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title id="pageTitle">Lotes & Casas Campestres | Inversión Inmobiliaria Segura</title>
+  <title>TERRANOVA | Parcelaciones Campestres & Private Estates</title>
   
+  <!-- Hojas de Estilo Desacopladas (Límite < 1.000 líneas cada una) -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/mobile.css">
 </head>
-<body>
+<body class="luxury-body">
 
-  <!-- 1. Barra Superior Legal -->
-  <aside class="top-announcement" data-section="announcement" aria-label="Garantía legal">
-    <div class="container top-announcement-inner">
-      <div class="announcement-left">
-        <span class="badge-legal">🔒 100% Legal</span>
-        <p class="announcement-text" data-bind="legalAnnouncement">Escrituras públicas individuales en notaría, licencias al día y servicios públicos.</p>
-      </div>
-      <div class="announcement-right">
-        <div class="announcement-socials" id="headerSocials">
-          <a href="#" class="social-icon-link" id="linkSocialFbTop" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘</a>
-          <a href="#" class="social-icon-link" id="linkSocialIgTop" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸</a>
-          <a href="#" class="social-icon-link" id="linkSocialTtTop" target="_blank" rel="noopener noreferrer" aria-label="TikTok">🎵</a>
-        </div>
-        <a href="#contacto" class="link-quick-contact">Atención 24/7 vía WhatsApp</a>
-      </div>
-    </div>
-  </aside>
-
-  <!-- 2. Encabezado y Navegación -->
-  <header class="site-header" id="header" data-section="header">
-    <div class="container header-inner">
-      <a href="#inicio" class="brand-identity" aria-label="Ir al inicio">
-        <span class="brand-logo-slot" data-bind="brandLogo">
-          <span class="brand-symbol" aria-hidden="true">🏡</span>
-        </span>
-        <div class="brand-info">
-          <span class="brand-title" data-bind="brandName">Terranova Inmobiliaria</span>
-          <span class="brand-subtitle" data-bind="brandSubtitle">Lotes & Parcelaciones Campestres</span>
-        </div>
-      </a>
-
-      <nav class="desktop-nav" aria-label="Menú principal de escritorio">
-        <ul class="nav-links-list">
-          <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
-          <li><a href="#beneficios" class="nav-link">Beneficios</a></li>
-          <li><a href="#video-recorrido" class="nav-link">Video</a></li>
-          <li><a href="#proceso" class="nav-link">¿Cómo Comprar?</a></li>
-          <li><a href="#faq" class="nav-link">Preguntas</a></li>
-          <li><a href="#contacto" class="nav-link">Contacto</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-action-group">
-        <a href="#contacto" class="btn btn-header-cta">
-          <span>Agendar Visita</span>
-          <span aria-hidden="true">→</span>
-        </a>
-
-        <button type="button" class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileDrawer">
-          <span class="hamburger-bar" aria-hidden="true"></span>
-          <span class="hamburger-bar" aria-hidden="true"></span>
-          <span class="hamburger-bar" aria-hidden="true"></span>
+  <!-- ========================================================================
+       1. CABECERA FLOTANTE TRANSPARENTE (Estándar Discovery Land Co)
+       Flota a sangre 100% transparente sobre el Hero.
+       ======================================================================== -->
+  <header class="site-header-luxury" id="siteHeader" data-section="header">
+    <div class="header-shell">
+      
+      <!-- Bloque Izquierdo: Menú Técnico + Enlace Directo -->
+      <div class="header-block-left">
+        <button type="button" class="btn-menu-trigger" id="menuToggleBtn" aria-expanded="false" aria-controls="luxuryDrawer" aria-label="Abrir menú de navegación">
+          <span class="menu-icon-bars" aria-hidden="true">
+            <span class="bar-line"></span>
+            <span class="bar-line"></span>
+          </span>
+          <span class="menu-text-label">MENU</span>
         </button>
+        <span class="header-divider-pipe" aria-hidden="true">|</span>
+        <a href="#portafolio" class="header-nav-anchor">PORTAFOLIO</a>
       </div>
+
+      <!-- Bloque Central: Emblema Blindado (28px) y Logotipo Tipográfico -->
+      <div class="header-block-center">
+        <a href="#inicio" class="brand-monogram-link" aria-label="Terranova - Inicio">
+          <svg class="brand-compass-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <polygon points="12,3 14.5,9.5 21,12 14.5,14.5 12,21 9.5,14.5 3,12 9.5,9.5 12,3" fill="currentColor" fill-opacity="0.15"/>
+          </svg>
+          <span class="brand-title-serif">TERRANOVA</span>
+          <span class="brand-subtitle-tech">PARCELACIONES & INVESTMENTS</span>
+        </a>
+      </div>
+
+      <!-- Bloque Derecho: Contacto Privado Monocromático -->
+      <div class="header-block-right">
+        <a href="#contacto" class="header-nav-anchor">CONTACTO</a>
+        <span class="header-divider-pipe" aria-hidden="true">|</span>
+        <a href="#contacto" class="btn-concierge-ghost">ASESORÍA PRIVADA</a>
+      </div>
+
     </div>
 
-    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
-      <nav class="mobile-nav" aria-label="Menú de navegación móvil">
-        <ul class="mobile-nav-list">
-          <li><a href="#proyectos" class="mobile-nav-link">🏘️ Proyectos Disponibles</a></li>
-          <li><a href="#beneficios" class="mobile-nav-link">⭐ Beneficios & Legalidad</a></li>
-          <li><a href="#video-recorrido" class="mobile-nav-link">🎬 Video del Terreno</a></li>
-          <li><a href="#proceso" class="mobile-nav-link">📋 Proceso de Compra</a></li>
-          <li><a href="#faq" class="mobile-nav-link">❓ Preguntas Frecuentes</a></li>
-          <li><a href="#contacto" class="mobile-nav-link">📞 Contacto & Visitas</a></li>
-        </ul>
-        <div class="mobile-drawer-cta">
-          <a href="#contacto" class="btn btn-primary btn-block">Agendar Visita Guiada</a>
+    <!-- Menú Desplegable Minimalista / Drawer -->
+    <div class="luxury-drawer-overlay" id="luxuryDrawer" aria-hidden="true">
+      <div class="drawer-inner-content">
+        <div class="drawer-header-bar">
+          <span class="drawer-tag">ÍNDICE GENERAL</span>
+          <button type="button" class="btn-drawer-close" id="drawerCloseBtn" aria-label="Cerrar menú">✕</button>
         </div>
-      </nav>
+        <nav class="drawer-nav-list" aria-label="Navegación principal">
+          <a href="#inicio" class="drawer-link"><span class="drawer-num">01.</span> INICIO</a>
+          <a href="#portafolio" class="drawer-link"><span class="drawer-num">02.</span> PORTAFOLIO DE PROYECTOS</a>
+          <a href="#criterios" class="drawer-link"><span class="drawer-num">03.</span> CRITERIOS & URBANISMO</a>
+          <a href="#recorrido-aereo" class="drawer-link"><span class="drawer-num">04.</span> INSPECCIÓN CINEMATOGRÁFICA</a>
+          <a href="#adquisicion" class="drawer-link"><span class="drawer-num">05.</span> METODOLOGÍA NOTARIAL</a>
+          <a href="#contacto" class="drawer-link"><span class="drawer-num">06.</span> CONCIERGE & CITAS</a>
+        </nav>
+        <div class="drawer-footer-meta">
+          <p>Terranova Desarrollos Inmobiliarios • Cundinamarca, Colombia</p>
+        </div>
+      </div>
     </div>
   </header>
 
   <main id="mainContent">
-    <!-- 3. Hero -->
-    <section class="hero-section" id="inicio" data-section="hero">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <div class="hero-tag">
-            <span class="pulse-dot" aria-hidden="true"></span>
-            <span data-bind="heroTag">Preventa Exclusiva • Alta Valorización</span>
-          </div>
-          <h1 class="hero-headline" data-bind="heroHeadline">
-            Invierte en Tierra Segura: <span class="highlight-text">Lotes Campestres</span> Listos para Escriturar
+
+    <!-- ========================================================================
+         2. HERO CINEMATOGRÁFICO A PANTALLA COMPLETA (100vh)
+         ======================================================================== -->
+    <section class="hero-cinematic-100vh" id="inicio" data-section="hero">
+      
+      <!-- Fondo Audiovisual Dinámico con Viñeta Suave -->
+      <div class="hero-backdrop-container">
+        <div class="hero-media-wrapper">
+          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80" 
+               alt="Paisaje panorámico de parcelación campestre en la cordillera" 
+               class="hero-media-cover" 
+               id="heroMediaElement">
+        </div>
+        <div class="hero-vignette-overlay" aria-hidden="true"></div>
+      </div>
+
+      <!-- Contenido Tipográfico "Quiet Luxury" -->
+      <div class="hero-forefront-content">
+        <div class="hero-editorial-group">
+          <span class="hero-kicker-label">DESARROLLOS RURALES DE ALTA GAMA • CUNDINAMARCA</span>
+          <h1 class="hero-serif-title">
+            PATRIMONIO EN TIERRA FIRME
           </h1>
-          <p class="hero-description" data-bind="heroDescription">
-            Parcelas y proyectos residenciales con vías pavimentadas, acometidas de agua, luz y financiación directa sin intermediarios bancarios.
+          <p class="hero-tagline-text">
+            Parcelaciones campestres con vocación de descanso, privacidad absoluta y blindaje jurídico notarial independiente.
           </p>
-
-          <div class="hero-badges-row">
-            <div class="hero-badge-item">
-              <span class="badge-icon" aria-hidden="true">📜</span>
-              <div class="badge-item-text">
-                <strong>Escritura Individual</strong>
-                <span>Folio de matrícula independiente</span>
-              </div>
-            </div>
-            <div class="hero-badge-item">
-              <span class="badge-icon" aria-hidden="true">💧</span>
-              <div class="badge-item-text">
-                <strong>Servicios Listos</strong>
-                <span>Agua y energía al lindero</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-cta-group">
-            <a href="#proyectos" class="btn btn-primary btn-lg">Explorar Proyectos</a>
-            <a href="#contacto" class="btn btn-outline btn-lg">Fichas por WhatsApp</a>
-          </div>
         </div>
 
-        <div class="quick-inquiry-card">
-          <div class="inquiry-header">
-            <span class="inquiry-status-chip">⚡ Respuesta Inmediata</span>
-            <h3>Consulta Precios y Disponibilidad</h3>
-            <p>Recibe fotos de alta resolución, planos topográficos y listas de precios al instante.</p>
-          </div>
-          
-          <form class="lead-capture-form" id="heroLeadForm" action="javascript:void(0);" novalidate>
-            <input type="hidden" name="proyecto" value="General">
-            <input type="hidden" name="origen" value="hero_rapido">
-
-            <div class="form-field">
-              <label for="heroName">Nombre Completo:</label>
-              <input type="text" id="heroName" name="nombre" class="input-text" placeholder="Ej: Fernando Restrepo" autocomplete="name" minlength="3" maxlength="60" required>
-              <span class="field-error-text" id="heroNameError" aria-live="polite"></span>
-            </div>
-
-            <div class="form-field">
-              <label for="heroPhone">WhatsApp (Colombia):</label>
-              <div class="phone-input-group">
-                <span class="flag-prefix">+57</span>
-                <input type="tel" id="heroPhone" name="telefono" class="input-text phone-input" placeholder="312 345 6789" autocomplete="tel" inputmode="numeric" pattern="3[0-9]{9}" maxlength="10" title="Ingresa un celular de 10 dígitos que inicie por 3" required>
-              </div>
-              <span class="field-error-text" id="heroPhoneError" aria-live="polite"></span>
-            </div>
-
-            <button type="submit" class="btn btn-submit-hero">
-              <span>📲 Recibir Ficha Técnica Completa</span>
-            </button>
-            <p class="privacy-note">🔒 Respetamos tu privacidad. Cero spam.</p>
-          </form>
+        <!-- Barra Píldora Flotante (Selector de Exploración Sutil) -->
+        <div class="hero-pill-bar">
+          <a href="#portafolio" class="pill-action-item is-active">TODOS LOS PROYECTOS</a>
+          <span class="pill-dot-sep">•</span>
+          <a href="#criterios" class="pill-action-item">URBANISMO</a>
+          <span class="pill-dot-sep">•</span>
+          <a href="#recorrido-aereo" class="pill-action-item">VIDEO 4K</a>
+          <span class="pill-dot-sep">•</span>
+          <a href="#contacto" class="pill-action-item">CONTACTO</a>
         </div>
       </div>
-    </section>
 
-    <!-- 4. Beneficios -->
-    <section class="benefits-section" id="beneficios" data-section="benefits">
-      <div class="container">
-        <div class="section-heading-box text-center">
-          <span class="sub-label">¿Por qué invertir con nosotros?</span>
-          <h2 class="section-title">Seguridad Jurídica y Calidad de Vida</h2>
-          <p class="section-lead">Diseñado para familias que buscan su casa de campo y para inversionistas que buscan alta plusvalía.</p>
+      <!-- Controles Inferiores Sutiles del Hero -->
+      <div class="hero-dock-bar">
+        <div class="dock-left-controls">
+          <button type="button" class="btn-hero-sound" id="btnMediaToggle" aria-label="Control de reproducción audiovisual">
+            <span class="sound-icon-symbol">||</span>
+            <span class="sound-label-text">PAUSA</span>
+          </button>
         </div>
-
-        <div class="benefits-grid" id="benefitsContainer">
-          <article class="benefit-card">
-            <div class="benefit-icon" aria-hidden="true">📑</div>
-            <h3>Legalidad y Escritura Inmediata</h3>
-            <p>Desenglobe aprobado y folio de matrícula individual para registro directo en notaría.</p>
-          </article>
-
-          <article class="benefit-card">
-            <div class="benefit-icon" aria-hidden="true">🛣️</div>
-            <h3>Vías de Acceso y Topografía Favorable</h3>
-            <p>Acceso vehicular garantizado desde la vía principal y vías internas recebadas de fácil rodamiento.</p>
-          </article>
-
-          <article class="benefit-card">
-            <div class="benefit-icon" aria-hidden="true">💡</div>
-            <h3>Acometidas de Agua y Luz</h3>
-            <p>Puntos de conexión eléctrica y acueducto entregados a la entrada de cada lote.</p>
-          </article>
-
-          <article class="benefit-card">
-            <div class="benefit-icon" aria-hidden="true">📈</div>
-            <h3>Alta Valorización Garantizada</h3>
-            <p>Zonas de alta expansión turística y campestre con plusvalía sostenida año tras año.</p>
-          </article>
+        <div class="dock-right-scroll">
+          <a href="#portafolio" class="hero-scroll-indicator" aria-label="Desplazarse al portafolio">
+            <span class="scroll-wordmark">DESCUBRIR</span>
+            <span class="scroll-arrow-down" aria-hidden="true">↓</span>
+          </a>
         </div>
       </div>
+
     </section>
 
-    <!-- 5. Catálogo de Proyectos (Lotes, Casas, Apartamentos) -->
-    <section class="projects-section" id="proyectos" data-section="projects">
-      <div class="container">
-        <div class="section-heading-box">
-          <div class="heading-split">
-            <div>
-              <span class="sub-label">Catálogo Activo</span>
-              <h2 class="section-title">Proyectos Disponibles</h2>
-              <p class="section-lead">Lotes, casas y apartamentos campestres adaptados a tu presupuesto y estilo de vida.</p>
-            </div>
-            
-            <div class="projects-filter-bar" id="projectsFilterBar" role="tablist" aria-label="Filtrar proyectos">
-              <button class="filter-chip active" role="tab" aria-selected="true" data-filter="todos">Todos</button>
-              <button class="filter-chip" role="tab" aria-selected="false" data-filter="lote">Lotes</button>
-              <button class="filter-chip" role="tab" aria-selected="false" data-filter="casa">Casas</button>
-              <button class="filter-chip" role="tab" aria-selected="false" data-filter="apartamento">Apartamentos</button>
-            </div>
+    <!-- ========================================================================
+         3. MODELO REAL: 5 PROYECTOS MACRO Y SUS UNIDADES
+         ======================================================================== -->
+    <section class="master-portfolio-section" id="portafolio" data-section="projects">
+      <div class="luxury-container">
+        
+        <header class="section-editorial-header">
+          <div class="header-titles-stack">
+            <span class="section-numeric-tag">01. COLECCIÓN EXCLUSIVA</span>
+            <h2 class="section-serif-headline">Portafolio de Desarrollos Campestres</h2>
+            <p class="section-lead-paragraph">
+              Cada proyecto responde a una visión de baja densidad, vías de acceso garantizadas, agua y energía instaladas, con folio de matrícula inmobiliaria independiente por unidad.
+            </p>
           </div>
-        </div>
+          <div class="header-summary-badge">
+            <span class="badge-number">05</span>
+            <span class="badge-text">PROYECTOS<br>EN FASE ACTIVA</span>
+          </div>
+        </header>
 
-        <div class="projects-cards-grid" id="projectsContainer">
+        <!-- Cuadrícula Dinámica de los 5 Proyectos -->
+        <div class="projects-editorial-grid" id="projectsContainer">
           <noscript>
-            <p class="no-script-notice">Por favor activa JavaScript en tu navegador para interactuar con el catálogo de proyectos.</p>
+            <p class="noscript-alert">Se requiere activar JavaScript para visualizar el catálogo interactivo de unidades disponibles.</p>
           </noscript>
         </div>
+
       </div>
     </section>
 
-    <!-- 6. Video Showcase -->
-    <section class="video-section" id="video-recorrido" data-section="video-showcase">
-      <div class="container">
-        <div class="section-heading-box text-center">
-          <span class="sub-label">Recorrido Visual</span>
-          <h2 class="section-title">Conoce Nuestros Proyectos en Video</h2>
-          <p class="section-lead">Mira el estado real de los terrenos, vías de acceso y linderos grabados en campo.</p>
-        </div>
+    <!-- ========================================================================
+         4. ESTÁNDAR DE URBANISMO & BLINDAJE JURÍDICO (02. CRITERIOS)
+         ======================================================================== -->
+    <section class="urbanism-criteria-section" id="criterios" data-section="benefits">
+      <div class="luxury-container">
+        
+        <header class="section-editorial-header text-center-block">
+          <span class="section-numeric-tag">02. ESTÁNDARES TÉCNICOS</span>
+          <h2 class="section-serif-headline">Blindaje Jurídico & Urbanismo Sostenible</h2>
+          <p class="section-lead-paragraph">
+            La adquisición de tierra de alto valor exige certezas absolutas. Estructuramos cada desarrollo con los más altos estándares de ingeniería y ordenamiento territorial.
+          </p>
+        </header>
 
-        <div class="video-facade-card">
-          <div class="video-responsive-wrapper" id="videoContainer">
-            <div class="video-placeholder" id="videoPlaceholder">
-              <img src="assets/images/video_thumb.jpg" alt="Portada de video del proyecto campestre" class="video-thumb-img img-auto-fit" loading="lazy" decoding="async">
-              <button type="button" class="btn-play-video" id="btnPlayVideo" aria-label="Reproducir video">
-                <span class="play-icon-triangle" aria-hidden="true">▶</span>
-              </button>
-            </div>
-            <div class="video-embed-slot" id="videoEmbedSlot" style="display: none;"></div>
-          </div>
-          <div class="video-caption-bar">
-            <span class="video-badge-pill">🎥 Grabación en Terreno</span>
-            <span class="video-caption-text" data-bind="videoCaption">Recorrido por la parcelación campestre y vías principales de acceso.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. Metodología de Compra -->
-    <section class="process-section" id="proceso" data-section="process">
-      <div class="container">
-        <div class="section-heading-box text-center">
-          <span class="sub-label">Paso a Paso</span>
-          <h2 class="section-title">¿Cómo Adquirir Tu Terreno?</h2>
-          <p class="section-lead">Un proceso transparente, guiado y sin letras pequeñas.</p>
-        </div>
-
-        <div class="process-steps-grid">
-          <div class="process-step-item">
-            <span class="step-badge">1</span>
-            <h4>Elige tu Proyecto</h4>
-            <p>Revisa en la web el metraje, ubicación y características de tu preferencia.</p>
-          </div>
-          <div class="process-step-item">
-            <span class="step-badge">2</span>
-            <h4>Ficha por WhatsApp</h4>
-            <p>El bot te envía al instante planos, fotos y alternativas de pago a tu celular.</p>
-          </div>
-          <div class="process-step-item">
-            <span class="step-badge">3</span>
-            <h4>Visita Guiada</h4>
-            <p>Recorremos el terreno contigo para que camines el lote y verifiques sus linderos.</p>
-          </div>
-          <div class="process-step-item">
-            <span class="step-badge">4</span>
-            <h4>Firma y Escritura</h4>
-            <p>Formalización notarial con acompañamiento jurídico y entrega de tu inmueble.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. Captura Central -->
-    <section class="capture-section" id="contacto" data-section="capture">
-      <div class="container">
-        <div class="capture-wrapper">
-          <div class="capture-text-column">
-            <span class="sub-label text-light">Asesoría Inmediata</span>
-            <h2 class="capture-headline">¿Deseas Conocer los Precios de Preventa?</h2>
-            <p class="capture-copy">
-              Déjanos tus datos para recibir en WhatsApp la carpeta digital completa: planos, coordenadas satelitales y tablas de financiación directa.
+        <div class="criteria-cards-grid">
+          
+          <article class="criterion-luxury-card">
+            <span class="criterion-counter">01</span>
+            <h3 class="criterion-title">Tradición Jurídica Notarial</h3>
+            <p class="criterion-body">
+              Cada lote e inmueble dispone de su propia matrícula inmobiliaria individual debidamente inscrita en la Oficina de Registro de Instrumentos Públicos. Cero esquemas de proindiviso.
             </p>
-            <ul class="capture-perks-list">
-              <li><span class="check-bullet" aria-hidden="true">✓</span> Respuesta automática en menos de 60 segundos vía WhatsApp.</li>
-              <li><span class="check-bullet" aria-hidden="true">✓</span> Asesoría personalizada en planes de pago directo.</li>
-              <li><span class="check-bullet" aria-hidden="true">✓</span> Agenda abierta para visitas guiadas de lunes a domingo.</li>
-            </ul>
+          </article>
+
+          <article class="criterion-luxury-card">
+            <span class="criterion-counter">02</span>
+            <h3 class="criterion-title">Vías y Topografía Seleccionada</h3>
+            <p class="criterion-body">
+              Acceso vial desde corredores intermunicipales consolidados. Vías internas con cunetas técnicas, recebado compactado y linderos topográficos georreferenciados.
+            </p>
+          </article>
+
+          <article class="criterion-luxury-card">
+            <span class="criterion-counter">03</span>
+            <h3 class="criterion-title">Redes de Servicios Públicos</h3>
+            <p class="criterion-body">
+              Acometidas de energía eléctrica certificadas ante el operador regional y disponibilidad hídrica para conexión inmediata al momento de entrega de la posesión.
+            </p>
+          </article>
+
+          <article class="criterion-luxury-card">
+            <span class="criterion-counter">04</span>
+            <h3 class="criterion-title">Financiación Directa en Pesos</h3>
+            <p class="criterion-body">
+              Esquemas flexibles acordados directamente con la desarrolladora. Cuota inicial pactada y saldo financiado sin intermediación bancaria tradicional.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         5. RECORRIDO CINEMATOGRÁFICO EN VIDEO (03. INSPECCIÓN)
+         ======================================================================== -->
+    <section class="cinema-showcase-section" id="recorrido-aereo" data-section="video-showcase">
+      <div class="luxury-container">
+        
+        <header class="section-editorial-header text-center-block">
+          <span class="section-numeric-tag">03. INSPECCIÓN AÉREA</span>
+          <h2 class="section-serif-headline">Topografía y Entorno en Alta Definición</h2>
+          <p class="section-lead-paragraph">
+            Recorrido visual completo del paisaje, avance de obras civiles, accesos viales y delimitación de predios.
+          </p>
+        </header>
+
+        <div class="cinema-screen-chassis">
+          <div class="cinema-wrapper-16-9" id="videoWrapper">
+            <div class="cinema-facade-layer" id="videoFacade">
+              <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1600&q=80" 
+                   alt="Vista panorámica de la cordillera para inspección de predios" 
+                   class="cinema-facade-img">
+              <div class="cinema-facade-dimmer"></div>
+              
+              <button type="button" class="btn-play-minimal" id="btnTriggerVideo" aria-label="Iniciar video de recorrido">
+                <svg class="play-triangle-svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <polygon points="7,4 20,12 7,20"/>
+                </svg>
+              </button>
+
+              <div class="cinema-caption-meta">
+                <span class="caption-tag">REGISTRO EN CAMPO</span>
+                <p class="caption-lead">Levantamiento topográfico y corredores verdes de la parcelación</p>
+              </div>
+            </div>
+            
+            <div class="cinema-embed-target" id="videoEmbedTarget" style="display: none;"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         6. METODOLOGÍA NOTARIAL EN 4 PASOS (04. ADQUISICIÓN)
+         ======================================================================== -->
+    <section class="notarial-process-section" id="adquisicion" data-section="process">
+      <div class="luxury-container">
+        
+        <header class="section-editorial-header text-center-block">
+          <span class="section-numeric-tag">04. METODOLOGÍA NOTARIAL</span>
+          <h2 class="section-serif-headline">El Protocolo Hacia Su Título de Propiedad</h2>
+          <p class="section-lead-paragraph">
+            Un itinerario claro, transparente y con respaldo legal en cada hito del proceso.
+          </p>
+        </header>
+
+        <div class="protocol-steps-grid">
+          
+          <div class="protocol-step-box">
+            <span class="step-large-num">01</span>
+            <h4 class="step-title">Selección del Predio</h4>
+            <p class="step-text">
+              Definición de la unidad campestre según metraje, orientación solar y topografía deseada.
+            </p>
           </div>
 
-          <div class="capture-form-column">
-            <div class="form-container-card">
-              <form id="mainLeadForm" class="conversion-form" action="javascript:void(0);" novalidate>
-                <input type="hidden" name="origen" value="formulario_principal">
+          <div class="protocol-step-box">
+            <span class="step-large-num">02</span>
+            <h4 class="step-title">Dossier Técnico Notarial</h4>
+            <p class="step-text">
+              Recepción digital del folio de matrícula, certificado de libertad y tradición, plano topográfico y minuta.
+            </p>
+          </div>
 
-                <div class="form-group">
-                  <label for="mainName" class="form-label">Nombre y Apellido:</label>
-                  <input type="text" id="mainName" name="nombre" class="form-input" placeholder="Ingresa tu nombre completo" autocomplete="name" minlength="3" maxlength="60" required>
-                  <span class="field-error-text" id="mainNameError" aria-live="polite"></span>
+          <div class="protocol-step-box">
+            <span class="step-large-num">03</span>
+            <h4 class="step-title">Inspección Presencial</h4>
+            <p class="step-text">
+              Recorrido privado guiado en terreno con validación de mojones, linderos y vías internas.
+            </p>
+          </div>
+
+          <div class="protocol-step-box">
+            <span class="step-large-num">04</span>
+            <h4 class="step-title">Escrituración Pública</h4>
+            <p class="step-text">
+              Firma formal de la escritura pública individual de compraventa ante Notaría con entrega de posesión.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         7. ATENCIÓN PRIVADA & DOSSIER (05. CONCIERGE)
+         ======================================================================== -->
+    <section class="concierge-inquiry-section" id="contacto" data-section="capture">
+      <div class="luxury-container">
+        <div class="concierge-double-card">
+          
+          <!-- Columna Izquierda: Información Institucional -->
+          <div class="concierge-info-side">
+            <span class="section-numeric-tag">05. CONCIERGE & ASESORÍA</span>
+            <h2 class="concierge-serif-title">Solicite el Dossier Técnico de los Proyectos</h2>
+            <p class="concierge-intro-text">
+              Nuestro equipo comercial y el sistema automatizado le remitirán de manera directa los planos, tablas de amortización y fichas jurídicas completas del proyecto de su interés.
+            </p>
+            
+            <div class="concierge-perks-list">
+              <div class="perk-row">
+                <span class="perk-bullet">✦</span>
+                <span class="perk-desc">Envío de memorando técnico y plano topográfico por WhatsApp en 60 segundos.</span>
+              </div>
+              <div class="perk-row">
+                <span class="perk-bullet">✦</span>
+                <span class="perk-desc">Simulación de cuotas de financiación directa personalizada.</span>
+              </div>
+              <div class="perk-row">
+                <span class="perk-bullet">✦</span>
+                <span class="perk-desc">Agendamiento prioritario para recorridos privados durante el fin de semana.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Formulario Limpio de Captura -->
+          <div class="concierge-form-side">
+            <form id="mainLeadForm" class="inquiry-clean-form" action="javascript:void(0);" novalidate>
+              <input type="hidden" name="origen" value="vitrina_luxury_2026">
+
+              <div class="input-field-group">
+                <label for="leadName" class="field-label-tech">NOMBRE Y APELLIDO</label>
+                <input type="text" id="leadName" name="nombre" class="field-input-tech" placeholder="Ej. Dr. Mauricio Gómez" autocomplete="name" required minlength="3">
+                <span class="field-feedback-note" id="leadNameError"></span>
+              </div>
+
+              <div class="input-field-group">
+                <label for="leadPhone" class="field-label-tech">NÚMERO DE TELÉFONO (WHATSAPP)</label>
+                <div class="prefix-phone-holder">
+                  <span class="country-prefix-tag">+57</span>
+                  <input type="tel" id="leadPhone" name="telefono" class="field-input-tech phone-entry" placeholder="310 000 0000" autocomplete="tel" inputmode="numeric" pattern="3[0-9]{9}" maxlength="10" required>
                 </div>
+                <span class="field-feedback-note" id="leadPhoneError"></span>
+              </div>
 
-                <div class="form-group">
-                  <label for="mainPhone" class="form-label">Número de WhatsApp:</label>
-                  <div class="phone-input-combo">
-                    <span class="country-prefix">+57</span>
-                    <input type="tel" id="mainPhone" name="telefono" class="form-input phone-field" placeholder="310 123 4567" autocomplete="tel" inputmode="numeric" pattern="3[0-9]{9}" maxlength="10" title="Ingresa un celular de 10 dígitos que inicie por 3" required>
-                  </div>
-                  <span class="field-error-text" id="mainPhoneError" aria-live="polite"></span>
-                </div>
-
-                <div class="form-group">
-                  <label for="mainProject" class="form-label">Proyecto de Tu Interés:</label>
-                  <select id="mainProject" name="proyecto" class="form-select">
-                    <option value="General">Quiero información general de todos los proyectos</option>
+              <div class="input-field-group">
+                <label for="leadProject" class="field-label-tech">PROYECTO DE PREFERENCIA</label>
+                <div class="select-clean-wrap">
+                  <select id="leadProject" name="proyecto" class="field-select-tech">
+                    <option value="General">Deseo recibir el portafolio integral de todos los proyectos</option>
+                    <option value="Reserva del Bosque">Reserva del Bosque (Condominio Campestre)</option>
+                    <option value="Altos del Valle">Altos del Valle (Parcelación Campestre)</option>
+                    <option value="Hacienda Las Palmas">Hacienda Las Palmas (Lotes Planos)</option>
+                    <option value="Villas del Country">Villas del Country (Casas Campestres)</option>
+                    <option value="Torre Andina">Torre Andina (Apartamentos de Montaña)</option>
                   </select>
                 </div>
+              </div>
 
-                <button type="submit" id="mainSubmitButton" class="btn btn-submit-full">
-                  <span>📲 Enviar y Recibir Información Inmediata</span>
-                </button>
-                <p class="form-footnote">🛡️ Respetamos tu privacidad. Tus datos están protegidos y no enviamos spam.</p>
-              </form>
-            </div>
+              <button type="submit" id="mainSubmitButton" class="btn-submit-luxury">
+                <span class="btn-text">SOLICITAR DOSSIER Y ATENCIÓN PRIVADA</span>
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </button>
+
+              <p class="form-disclaimer-text">
+                Tratamiento de datos reservado bajo la Ley 1581 de 2012. Sus datos no serán cedidos a terceros.
+              </p>
+            </form>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- 9. Preguntas Frecuentes -->
-    <section class="faq-section" id="faq" data-section="faq">
-      <div class="container max-w-reading">
-        <div class="section-heading-box text-center">
-          <span class="sub-label">Dudas Comunes</span>
-          <h2 class="section-title">Preguntas Frecuentes de Inversionistas</h2>
+    <!-- ========================================================================
+         8. PREGUNTAS FRECUENTES (06. RESOLUCIÓN DE DUDAS)
+         ======================================================================== -->
+    <section class="faq-luxury-section" id="faq" data-section="faq">
+      <div class="luxury-container reading-width">
+        
+        <header class="section-editorial-header text-center-block">
+          <span class="section-numeric-tag">06. PREGUNTAS FRECUENTES</span>
+          <h2 class="section-serif-headline">Certezas para Inversionistas</h2>
+        </header>
+
+        <div class="faq-accordion-chassis">
+          
+          <details class="faq-quiet-item">
+            <summary class="faq-quiet-header">
+              <span class="faq-question-label">¿Cómo se garantiza la titulación individual de cada lote?</span>
+              <span class="faq-toggle-cross" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-quiet-body">
+              <p>Cada desarrollo cuenta con licencia de parcelación aprobada por la autoridad de planeación municipal. Al momento de la negociación se suministra el folio de matrícula inmobiliaria individual e independiente debidamente asignado por la Oficina de Registro de Instrumentos Públicos, garantizando la titularidad del 100% del dominio.</p>
+            </div>
+          </details>
+
+          <details class="faq-quiet-item">
+            <summary class="faq-quiet-header">
+              <span class="faq-question-label">¿Cuáles son las condiciones de la financiación directa?</span>
+              <span class="faq-toggle-cross" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-quiet-body">
+              <p>El plan de financiación se pacta directamente con la empresa constructora sin estudio crediticio bancario. Se acuerda una cuota inicial y el saldo restante se distribuye en cuotas mensuales fijas en pesos durante el periodo de entrega convenido.</p>
+            </div>
+          </details>
+
+          <details class="faq-quiet-item">
+            <summary class="faq-quiet-header">
+              <span class="faq-question-label">¿Qué redes de servicios públicos se entregan en el predio?</span>
+              <span class="faq-toggle-cross" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-quiet-body">
+              <p>Los proyectos cuentan con redes eléctricas normalizadas y puntos de conexión hídrica en el lindero frontal de cada predio, además de vías de acceso estabilizadas y portería de control de acceso.</p>
+            </div>
+          </details>
+
+          <details class="faq-quiet-item">
+            <summary class="faq-quiet-header">
+              <span class="faq-question-label">¿Cómo se realiza el protocolo de visita a terreno?</span>
+              <span class="faq-toggle-cross" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-quiet-body">
+              <p>Las visitas se programan de manera personalizada de martes a domingo. Tras enviar el formulario o escribir a la línea oficial, un asesor de proyectos coordinará el punto de encuentro y le guiará en el recorrido técnico del terreno.</p>
+            </div>
+          </details>
+
         </div>
 
-        <div class="accordion-list" id="faqAccordionContainer">
-          <details class="faq-accordion-item">
-            <summary class="faq-question">
-              <span>¿Los lotes cuentan con escritura pública individual?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p>Sí, absolutamente todos nuestros proyectos cuentan con desenglobe aprobado y folio de matrícula inmobiliaria individual para escrituración directa por notaría.</p>
-            </div>
-          </details>
-
-          <details class="faq-accordion-item">
-            <summary class="faq-question">
-              <span>¿Qué facilidades de pago o financiación ofrecen?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p>Ofrecemos financiación directa con la constructora: separas con un porcentaje inicial y el saldo restante se distribuye en cuotas mensuales sin intereses bancarios.</p>
-            </div>
-          </details>
-
-          <details class="faq-accordion-item">
-            <summary class="faq-question">¿Puedo agendar una visita un sábado o domingo?</summary>
-            <div class="faq-answer">
-              <p>Sí, atendemos visitas guiadas de lunes a domingo. Tras dejar tus datos, coordinaremos la fecha y hora que mejor se ajuste a tu itinerario.</p>
-            </div>
-          </details>
-
-          <details class="faq-accordion-item">
-            <summary class="faq-question">
-              <span>¿Cómo se entregan los servicios públicos?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p>Cada lote se entrega con punto de conexión de energía eléctrica y acometida de acueducto veredal o potable lista al lindero de la parcela.</p>
-            </div>
-          </details>
-        </div>
       </div>
     </section>
+
   </main>
 
-  <!-- 10. Botón Flotante WhatsApp -->
-  <aside class="floating-contact" data-section="floating-whatsapp" aria-label="Contacto rápido WhatsApp">
-    <a href="#" class="floating-wa-btn" id="floatingWaButton" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp">
-      <span class="wa-float-icon" aria-hidden="true">💬</span>
-      <span class="wa-float-text">¿Dudas? Chatea 24/7</span>
+  <!-- ========================================================================
+       9. ENLACE DE CONCIERGE FLOTANTE DISCRETO
+       ======================================================================== -->
+  <aside class="floating-concierge-zone" data-section="floating-contact" aria-label="Atención personalizada">
+    <a href="#contacto" class="concierge-quiet-pill" id="floatingConciergeLink" aria-label="Solicitar atención privada">
+      <span class="concierge-dot-live"></span>
+      <span class="concierge-pill-text">ASESORÍA PRIVADA</span>
     </a>
   </aside>
 
-  <!-- 11. Pie de Página Limpio -->
-  <footer class="site-footer" data-section="footer">
-    <div class="container footer-layout">
-      <div class="footer-brand-box">
-        <span class="footer-brand-title" data-bind="brandName">Terranova Inmobiliaria</span>
-        <p class="footer-brand-desc" data-bind="footerBrandDesc">Desarrollo y comercialización de proyectos campestres con visión patrimonial y seguridad jurídica integral.</p>
+  <!-- ========================================================================
+       10. PIE DE PÁGINA EDITORIAL & LEGAL
+       ======================================================================== -->
+  <footer class="site-footer-luxury" data-section="footer">
+    <div class="luxury-container">
+      <div class="footer-grid-layout">
         
-        <div class="footer-social-links">
-          <a href="#" class="footer-social-btn" id="linkSocialFbFooter" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
-          <a href="#" class="footer-social-btn" id="linkSocialIgFooter" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-          <a href="#" class="footer-social-btn" id="linkSocialTtFooter" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TikTok</a>
+        <div class="footer-col-brand">
+          <div class="brand-monogram-link is-footer">
+            <span class="brand-title-serif">TERRANOVA</span>
+            <span class="brand-subtitle-tech">DESARROLLOS INMOBILIARIOS & PARCELACIONES</span>
+          </div>
+          <p class="footer-manifesto-text">
+            Compañía estructuradora de parcelaciones campestres de alto valor patrimonial en Colombia. Urbanismo de baja densidad y preservación del entorno natural.
+          </p>
         </div>
-      </div>
 
-      <div class="footer-links-box">
-        <span class="footer-heading">Navegación</span>
-        <ul class="footer-links-menu">
-          <li><a href="#proyectos">Proyectos</a></li>
-          <li><a href="#beneficios">Beneficios</a></li>
-          <li><a href="#video-recorrido">Video</a></li>
-          <li><a href="#proceso">Proceso de Compra</a></li>
-          <li><a href="#faq">Preguntas</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-legal-box">
-        <span class="footer-heading">Transparencia</span>
-        <p>Proyectos regulados bajo la normatividad de ordenamiento territorial vigente en Colombia.</p>
-        <div class="legal-bottom-bar">
-          <span class="legal-copy">© 2026 <span data-bind="brandName">Terranova Inmobiliaria</span>. Todos los derechos reservados.</span>
+        <div class="footer-col-nav">
+          <span class="footer-label-tech">EXPLORACIÓN</span>
+          <ul class="footer-clean-menu">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#portafolio">Portafolio</a></li>
+            <li><a href="#criterios">Criterios Técnicos</a></li>
+            <li><a href="#recorrido-aereo">Video Inspección</a></li>
+            <li><a href="#adquisicion">Proceso Notarial</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
         </div>
+
+        <div class="footer-col-legal">
+          <span class="footer-label-tech">MARCO JURÍDICO</span>
+          <p class="footer-legal-copy">
+            Proyectos desarrollados en estricto cumplimiento de la Ley 388 de 1997, normas de ordenamiento territorial ambiental (CAR) y decretos reglamentarios de parcelación rural.
+          </p>
+          <div class="footer-copyright-tag">
+            © 2026 TERRANOVA DESARROLLOS. TODOS LOS DERECHOS RESERVADOS.
+          </div>
+        </div>
+
       </div>
     </div>
   </footer>
 
+  <!-- Scripts con Carga Diferida (Directiva 3 - Rendimiento < 0.4s) -->
   <script src="js/config.js" defer></script>
   <script src="js/data-projects.js" defer></script>
   <script src="js/form-validation.js" defer></script>
