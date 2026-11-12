@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Inventario global de lotes campestres, casas y lodges de montaña disponibles en Terranova Desarrollos. Filtros por proyecto, tipología y disponibilidad notarial.">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#FAF9F5">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>INVENTARIO | TERRANOVA Desarrollos Campestres</title>
+
+  <!-- Hojas de Estilo Desacopladas (Estética Quiet Luxury intacta) -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body class="luxury-body" data-page="inventory">
+
+  <!-- ========================================================================
+       1. CABECERA FLOTANTE TRANSPARENTE (Idéntica a index.html)
+       ======================================================================== -->
+  <header class="site-header-luxury" id="siteHeader" data-section="header">
+    <div class="header-shell">
+
+      <div class="header-block-left">
+        <button type="button" class="btn-menu-trigger" id="menuToggleBtn" aria-expanded="false" aria-controls="luxuryDrawer" aria-label="Abrir menú de navegación">
+          <span class="menu-icon-bars" aria-hidden="true">
+            <span class="bar-line"></span>
+            <span class="bar-line"></span>
+          </span>
+          <span class="menu-text-label">MENU</span>
+        </button>
+        <span class="header-divider-pipe" aria-hidden="true">|</span>
+        <a href="portafolio.html" class="header-nav-anchor">PORTAFOLIO</a>
+      </div>
+
+      <div class="header-block-center">
+        <a href="index.html" class="brand-monogram-link" aria-label="Terranova - Inicio">
+          <svg class="brand-compass-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <polygon points="12,3 14.5,9.5 21,12 14.5,14.5 12,21 9.5,14.5 3,12 9.5,9.5 12,3" fill="currentColor" fill-opacity="0.15"/>
+          </svg>
+          <span class="brand-title-serif" data-bind="brandName">TERRANOVA</span>
+          <span class="brand-subtitle-tech" data-bind="brandSubtitle">PARCELACIONES & INVESTMENTS</span>
+        </a>
+      </div>
+
+      <div class="header-block-right">
+        <a href="inventario.html" class="header-nav-anchor">INVENTARIO</a>
+        <span class="header-divider-pipe" aria-hidden="true">|</span>
+        <a href="contacto.html" class="btn-concierge-ghost">CONTACTO</a>
+      </div>
+
+    </div>
+
+    <!-- Menú Desplegable Multipágina -->
+    <div class="luxury-drawer-overlay" id="luxuryDrawer" aria-hidden="true">
+      <div class="drawer-inner-content">
+        <div class="drawer-header-bar">
+          <span class="drawer-tag">NAVEGACIÓN GENERAL</span>
+          <button type="button" class="btn-drawer-close" id="drawerCloseBtn" aria-label="Cerrar menú">✕</button>
+        </div>
+        <nav class="drawer-nav-list" aria-label="Navegación principal">
+          <a href="index.html" class="drawer-link"><span class="drawer-num">01.</span> INICIO</a>
+          <a href="portafolio.html" class="drawer-link"><span class="drawer-num">02.</span> PORTAFOLIO DE PROYECTOS</a>
+          <a href="inventario.html" class="drawer-link"><span class="drawer-num">03.</span> INVENTARIO DE UNIDADES</a>
+          <a href="index.html#criterios" class="drawer-link"><span class="drawer-num">04.</span> CRITERIOS & URBANISMO</a>
+          <a href="contacto.html" class="drawer-link"><span class="drawer-num">05.</span> CONCIERGE & CITAS</a>
+        </nav>
+        <div class="drawer-footer-meta">
+          <p><span data-bind="brandName">TERRANOVA</span> • Cundinamarca, Colombia</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- ========================================================================
+         2. HERO DE INVENTARIO (Equivalente a /real-estate/ en Discovery)
+         ======================================================================== -->
+    <section class="hero-cinematic-100vh" id="inicio" data-section="hero">
+      <div class="hero-backdrop-container">
+        <div class="hero-media-wrapper">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80"
+               alt="Arquitectura y propiedades campestres disponibles"
+               class="hero-media-cover">
+        </div>
+        <div class="hero-vignette-overlay" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero-forefront-content">
+        <div class="hero-editorial-group">
+          <span class="hero-kicker-label">LISTADO OFICIAL DE UNIDADES • CUNDINAMARCA</span>
+          <h1 class="hero-serif-title">
+            INVENTARIO DE PROPIEDADES
+          </h1>
+          <p class="hero-tagline-text">
+            Consulte la disponibilidad actualizada de lotes campestres, residencias y suites de montaña con matrícula inmobiliaria individual.
+          </p>
+        </div>
+      </div>
+
+      <div class="hero-dock-bar">
+        <div class="dock-left-controls">
+          <a href="portafolio.html" class="btn-hero-sound">← VER LOS 5 PROYECTOS</a>
+        </div>
+        <div class="dock-right-scroll">
+          <a href="#buscador-unidades" class="hero-scroll-indicator" aria-label="Filtrar unidades disponibles">
+            <span class="scroll-wordmark">FILTRAR & EXPLORAR</span>
+            <span class="scroll-arrow-down" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         3. BUSCADOR Y FILTROS DE INVENTARIO GLOBAL
+         ======================================================================== -->
+    <section class="master-portfolio-section" id="buscador-unidades" data-section="inventory-list">
+      <div class="luxury-container">
+
+        <header class="section-editorial-header">
+          <div class="header-titles-stack">
+            <span class="section-numeric-tag">01. DISPONIBILIDAD EN VIVO</span>
+            <h2 class="section-serif-headline">Unidades Individuales Vendibles</h2>
+            <p class="section-lead-paragraph">
+              Filtre por desarrollo urbanístico, tipología de inmueble o estado comercial para identificar la propiedad ideal.
+            </p>
+          </div>
+          <div class="header-summary-badge">
+            <span class="badge-number" id="inventoryTotalCount">00</span>
+            <span class="badge-text">UNIDADES<br>MOSTRADAS</span>
+          </div>
+        </header>
+
+        <!-- Barra de Filtros Minimalista (Estética Quiet Luxury) -->
+        <form id="inventoryFilterForm" class="project-specs-quiet-row" style="margin-bottom: 36px; background-color: var(--color-bg-surface); padding: 24px; border: 1px solid var(--color-border-subtle);" action="javascript:void(0);">
+          <div class="input-field-group">
+            <label for="filterProject" class="field-label-tech">PROYECTO URBANÍSTICO</label>
+            <div class="select-clean-wrap">
+              <select id="filterProject" class="field-select-tech">
+                <option value="todos">Todos los Proyectos</option>
+                <!-- Opciones pobladas dinámicamente desde js/data-projects.js -->
+              </select>
+            </div>
+          </div>
+
+          <div class="input-field-group">
+            <label for="filterTypology" class="field-label-tech">TIPOLOGÍA</label>
+            <div class="select-clean-wrap">
+              <select id="filterTypology" class="field-select-tech">
+                <option value="todos">Todas las Tipologías</option>
+                <option value="lote">Lotes Campestres</option>
+                <option value="casa">Casas Campestres</option>
+                <option value="apartamento">Apartamentos / Lodges</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-field-group">
+            <label for="filterStatus" class="field-label-tech">ESTADO COMERCIAL</label>
+            <div class="select-clean-wrap">
+              <select id="filterStatus" class="field-select-tech">
+                <option value="todos">Todos los Estados</option>
+                <option value="Disponible">Solo Disponibles</option>
+                <option value="Reservado">Reservados</option>
+              </select>
+            </div>
+          </div>
+        </form>
+
+        <!-- Tabla Global de Unidades Filtrables -->
+        <div class="table-responsive-wrapper" style="background-color: var(--color-bg-surface);">
+          <table class="luxury-units-table">
+            <thead>
+              <tr>
+                <th>Proyecto</th>
+                <th>Unidad</th>
+                <th>Tipología</th>
+                <th>Área</th>
+                <th>Valor de Inversión</th>
+                <th>Estado</th>
+                <th>Matrícula (FMI)</th>
+                <th>Ficha</th>
+              </tr>
+            </thead>
+            <tbody id="globalInventoryBody">
+              <!-- Filas inyectadas dinámicamente por js/data-projects.js -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       4. CONCIERGE FLOTANTE DISCRETO
+       ======================================================================== -->
+  <aside class="floating-concierge-zone" data-section="floating-contact" aria-label="Atención personalizada">
+    <a href="contacto.html" class="concierge-quiet-pill" id="floatingConciergeLink" aria-label="Solicitar atención privada">
+      <span class="concierge-dot-live"></span>
+      <span class="concierge-pill-text">ASESORÍA PRIVADA</span>
+    </a>
+  </aside>
+
+  <!-- ========================================================================
+       5. PIE DE PÁGINA EDITORIAL
+       ======================================================================== -->
+  <footer class="site-footer-luxury" data-section="footer">
+    <div class="luxury-container">
+      <div class="footer-grid-layout">
+
+        <div class="footer-col-brand">
+          <div class="brand-monogram-link is-footer">
+            <span class="brand-title-serif" data-bind="brandName">TERRANOVA</span>
+            <span class="brand-subtitle-tech" data-bind="brandSubtitle">DESARROLLOS INMOBILIARIOS & PARCELACIONES</span>
+          </div>
+          <p class="footer-manifesto-text">
+            Compañía estructuradora de parcelaciones campestres de alto valor patrimonial en Colombia. Urbanismo de baja densidad y preservación del entorno natural.
+          </p>
+        </div>
+
+        <div class="footer-col-nav">
+          <span class="footer-label-tech">EXPLORACIÓN</span>
+          <ul class="footer-clean-menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="portafolio.html">Portafolio de Proyectos</a></li>
+            <li><a href="inventario.html">Inventario de Unidades</a></li>
+            <li><a href="contacto.html">Contacto & Citas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col-legal">
+          <span class="footer-label-tech">MARCO JURÍDICO</span>
+          <p class="footer-legal-copy">
+            Proyectos desarrollados en estricto cumplimiento de la Ley 388 de 1997, normas de ordenamiento territorial ambiental (CAR) y decretos reglamentarios de parcelación rural.
+          </p>
+          <div class="footer-copyright-tag">
+            © 2026 <span data-bind="brandName">TERRANOVA</span> DESARROLLOS. TODOS LOS DERECHOS RESERVADOS.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts con Carga Diferida -->
+  <script src="js/config.js" defer></script>
+  <script src="js/data-projects.js" defer></script>
+  <script src="js/form-validation.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

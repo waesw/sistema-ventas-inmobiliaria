@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Consola de Empalme & Producción | Ingeniería TERRANOVA</title>
+
+  <style>
+    :root {
+      --eng-bg: #090b0f;
+      --eng-surface: #11151d;
+      --eng-surface-alt: #191f2b;
+      --eng-border: #252e3f;
+      --eng-accent: #7da2c4;
+      --eng-gold: #d6c5a9;
+      --eng-success: #4a6b53;
+      --eng-danger: #a84a4a;
+      --eng-text: #f4f3ee;
+      --eng-muted: #8b93a1;
+      --eng-radius: 6px;
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-stack);
+      background-color: var(--eng-bg);
+      color: var(--eng-text);
+      line-height: 1.5;
+      min-height: 100vh;
+      padding: 20px 16px;
+    }
+
+    .eng-container { max-width: 1040px; margin: 0 auto; }
+
+    .eng-header {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px;
+      background-color: var(--eng-surface); border: 1px solid var(--eng-border);
+      border-radius: var(--eng-radius); padding: 18px 24px; margin-bottom: 24px;
+    }
+
+    .eng-header h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.04em; color: var(--eng-gold); }
+    .eng-header p { font-size: 0.8rem; color: var(--eng-muted); }
+
+    .header-actions { display: flex; align-items: center; gap: 12px; }
+
+    .badge-dev {
+      background-color: rgba(125, 162, 196, 0.15); color: var(--eng-accent);
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      padding: 5px 10px; border-radius: 9999px; border: 1px solid rgba(125, 162, 196, 0.35);
+    }
+
+    .btn-outline {
+      background-color: transparent; color: var(--eng-gold); text-decoration: none;
+      padding: 8px 16px; border-radius: var(--eng-radius); font-size: 0.82rem; font-weight: 600;
+      border: 1px solid var(--eng-gold); transition: all 0.2s;
+    }
+    .btn-outline:hover { background-color: var(--eng-gold); color: #090b0f; }
+
+    .lock-box {
+      max-width: 420px; margin: 72px auto; background-color: var(--eng-surface);
+      border: 1px solid var(--eng-border); border-radius: var(--eng-radius);
+      padding: 36px 28px; text-align: center;
+    }
+    .lock-box h2 { font-size: 1.3rem; margin-bottom: 8px; }
+    .lock-box p { font-size: 0.85rem; color: var(--eng-muted); margin-bottom: 24px; }
+
+    .form-group { margin-bottom: 16px; text-align: left; }
+    .form-group label {
+      display: block; font-size: 0.74rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--eng-muted); margin-bottom: 6px;
+    }
+
+    .input-ctrl {
+      width: 100%; padding: 11px 13px; background-color: #090b0f;
+      border: 1px solid var(--eng-border); border-radius: var(--eng-radius);
+      color: var(--eng-text); font-size: 16px; outline: none; font-family: inherit;
+    }
+    .input-ctrl:focus { border-color: var(--eng-accent); }
+
+    .btn-primary {
+      width: 100%; background-color: var(--eng-gold); color: #090b0f; border: none;
+      padding: 13px; border-radius: var(--eng-radius); font-size: 0.88rem; font-weight: 700;
+      cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+
+    .err-msg { color: #e28080; font-size: 0.82rem; margin-top: 8px; display: block; min-height: 20px; }
+
+    .eng-dashboard {
+      background-color: var(--eng-surface); border: 1px solid var(--eng-border);
+      border-radius: var(--eng-radius); padding: 24px;
+    }
+
+    .tabs-bar {
+      display: flex; gap: 8px; border-bottom: 1px solid var(--eng-border);
+      padding-bottom: 12px; margin-bottom: 24px; overflow-x: auto;
+    }
+    .tab-btn {
+      padding: 10px 16px; border-radius: var(--eng-radius); background-color: transparent;
+      color: var(--eng-muted); border: 1px solid transparent; font-size: 0.84rem;
+      font-weight: 600; cursor: pointer; white-space: nowrap;
+    }
+    .tab-btn.active {
+      background-color: var(--eng-surface-alt); color: var(--eng-gold); border-color: var(--eng-border);
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 720px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+    .col-full { grid-column: 1 / -1; }
+
+    .card-box {
+      background-color: #090b0f; border: 1px solid var(--eng-border);
+      border-radius: var(--eng-radius); padding: 20px; margin-bottom: 18px;
+    }
+    .card-box h3 { font-size: 0.95rem; color: var(--eng-gold); margin-bottom: 8px; }
+    .card-box p { font-size: 0.84rem; color: var(--eng-muted); margin-bottom: 16px; }
+
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn-action {
+      background-color: var(--eng-surface-alt); color: var(--eng-text);
+      border: 1px solid var(--eng-border); padding: 12px 18px; border-radius: var(--eng-radius);
+      font-size: 0.84rem; font-weight: 600; cursor: pointer; transition: border-color 0.2s;
+    }
+    .btn-action:hover { border-color: var(--eng-gold); }
+    .btn-action.is-highlight {
+      background-color: rgba(125, 162, 196, 0.16); border-color: var(--eng-accent); color: var(--eng-accent);
+    }
+    .btn-action.is-save {
+      background-color: var(--eng-success); border-color: var(--eng-success); color: #ffffff;
+    }
+
+    .audit-header-bar {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+      gap: 12px; margin-bottom: 16px;
+    }
+    .audit-timestamp { font-size: 0.78rem; color: var(--eng-muted); font-family: monospace; margin-top: 2px; }
+
+    .audit-list { display: flex; flex-direction: column; gap: 10px; }
+    .audit-item {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      padding: 12px 14px; background-color: #090b0f; border: 1px solid var(--eng-border);
+      border-radius: var(--eng-radius); font-size: 0.85rem;
+    }
+    .status-ok { color: #8ec49c; font-weight: 700; }
+    .status-warn { color: #e2b878; font-weight: 700; }
+    .status-err { color: #e28080; font-weight: 700; }
+
+    .toast {
+      display: none; position: fixed; bottom: 24px; right: 24px;
+      background-color: var(--eng-success); color: #ffffff; padding: 12px 20px;
+      border-radius: var(--eng-radius); font-size: 0.86rem; font-weight: 600; z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="eng-container">
+
+    <header class="eng-header">
+      <div>
+        <h1>CONSOLA PRIVADA DE EMPALME & PRODUCCIÓN</h1>
+        <p>Uso exclusivo de ingeniería • Migración en 1 clic, Píxeles, Webhooks y Bundle de Hosting</p>
+      </div>
+      <div class="header-actions">
+        <span class="badge-dev">Solo Agencia / Dev</span>
+        <a href="control.html" class="btn-outline" target="_blank" rel="noopener noreferrer">Panel Cliente ↗</a>
+        <a href="index.html" class="btn-outline" target="_blank" rel="noopener noreferrer">Vitrina ↗</a>
+      </div>
+    </header>
+
+    <!-- Acceso Exclusivo Ingeniería -->
+    <div id="authBox" class="lock-box">
+      <h2>Autenticación de Ingeniería</h2>
+      <p>Ingresa la clave maestra para acceder a las herramientas de migración y despliegue:</p>
+      <form id="devAuthForm" action="javascript:void(0);">
+        <div class="form-group">
+          <label for="devKeyInput">Clave Maestra de Despliegue</label>
+          <input type="password" id="devKeyInput" class="input-ctrl" placeholder="••••••••" autofocus required>
+          <span id="devAuthError" class="err-msg"></span>
+        </div>
+        <button type="submit" class="btn-primary">Desbloquear Consola de Empalme</button>
+      </form>
+      <p style="font-size: 0.74rem; color: var(--eng-muted); margin-top: 14px;">Clave inicial de laboratorio: <strong>DEV-2026</strong></p>
+    </div>
+
+    <!-- Consola Desbloqueada -->
+    <main id="engDashboard" class="eng-dashboard" style="display: none;">
+
+      <nav class="tabs-bar" role="tablist">
+        <button type="button" class="tab-btn active" data-tab="tabInfra">1. Píxeles, Webhook & API Meta</button>
+        <button type="button" class="tab-btn" data-tab="tabEmpalme">2. Empalme & Paquete Producción</button>
+        <button type="button" class="tab-btn" data-tab="tabSalud">3. Auditoría de Salud (QA)</button>
+      </nav>
+
+      <!-- PESTAÑA 1: CREDENCIALES TÉCNICAS DE PRODUCCIÓN -->
+      <div id="tabInfra" class="tab-panel active">
+        <form id="infraForm" action="javascript:void(0);">
+          <div class="grid-2">
+            <div class="form-group col-full">
+              <label for="engDomain">Dominio Oficial de Producción del Cliente</label>
+              <input type="url" id="engDomain" class="input-ctrl" placeholder="https://tudominio.com">
+            </div>
+            <div class="form-group">
+              <label for="engMetaPixel">ID del Píxel de Meta Ads</label>
+              <input type="text" id="engMetaPixel" class="input-ctrl" placeholder="Ej: 102938475612345">
+            </div>
+            <div class="form-group">
+              <label for="engTiktokPixel">ID del Píxel de TikTok Ads</label>
+              <input type="text" id="engTiktokPixel" class="input-ctrl" placeholder="Ej: C1234567890ABCDEF">
+            </div>
+            <div class="form-group col-full">
+              <label for="engWebhookUrl">URL del Webhook de Automatización (n8n / Make / Cloud API)</label>
+              <input type="url" id="engWebhookUrl" class="input-ctrl" placeholder="https://webhook.tu-servidor.com/leads-inmobiliaria">
+            </div>
+            <div class="form-group">
+              <label for="engPhoneId">Meta Cloud API — Phone Number ID</label>
+              <input type="text" id="engPhoneId" class="input-ctrl" placeholder="Ej: 109876543210987">
+            </div>
+            <div class="form-group">
+              <label for="engAdviserPhone">Teléfono Alerta Prioritaria al Asesor (con 57)</label>
+              <input type="tel" id="engAdviserPhone" class="input-ctrl" placeholder="573100000000">
+            </div>
+          </div>
+          <div class="btn-row" style="margin-top: 12px;">
+            <button type="submit" class="btn-action is-save">Guardar Parámetros Técnicos</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- PESTAÑA 2: EMPALME EN 1 CLIC & GENERADOR DE BUNDLE -->
+      <div id="tabEmpalme" class="tab-panel">
+        <div class="card-box">
+          <h3>Paso A — Respaldo e Importación JSON (Taller ↔ Producción)</h3>
+          <p>Exporta toda la configuración actual (textos, modos, tipologías, 5 proyectos e infraestructura) o impórtala en 1 clic en un nuevo entorno.</p>
+          <div class="btn-row">
+            <input type="file" id="importJsonInput" accept=".json" style="display: none;">
+            <button type="button" class="btn-action is-highlight" id="btnImportJson">Importar Empalme JSON (1 Clic)</button>
+            <button type="button" class="btn-action" id="btnExportJson">Exportar Respaldo JSON Maestro</button>
+          </div>
+        </div>
+
+        <div class="card-box">
+          <h3>Paso B — Generar Archivo de Producción para Hosting (js/site-bundle.js)</h3>
+          <p>Descarga un archivo listo para subir a la carpeta <code>js/</code> del servidor del cliente. Así cualquier visitante nuevo desde Meta o TikTok Ads verá automáticamente los datos reales sin depender de tu navegador.</p>
+          <div class="btn-row">
+            <button type="button" class="btn-action is-save" id="btnDownloadBundle">Descargar js/site-bundle.js para Producción</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PESTAÑA 3: AUDITORÍA DE SALUD QA -->
+      <div id="tabSalud" class="tab-panel">
+        <div class="audit-header-bar">
+          <div>
+            <h3 style="font-size: 0.95rem; color: var(--eng-gold);">Verificación Pre-Lanzamiento</h3>
+            <p class="audit-timestamp" id="auditTimestamp">Pendiente de verificación manual</p>
+          </div>
+          <button type="button" class="btn-action is-highlight" id="btnRunHealthCheck">Ejecutar Diagnóstico</button>
+        </div>
+        <div class="audit-list" id="healthAuditList"></div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <div id="engToast" class="toast"></div>
+
+  <script src="js/data-projects.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      const DEV_MASTER_KEY = 'DEV-2026';
+      const CONFIG_KEY = 'TERRANOVA_SITE_CONFIG';
+      const PROJECTS_KEY = 'TERRANOVA_PROJECTS_DATA';
+
+      document.getElementById('devAuthForm').addEventListener('submit', () => {
+        const key = document.getElementById('devKeyInput').value.trim();
+        const err = document.getElementById('devAuthError');
+        if (key === DEV_MASTER_KEY) {
+          document.getElementById('authBox').style.display = 'none';
+          document.getElementById('engDashboard').style.display = 'block';
+          loadInfraData();
+          runHealthCheck(false);
+        } else {
+          err.textContent = 'Clave de ingeniería incorrecta.';
+        }
+      });
+
+      document.querySelectorAll('.tab-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
+          document.querySelectorAll('.tab-panel').forEach((p) => p.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
+        });
+      });
+
+      function loadInfraData() {
+        const cfg = JSON.parse(localStorage.getItem(CONFIG_KEY) || '{}');
+        const infra = cfg.infra || {};
+        document.getElementById('engDomain').value = infra.domain || '';
+        document.getElementById('engMetaPixel').value = infra.metaPixelId || '';
+        document.getElementById('engTiktokPixel').value = infra.tiktokPixelId || '';
+        document.getElementById('engWebhookUrl').value = infra.webhookUrl || '';
+        document.getElementById('engPhoneId').value = infra.metaPhoneNumberId || '';
+        document.getElementById('engAdviserPhone').value = infra.adviserAlertPhone || '';
+      }
+
+      document.getElementById('infraForm').addEventListener('submit', () => {
+        const cfg = JSON.parse(localStorage.getItem(CONFIG_KEY) || '{}');
+        cfg.infra = {
+          domain: document.getElementById('engDomain').value.trim(),
+          metaPixelId: document.getElementById('engMetaPixel').value.trim(),
+          tiktokPixelId: document.getElementById('engTiktokPixel').value.trim(),
+          webhookUrl: document.getElementById('engWebhookUrl').value.trim(),
+          metaPhoneNumberId: document.getElementById('engPhoneId').value.trim(),
+          adviserAlertPhone: document.getElementById('engAdviserPhone').value.trim()
+        };
+        localStorage.setItem(CONFIG_KEY, JSON.stringify(cfg));
+        runHealthCheck(false);
+        showToast('Parámetros técnicos de producción guardados.');
+      });
+
+      function buildFullSnapshot() {
+        const defaultProjs = (window.TERRANOVA_PROJECTS && window.TERRANOVA_PROJECTS.DEFAULT_PROJECTS) || [];
+        const storedProjs = JSON.parse(localStorage.getItem(PROJECTS_KEY) || 'null');
+        return {
+          engine: 'TERRANOVA_DEPLOY_BUNDLE_V2',
+          exportedAt: new Date().toISOString(),
+          siteConfig: JSON.parse(localStorage.getItem(CONFIG_KEY) || '{}'),
+          projectsCatalog: Array.isArray(storedProjs) && storedProjs.length > 0 ? storedProjs : defaultProjs
+        };
+      }
+
+      document.getElementById('btnExportJson').addEventListener('click', () => {
+        const snapshot = buildFullSnapshot();
+        downloadFile(`terranova_empalme_${new Date().toISOString().slice(0, 10)}.json`, JSON.stringify(snapshot, null, 2), 'application/json');
+        showToast('Respaldo JSON maestro descargado.');
+      });
+
+      const importInput = document.getElementById('importJsonInput');
+      document.getElementById('btnImportJson').addEventListener('click', () => importInput.click());
+      importInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          try {
+            const parsed = JSON.parse(ev.target.result);
+            if (parsed.siteConfig) localStorage.setItem(CONFIG_KEY, JSON.stringify(parsed.siteConfig));
+            if (Array.isArray(parsed.projectsCatalog) && parsed.projectsCatalog.length > 0) {
+              localStorage.setItem(PROJECTS_KEY, JSON.stringify(parsed.projectsCatalog));
+            }
+            loadInfraData();
+            runHealthCheck(false);
+            showToast('Empalme completado en 1 clic.');
+          } catch (err) {
+            alert('Error: El archivo JSON no es válido.');
+          }
+        };
+        reader.readAsText(file);
+        e.target.value = '';
+      });
+
+      document.getElementById('btnDownloadBundle').addEventListener('click', () => {
+        const snapshot = buildFullSnapshot();
+        const jsContent =
+`/**
+ * PAQUETE DE PRODUCCIÓN GENERADO DESDE EMPALME.HTML
+ * Fecha: ${snapshot.exportedAt}
+ * Sube este archivo a la carpeta js/ del servidor para publicar sin base de datos.
+ */
+window.TERRANOVA_PRODUCTION_BUNDLE = ${JSON.stringify(snapshot, null, 2)};
+`;
+        downloadFile('site-bundle.js', jsContent, 'application/javascript');
+        showToast('Archivo js/site-bundle.js generado para producción.');
+      });
+
+      function runHealthCheck(notifyUser) {
+        const cfg = JSON.parse(localStorage.getItem(CONFIG_KEY) || '{}');
+        const defaultProjs = (window.TERRANOVA_PROJECTS && window.TERRANOVA_PROJECTS.DEFAULT_PROJECTS) || [];
+        const storedProjs = JSON.parse(localStorage.getItem(PROJECTS_KEY) || 'null');
+        const projs = Array.isArray(storedProjs) && storedProjs.length > 0 ? storedProjs : defaultProjs;
+
+        const visibleProjs = projs.filter((p) => p.visible !== false);
+        const hiddenProjs = projs.length - visibleProjs.length;
+        const totalUnits = projs.reduce((acc, p) => acc + ((p.unidadesInventario || []).length), 0);
+        const availableUnits = projs.reduce((acc, p) => {
+          return acc + (p.unidadesInventario || []).filter((u) => u.estado === 'Disponible').length;
+        }, 0);
+
+        const waRaw = String(cfg.whatsapp || '').replace(/\D/g, '');
+        const waValid = waRaw.length >= 10;
+        const infra = cfg.infra || {};
+        const themeLabel = cfg.themeMode || 'light (Luminoso Discovery)';
+        const typoCount = Array.isArray(cfg.typologies) && cfg.typologies.length > 0 ? cfg.typologies.length : 3;
+
+        const checks = [
+          {
+            label: 'Proyectos Macro (Visibles / Ocultos / Tope 5)',
+            value: `${visibleProjs.length} visibles, ${hiddenProjs} ocultos (Total: ${projs.length}/5)`,
+            statusClass: visibleProjs.length > 0 && projs.length <= 5 ? 'status-ok' : 'status-warn'
+          },
+          {
+            label: 'Inventario de Unidades (Disponibles / Total)',
+            value: `${availableUnits} disponibles de ${totalUnits} unidades`,
+            statusClass: totalUnits > 0 ? 'status-ok' : 'status-warn'
+          },
+          {
+            label: 'Tipologías Configuradas (Tope 5)',
+            value: `${typoCount} / 5 activas`,
+            statusClass: typoCount <= 5 ? 'status-ok' : 'status-err'
+          },
+          {
+            label: 'Modo Visual Activo',
+            value: themeLabel,
+            statusClass: 'status-ok'
+          },
+          {
+            label: 'WhatsApp Comercial Receptor',
+            value: waValid ? `+${waRaw}` : 'Sin configurar o inválido',
+            statusClass: waValid ? 'status-ok' : 'status-err'
+          },
+          {
+            label: 'Píxeles Meta / TikTok Ads',
+            value: (infra.metaPixelId || infra.tiktokPixelId) ? 'Configurado' : 'Pendiente Etapa 2',
+            statusClass: (infra.metaPixelId || infra.tiktokPixelId) ? 'status-ok' : 'status-warn'
+          },
+          {
+            label: 'Webhook / Meta Cloud API',
+            value: infra.webhookUrl ? 'Conectado' : 'Modo Directo wa.me',
+            statusClass: infra.webhookUrl ? 'status-ok' : 'status-warn'
+          }
+        ];
+
+        document.getElementById('healthAuditList').innerHTML = checks.map((c) => `
+          <div class="audit-item">
+            <span>${c.label}</span>
+            <span class="${c.statusClass}">${c.value}</span>
+          </div>
+        `).join('');
+
+        const now = new Date().toLocaleTimeString('es-CO');
+        document.getElementById('auditTimestamp').textContent = `Última verificación ejecutada: ${now}`;
+
+        if (notifyUser) {
+          showToast(`Diagnóstico completado a las ${now}.`);
+        }
+      }
+
+      document.getElementById('btnRunHealthCheck').addEventListener('click', () => runHealthCheck(true));
+
+      function downloadFile(filename, content, mimeType) {
+        const blob = new Blob([content], { type: mimeType });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      function showToast(msg) {
+        const toast = document.getElementById('engToast');
+        toast.textContent = msg;
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 3500);
+      }
+    })();
+  </script>
+</body>
+</html>

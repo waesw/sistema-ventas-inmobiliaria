@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Ficha técnica, galería, video, plano interactivo e inventario de unidades disponibles del proyecto campestre Terranova Desarrollos.">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#FAF9F5">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>PROYECTO | TERRANOVA Desarrollos Campestres</title>
+
+  <!-- Hojas de Estilo Desacopladas (Estética Quiet Luxury intacta) -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body class="luxury-body" data-page="project-detail">
+
+  <!-- ========================================================================
+       1. CABECERA FLOTANTE TRANSPARENTE (Idéntica a index.html)
+       ======================================================================== -->
+  <header class="site-header-luxury" id="siteHeader" data-section="header">
+    <div class="header-shell">
+
+      <div class="header-block-left">
+        <button type="button" class="btn-menu-trigger" id="menuToggleBtn" aria-expanded="false" aria-controls="luxuryDrawer" aria-label="Abrir menú de navegación">
+          <span class="menu-icon-bars" aria-hidden="true">
+            <span class="bar-line"></span>
+            <span class="bar-line"></span>
+          </span>
+          <span class="menu-text-label">MENU</span>
+        </button>
+        <span class="header-divider-pipe" aria-hidden="true">|</span>
+        <a href="portafolio.html" class="header-nav-anchor">PORTAFOLIO</a>
+      </div>
+
+      <div class="header-block-center">
+        <a href="index.html" class="brand-monogram-link" aria-label="Terranova - Inicio">
+          <svg class="brand-compass-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <polygon points="12,3 14.5,9.5 21,12 14.5,14.5 12,21 9.5,14.5 3,12 9.5,9.5 12,3" fill="currentColor" fill-opacity="0.15"/>
+          </svg>
+          <span class="brand-title-serif" data-bind="brandName">TERRANOVA</span>
+          <span class="brand-subtitle-tech" data-bind="brandSubtitle">PARCELACIONES & INVESTMENTS</span>
+        </a>
+      </div>
+
+      <div class="header-block-right">
+        <a href="inventario.html" class="header-nav-anchor">INVENTARIO</a>
+        <span class="header-divider-pipe" aria-hidden="true">|</span>
+        <a href="contacto.html" class="btn-concierge-ghost">CONTACTO</a>
+      </div>
+
+    </div>
+
+    <!-- Menú Desplegable Multipágina -->
+    <div class="luxury-drawer-overlay" id="luxuryDrawer" aria-hidden="true">
+      <div class="drawer-inner-content">
+        <div class="drawer-header-bar">
+          <span class="drawer-tag">NAVEGACIÓN GENERAL</span>
+          <button type="button" class="btn-drawer-close" id="drawerCloseBtn" aria-label="Cerrar menú">✕</button>
+        </div>
+        <nav class="drawer-nav-list" aria-label="Navegación principal">
+          <a href="index.html" class="drawer-link"><span class="drawer-num">01.</span> INICIO</a>
+          <a href="portafolio.html" class="drawer-link"><span class="drawer-num">02.</span> PORTAFOLIO DE PROYECTOS</a>
+          <a href="inventario.html" class="drawer-link"><span class="drawer-num">03.</span> INVENTARIO DE UNIDADES</a>
+          <a href="#unidades-proyecto" class="drawer-link"><span class="drawer-num">04.</span> PLANO & UNIDADES</a>
+          <a href="contacto.html" class="drawer-link"><span class="drawer-num">05.</span> CONCIERGE & CITAS</a>
+        </nav>
+        <div class="drawer-footer-meta">
+          <p><span data-bind="brandName">TERRANOVA</span> • Cundinamarca, Colombia</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- ========================================================================
+         2. HERO DEDICADO DEL PROYECTO (100vh)
+         ======================================================================== -->
+    <section class="hero-cinematic-100vh" id="inicio" data-section="hero">
+      <div class="hero-backdrop-container">
+        <div class="hero-media-wrapper">
+          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80"
+               alt="Vista panorámica del proyecto campestre"
+               class="hero-media-cover"
+               id="projectHeroImg">
+        </div>
+        <div class="hero-vignette-overlay" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero-forefront-content">
+        <div class="hero-editorial-group">
+          <span class="hero-kicker-label" id="projectHeroKicker">CARGANDO UBICACIÓN...</span>
+          <h1 class="hero-serif-title" id="projectHeroTitle">
+            PROYECTO CAMPESTRE
+          </h1>
+          <p class="hero-tagline-text" id="projectHeroDesc">
+            Especificaciones de urbanismo, galería, plano topográfico e inventario individual de unidades.
+          </p>
+        </div>
+
+        <div class="hero-pill-bar">
+          <a href="#ficha-general" class="pill-action-item is-active">RESUMEN</a>
+          <span class="pill-dot-sep">•</span>
+          <a href="#infraestructura" class="pill-action-item">URBANISMO</a>
+          <span class="pill-dot-sep">•</span>
+          <a href="#unidades-proyecto" class="pill-action-item">PLANO & UNIDADES</a>
+          <span class="pill-dot-sep">•</span>
+          <a href="contacto.html" class="pill-action-item">VISITAR</a>
+        </div>
+      </div>
+
+      <div class="hero-dock-bar">
+        <div class="dock-left-controls">
+          <a href="portafolio.html" class="btn-hero-sound">← VOLVER AL PORTAFOLIO</a>
+        </div>
+        <div class="dock-right-scroll">
+          <a href="#unidades-proyecto" class="hero-scroll-indicator" aria-label="Ver plano y unidades disponibles">
+            <span class="scroll-wordmark">VER PLANO & UNIDADES</span>
+            <span class="scroll-arrow-down" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         3. FICHA GENERAL & TRADICIÓN JURÍDICA DEL PROYECTO
+         ======================================================================== -->
+    <section class="master-portfolio-section" id="ficha-general" data-section="project-overview">
+      <div class="luxury-container">
+
+        <header class="section-editorial-header">
+          <div class="header-titles-stack">
+            <span class="section-numeric-tag" id="projectTypologyTag">01. DESARROLLO URBANÍSTICO</span>
+            <h2 class="section-serif-headline" id="projectOverviewTitle">Descripción del Desarrollo</h2>
+            <p class="section-lead-paragraph" id="projectOverviewNarrative">
+              Cargando descripción técnica y paisajística del desarrollo...
+            </p>
+          </div>
+          <div class="header-summary-badge">
+            <span class="badge-number" id="projectUnitsCount">00</span>
+            <span class="badge-text">UNIDADES<br>EN INVENTARIO</span>
+          </div>
+        </header>
+
+        <div class="project-specs-quiet-row" style="margin-bottom: 32px;">
+          <div class="spec-quiet-item">
+            <span class="spec-label-tech">UBICACIÓN & ACCESO</span>
+            <span class="spec-val-strong" id="projectSpecLocation">—</span>
+          </div>
+          <div class="spec-quiet-item">
+            <span class="spec-label-tech">RANGO DE ÁREAS</span>
+            <span class="spec-val-strong" id="projectSpecAreas">—</span>
+          </div>
+          <div class="spec-quiet-item">
+            <span class="spec-label-tech">INVERSIÓN DESDE</span>
+            <span class="spec-val-strong" id="projectSpecPrice">—</span>
+          </div>
+        </div>
+
+        <div class="project-notarial-guarantee">
+          <span class="guarantee-icon" aria-hidden="true">⚖</span>
+          <span class="guarantee-text" id="projectNotarialText">Cargando respaldo jurídico y matrícula...</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         4. INFRAESTRUCTURA & SERVICIOS
+         ======================================================================== -->
+    <section class="urbanism-criteria-section" id="infraestructura" data-section="project-amenities">
+      <div class="luxury-container">
+
+        <header class="section-editorial-header text-center-block">
+          <span class="section-numeric-tag">02. URBANISMO & SERVICIOS</span>
+          <h2 class="section-serif-headline">Infraestructura y Especificaciones</h2>
+          <p class="section-lead-paragraph" id="projectFinancingText">
+            Condiciones de financiación directa y entrega de servicios públicos garantizados.
+          </p>
+        </header>
+
+        <div class="criteria-cards-grid" id="projectAmenitiesGrid">
+          <!-- Inyectado dinámicamente por js/data-projects.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         5. VIDEO PROPIO DEL PROYECTO
+         ======================================================================== -->
+    <section class="cinema-showcase-section" id="projectVideoSection" data-section="project-video" style="display: none;">
+      <div class="luxury-container">
+        <header class="section-editorial-header text-center-block">
+          <span class="section-numeric-tag">03. RECORRIDO EN VIDEO</span>
+          <h2 class="section-serif-headline">Inspección Audiovisual del Predio</h2>
+          <p class="section-lead-paragraph">
+            Recorrido en terreno, topografía real y accesos viales de este desarrollo.
+          </p>
+        </header>
+
+        <div class="cinema-screen-chassis">
+          <div class="cinema-wrapper-16-9">
+            <div class="cinema-facade-layer" id="projectVideoFacade">
+              <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1600&q=80"
+                   alt="Vista del proyecto para reproducción de video"
+                   class="cinema-facade-img"
+                   id="projectVideoFacadeImg">
+              <div class="cinema-facade-dimmer"></div>
+              <button type="button" class="btn-play-minimal" id="btnTriggerProjectVideo" aria-label="Reproducir video del proyecto">
+                <svg class="play-triangle-svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <polygon points="7,4 20,12 7,20"/>
+                </svg>
+              </button>
+              <div class="cinema-caption-meta">
+                <span class="caption-tag">REGISTRO DEL PROYECTO</span>
+                <p class="caption-lead">Inspección en alta definición</p>
+              </div>
+            </div>
+            <div class="cinema-embed-target" id="projectVideoEmbedTarget" style="display: none;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         6. GALERÍA EDITORIAL Y DOCUMENTOS OFICIALES (MÁX. 5 FOTOS)
+         ======================================================================== -->
+    <section class="urbanism-criteria-section" id="projectGallerySection" data-section="project-gallery" style="display: none;">
+      <div class="luxury-container">
+        <header class="section-editorial-header text-center-block">
+          <span class="section-numeric-tag">04. GALERÍA & SOPORTES</span>
+          <h2 class="section-serif-headline">Registro Visual y Licencias Oficiales</h2>
+          <p class="section-lead-paragraph">
+            Fotografías reales del entorno, urbanismo y soportes administrativos vigentes del proyecto. Haz clic en cualquier imagen para ampliarla.
+          </p>
+        </header>
+
+        <div class="project-gallery-grid" id="projectGalleryGrid">
+          <!-- Hasta 5 fotos inyectadas dinámicamente por js/data-projects.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         7. PLANO TOPOGRÁFICO INTERACTIVO E INVENTARIO DE UNIDADES
+         ======================================================================== -->
+    <section class="master-portfolio-section" id="unidades-proyecto" data-section="project-units">
+      <div class="luxury-container">
+
+        <header class="section-editorial-header">
+          <div class="header-titles-stack">
+            <span class="section-numeric-tag">05. PLANO & INVENTARIO</span>
+            <h2 class="section-serif-headline">Planta Urbana y Unidades Disponibles</h2>
+            <p class="section-lead-paragraph">
+              Consulta la ubicación exacta de cada predio sobre el plano topográfico y verifica su disponibilidad en tiempo real.
+            </p>
+          </div>
+          <div class="header-summary-badge">
+            <a href="contacto.html" class="btn-project-dossier" id="projectDirectWaBtn">ASESORÍA POR WHATSAPP →</a>
+          </div>
+        </header>
+
+        <!-- Plano Topográfico Interactivo (Velos Rojo Vendido / Ámbar Reservado / Normal Disponible) -->
+        <div class="blueprint-master-card" id="projectBlueprintCard" style="display: none;">
+          <div class="blueprint-header-bar">
+            <div class="blueprint-legend-bar">
+              <span class="legend-item"><span class="legend-swatch swatch-disponible"></span> Disponible</span>
+              <span class="legend-item"><span class="legend-swatch swatch-reservado"></span> Reservado</span>
+              <span class="legend-item"><span class="legend-swatch swatch-vendido"></span> Vendido</span>
+            </div>
+            <span class="spec-label-tech">TOCA UN LOTE PARA CONSULTAR POR WHATSAPP</span>
+          </div>
+
+          <div class="blueprint-stage-center">
+            <div class="blueprint-interactive-stage" id="blueprintInteractiveStage">
+              <!-- Imagen del plano y zonas interactivas inyectadas por js/data-projects.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabla Detallada de Unidades -->
+        <div class="table-responsive-wrapper" style="background-color: var(--color-bg-surface);">
+          <table class="luxury-units-table">
+            <thead>
+              <tr>
+                <th>Unidad / Lote</th>
+                <th>Área Total</th>
+                <th>Valor de Inversión</th>
+                <th>Estado Comercial</th>
+                <th>Matrícula (FMI)</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody id="projectUnitsTableBody">
+              <!-- Filas inyectadas dinámicamente por js/data-projects.js -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       8. CONCIERGE FLOTANTE DISCRETO
+       ======================================================================== -->
+  <aside class="floating-concierge-zone" data-section="floating-contact" aria-label="Atención personalizada">
+    <a href="contacto.html" class="concierge-quiet-pill" id="floatingConciergeLink" aria-label="Solicitar atención privada">
+      <span class="concierge-dot-live"></span>
+      <span class="concierge-pill-text">ASESORÍA PRIVADA</span>
+    </a>
+  </aside>
+
+  <!-- ========================================================================
+       9. PIE DE PÁGINA EDITORIAL
+       ======================================================================== -->
+  <footer class="site-footer-luxury" data-section="footer">
+    <div class="luxury-container">
+      <div class="footer-grid-layout">
+
+        <div class="footer-col-brand">
+          <div class="brand-monogram-link is-footer">
+            <span class="brand-title-serif" data-bind="brandName">TERRANOVA</span>
+            <span class="brand-subtitle-tech" data-bind="brandSubtitle">DESARROLLOS INMOBILIARIOS & PARCELACIONES</span>
+          </div>
+          <p class="footer-manifesto-text">
+            Compañía estructuradora de parcelaciones campestres de alto valor patrimonial en Colombia. Urbanismo de baja densidad y preservación del entorno natural.
+          </p>
+        </div>
+
+        <div class="footer-col-nav">
+          <span class="footer-label-tech">EXPLORACIÓN</span>
+          <ul class="footer-clean-menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="portafolio.html">Portafolio de Proyectos</a></li>
+            <li><a href="inventario.html">Inventario de Unidades</a></li>
+            <li><a href="contacto.html">Contacto & Citas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col-legal">
+          <span class="footer-label-tech">MARCO JURÍDICO</span>
+          <p class="footer-legal-copy">
+            Proyectos desarrollados en estricto cumplimiento de la Ley 388 de 1997, normas de ordenamiento territorial ambiental (CAR) y decretos reglamentarios de parcelación rural.
+          </p>
+          <div class="footer-copyright-tag">
+            © 2026 <span data-bind="brandName">TERRANOVA</span> DESARROLLOS. TODOS LOS DERECHOS RESERVADOS.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts con Carga Diferida -->
+  <script src="js/config.js" defer></script>
+  <script src="js/data-projects.js" defer></script>
+  <script src="js/form-validation.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

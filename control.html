@@ -4,21 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Mesa de Control Privada | Terranova Inmobiliaria</title>
-  
+  <title>Mesa de Control Privada | TERRANOVA</title>
+
   <style>
     :root {
-      --ctrl-bg: #0b132b;
-      --ctrl-surface: #1c2541;
-      --ctrl-surface-alt: #243054;
-      --ctrl-border: #334155;
-      --ctrl-primary: #38bdf8;
-      --ctrl-primary-hover: #0284c7;
-      --ctrl-success: #10b981;
-      --ctrl-danger: #ef4444;
-      --ctrl-text: #f8fafc;
-      --ctrl-text-muted: #94a3b8;
-      --ctrl-radius: 10px;
+      --ctrl-bg: #0f1115;
+      --ctrl-surface: #171a21;
+      --ctrl-surface-alt: #212631;
+      --ctrl-border: #2c3342;
+      --ctrl-primary: #d6c5a9;
+      --ctrl-primary-hover: #e5d8c3;
+      --ctrl-success: #4a6b53;
+      --ctrl-danger: #a84a4a;
+      --ctrl-text: #f4f3ee;
+      --ctrl-text-muted: #989b9f;
+      --ctrl-radius: 6px;
       --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
@@ -33,352 +33,180 @@
       padding: 20px 16px;
     }
 
-    .control-container {
-      max-width: 960px;
-      margin: 0 auto;
-    }
+    .control-container { max-width: 1080px; margin: 0 auto; }
 
     .control-header {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      background-color: var(--ctrl-surface);
-      border: 1px solid var(--ctrl-border);
-      border-radius: var(--ctrl-radius);
-      padding: 18px 24px;
-      margin-bottom: 24px;
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px;
+      background-color: var(--ctrl-surface); border: 1px solid var(--ctrl-border);
+      border-radius: var(--ctrl-radius); padding: 18px 24px; margin-bottom: 24px;
     }
 
-    @media (min-width: 640px) {
-      .control-header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
-    }
+    .brand-group h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.04em; }
+    .brand-group p { font-size: 0.8rem; color: var(--ctrl-text-muted); }
 
-    .brand-group {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .header-links { display: flex; align-items: center; gap: 12px; }
 
     .badge-secure {
-      background-color: rgba(16, 185, 129, 0.2);
-      color: #34d399;
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 9999px;
-      border: 1px solid rgba(16, 185, 129, 0.4);
-    }
-
-    .header-links {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      background-color: rgba(74, 107, 83, 0.2); color: #8ec49c;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      padding: 5px 10px; border-radius: 9999px; border: 1px solid rgba(74, 107, 83, 0.45);
     }
 
     .btn-link-public {
-      background-color: rgba(56, 189, 248, 0.15);
-      color: var(--ctrl-primary);
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      transition: all 0.2s;
+      background-color: transparent; color: var(--ctrl-primary); text-decoration: none;
+      padding: 8px 16px; border-radius: var(--ctrl-radius); font-size: 0.82rem; font-weight: 600;
+      border: 1px solid var(--ctrl-primary); transition: all 0.2s;
     }
-
-    .btn-link-public:hover {
-      background-color: var(--ctrl-primary);
-      color: #0b132b;
-    }
+    .btn-link-public:hover { background-color: var(--ctrl-primary); color: #0f1115; }
 
     .lock-screen-box {
-      max-width: 420px;
-      margin: 60px auto;
-      background-color: var(--ctrl-surface);
-      border: 1px solid var(--ctrl-border);
-      border-radius: var(--ctrl-radius);
-      padding: 32px 28px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      max-width: 420px; margin: 72px auto; background-color: var(--ctrl-surface);
+      border: 1px solid var(--ctrl-border); border-radius: var(--ctrl-radius);
+      padding: 36px 28px; text-align: center;
     }
+    .lock-title { font-size: 1.3rem; margin-bottom: 8px; }
+    .lock-subtitle { font-size: 0.85rem; color: var(--ctrl-text-muted); margin-bottom: 24px; }
 
-    .lock-icon-giant {
-      font-size: 3rem;
-      margin-bottom: 12px;
-    }
-
-    .lock-title {
-      font-size: 1.35rem;
-      margin-bottom: 8px;
-    }
-
-    .lock-subtitle {
-      font-size: 0.88rem;
-      color: var(--ctrl-text-muted);
-      margin-bottom: 24px;
-    }
-
-    .form-group {
-      margin-bottom: 18px;
-      text-align: left;
-    }
-
+    .form-group { margin-bottom: 16px; text-align: left; }
     .form-group label {
-      display: block;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--ctrl-text-muted);
-      margin-bottom: 6px;
+      display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--ctrl-text-muted); margin-bottom: 6px;
     }
 
-    .input-control {
-      width: 100%;
-      padding: 12px 14px;
-      background-color: #0b132b;
-      border: 1px solid var(--ctrl-border);
-      border-radius: 6px;
-      color: #ffffff;
-      font-size: 0.95rem;
-      outline: none;
-      transition: border-color 0.2s;
+    .input-control, .textarea-control, .select-control {
+      width: 100%; padding: 10px 12px; background-color: #0f1115;
+      border: 1px solid var(--ctrl-border); border-radius: var(--ctrl-radius);
+      color: var(--ctrl-text); font-size: 16px; outline: none; font-family: inherit;
     }
-
-    .input-control:focus {
-      border-color: var(--ctrl-primary);
-    }
+    .textarea-control { min-height: 74px; resize: vertical; font-size: 0.9rem; }
+    .input-control:focus, .textarea-control:focus, .select-control:focus { border-color: var(--ctrl-primary); }
 
     .btn-primary-action {
-      width: 100%;
-      background-color: var(--ctrl-primary);
-      color: #0b132b;
-      border: none;
-      padding: 12px;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      font-weight: 800;
-      cursor: pointer;
-      transition: background-color 0.2s;
+      width: 100%; background-color: var(--ctrl-primary); color: #0f1115; border: none;
+      padding: 13px; border-radius: var(--ctrl-radius); font-size: 0.9rem; font-weight: 700;
+      cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;
     }
-
-    .btn-primary-action:hover {
-      background-color: var(--ctrl-primary-hover);
-    }
-
-    .pin-error {
-      color: var(--ctrl-danger);
-      font-size: 0.82rem;
-      margin-top: 8px;
-      display: block;
-      min-height: 20px;
-    }
+    .pin-error { color: #e28080; font-size: 0.82rem; margin-top: 8px; display: block; min-height: 20px; }
 
     .control-dashboard {
-      background-color: var(--ctrl-surface);
-      border: 1px solid var(--ctrl-border);
-      border-radius: var(--ctrl-radius);
-      padding: 24px;
+      background-color: var(--ctrl-surface); border: 1px solid var(--ctrl-border);
+      border-radius: var(--ctrl-radius); padding: 24px;
     }
 
     .tabs-bar {
-      display: flex;
-      gap: 8px;
-      border-bottom: 1px solid var(--ctrl-border);
-      padding-bottom: 12px;
-      margin-bottom: 24px;
-      overflow-x: auto;
+      display: flex; gap: 8px; border-bottom: 1px solid var(--ctrl-border);
+      padding-bottom: 12px; margin-bottom: 24px; overflow-x: auto;
     }
-
     .tab-btn {
-      padding: 10px 16px;
-      border-radius: 6px;
-      background-color: transparent;
-      color: var(--ctrl-text-muted);
-      border: 1px solid transparent;
-      font-size: 0.88rem;
-      font-weight: 700;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s;
+      padding: 10px 16px; border-radius: var(--ctrl-radius); background-color: transparent;
+      color: var(--ctrl-text-muted); border: 1px solid transparent; font-size: 0.84rem;
+      font-weight: 600; cursor: pointer; white-space: nowrap;
     }
-
     .tab-btn.active {
-      background-color: var(--ctrl-surface-alt);
-      color: var(--ctrl-primary);
-      border-color: var(--ctrl-border);
+      background-color: var(--ctrl-surface-alt); color: var(--ctrl-primary); border-color: var(--ctrl-border);
     }
 
-    .panel-tab-content {
-      display: none;
-    }
+    .panel-tab-content { display: none; }
+    .panel-tab-content.active { display: block; }
 
-    .panel-tab-content.active {
-      display: block;
-    }
+    .grid-fields-2 { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 720px) { .grid-fields-2 { grid-template-columns: 1fr 1fr; } }
+    .col-span-full { grid-column: 1 / -1; }
 
-    .grid-fields-2 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
+    .media-uploader-box {
+      display: flex; flex-direction: column; gap: 10px; padding: 12px;
+      background-color: #0f1115; border: 1px solid var(--ctrl-border); border-radius: var(--ctrl-radius);
     }
-
-    @media (min-width: 680px) {
-      .grid-fields-2 {
-        grid-template-columns: 1fr 1fr;
-      }
+    .media-uploader-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .media-preview-thumb {
+      width: 120px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px;
+      border: 1px solid var(--ctrl-border); background-color: #171a21; flex-shrink: 0;
+    }
+    .media-preview-thumb.is-blueprint { object-fit: contain; background-color: #ffffff; }
+    .media-controls-col { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 8px; }
+    .btn-upload-trigger {
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      background-color: var(--ctrl-surface-alt); color: var(--ctrl-primary);
+      border: 1px solid var(--ctrl-border); padding: 8px 14px; border-radius: var(--ctrl-radius);
+      font-size: 0.78rem; font-weight: 600; cursor: pointer; align-self: flex-start;
     }
 
     .color-picker-box {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 8px 12px;
-      background-color: #0b132b;
-      border: 1px solid var(--ctrl-border);
-      border-radius: 6px;
+      display: flex; align-items: center; gap: 12px; padding: 8px 12px;
+      background-color: #0f1115; border: 1px solid var(--ctrl-border); border-radius: var(--ctrl-radius);
+    }
+    .color-input-field { width: 44px; height: 34px; border: none; background: none; cursor: pointer; }
+
+    .item-edit-card {
+      background-color: #0f1115; border: 1px solid var(--ctrl-border);
+      border-radius: var(--ctrl-radius); padding: 18px; margin-bottom: 18px;
+    }
+    .item-edit-header {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px;
+      margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--ctrl-border);
+    }
+    .item-badge { font-size: 0.78rem; font-weight: 700; color: var(--ctrl-primary); letter-spacing: 0.06em; }
+    .header-ctrl-group { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+
+    .inline-check-label {
+      display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem;
+      color: var(--ctrl-text); cursor: pointer; background-color: var(--ctrl-surface);
+      padding: 5px 10px; border-radius: 4px; border: 1px solid var(--ctrl-border);
     }
 
-    .color-input-field {
-      width: 48px;
-      height: 38px;
-      border: none;
-      background: none;
-      cursor: pointer;
+    .units-visual-wrap {
+      margin-top: 10px; padding: 12px; background-color: var(--ctrl-surface);
+      border: 1px solid var(--ctrl-border); border-radius: var(--ctrl-radius);
+    }
+    .unit-edit-row {
+      display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto; gap: 8px;
+      align-items: center; margin-bottom: 8px;
+    }
+    @media (max-width: 820px) {
+      .unit-edit-row { grid-template-columns: 1fr 1fr; padding-bottom: 10px; border-bottom: 1px solid var(--ctrl-border); }
+    }
+    .unit-edit-row input, .unit-edit-row select {
+      padding: 8px 10px; font-size: 0.84rem; background-color: #0f1115;
+      border: 1px solid var(--ctrl-border); border-radius: 4px; color: var(--ctrl-text); width: 100%;
     }
 
-    .project-edit-card {
-      background-color: #0b132b;
-      border: 1px solid var(--ctrl-border);
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 16px;
-    }
-
-    .project-edit-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--ctrl-border);
-    }
-
-    .project-num-badge {
-      font-size: 0.8rem;
-      font-weight: 800;
-      color: var(--ctrl-primary);
+    .gallery-edit-row {
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+      padding: 10px; background-color: var(--ctrl-surface); border: 1px solid var(--ctrl-border);
+      border-radius: var(--ctrl-radius); margin-bottom: 8px;
     }
 
     .toggle-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 16px;
-      background-color: #0b132b;
-      border: 1px solid var(--ctrl-border);
-      border-radius: 6px;
-      margin-bottom: 10px;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 16px; background-color: #0f1115; border: 1px solid var(--ctrl-border);
+      border-radius: var(--ctrl-radius); margin-bottom: 10px;
+    }
+    .toggle-switch { width: 20px; height: 20px; cursor: pointer; }
+
+    .btn-secondary-sm {
+      background-color: var(--ctrl-surface-alt); color: var(--ctrl-text);
+      border: 1px solid var(--ctrl-border); padding: 8px 14px; border-radius: var(--ctrl-radius);
+      font-size: 0.8rem; font-weight: 600; cursor: pointer;
+    }
+    .btn-secondary-sm:disabled { opacity: 0.45; cursor: not-allowed; }
+    .btn-danger-sm {
+      background-color: transparent; color: #e28080; border: 1px solid rgba(168, 74, 74, 0.5);
+      padding: 6px 10px; border-radius: var(--ctrl-radius); font-size: 0.75rem; cursor: pointer;
     }
 
-    .toggle-label-text {
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .toggle-switch {
-      width: 22px;
-      height: 22px;
-      cursor: pointer;
-    }
-
-    /* Barra Inferior de Acciones con Importador de Empalme */
     .save-actions-bar {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 32px;
-      padding-top: 20px;
-      border-top: 1px solid var(--ctrl-border);
+      display: flex; justify-content: flex-end; gap: 12px;
+      margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--ctrl-border);
     }
-
-    @media (min-width: 680px) {
-      .save-actions-bar {
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-      }
-    }
-
     .btn-save-live {
-      background-color: var(--ctrl-success);
-      color: #ffffff;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      font-weight: 800;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-
-    .btn-save-live:hover {
-      opacity: 0.9;
-    }
-
-    .btn-export-backup {
-      background-color: transparent;
-      color: var(--ctrl-text-muted);
-      border: 1px solid var(--ctrl-border);
-      padding: 12px 18px;
-      border-radius: 6px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .btn-export-backup:hover {
-      color: #ffffff;
-      border-color: #64748b;
-    }
-
-    /* Botón Oficial de Empalme Automatizado (Directiva 9) */
-    .btn-import-backup {
-      background-color: rgba(56, 189, 248, 0.15);
-      color: var(--ctrl-primary);
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      padding: 12px 18px;
-      border-radius: 6px;
-      font-size: 0.88rem;
-      font-weight: 800;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .btn-import-backup:hover {
-      background-color: var(--ctrl-primary);
-      color: #0b132b;
+      background-color: var(--ctrl-success); color: #ffffff; border: none;
+      padding: 13px 28px; border-radius: var(--ctrl-radius); font-size: 0.9rem; font-weight: 700; cursor: pointer;
     }
 
     .toast-notice {
-      display: none;
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background-color: var(--ctrl-success);
-      color: #ffffff;
-      padding: 12px 20px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-      z-index: 1000;
+      display: none; position: fixed; bottom: 24px; right: 24px;
+      background-color: var(--ctrl-success); color: #ffffff; padding: 12px 20px;
+      border-radius: var(--ctrl-radius); font-size: 0.86rem; font-weight: 600; z-index: 1000;
     }
   </style>
 </head>
@@ -388,373 +216,758 @@
 
     <header class="control-header">
       <div class="brand-group">
-        <span style="font-size: 1.8rem;" aria-hidden="true">🎛️</span>
-        <div>
-          <h1 style="font-size: 1.15rem; font-weight: 800;">Mesa de Control Privada</h1>
-          <p style="font-size: 0.78rem; color: var(--ctrl-text-muted);">Administración sin código para Terranova Inmobiliaria</p>
-        </div>
+        <h1>MESA DE CONTROL PRIVADA</h1>
+        <p>Administración sin código • Textos, Modos, Galería (5 fotos), Plano y Unidades</p>
       </div>
       <div class="header-links">
-        <span class="badge-secure">🔒 Sesión Cifrada</span>
-        <a href="index.html" class="btn-link-public" target="_blank" rel="noopener noreferrer">Ver Vitrina en Vivo ↗</a>
+        <span class="badge-secure">Sesión Protegida</span>
+        <a href="index.html" class="btn-link-public" target="_blank" rel="noopener noreferrer">Abrir Vitrina ↗</a>
       </div>
     </header>
 
-    <!-- Pantalla 1: Login por PIN -->
+    <!-- Pantalla 1: Acceso por PIN -->
     <div id="authScreen" class="lock-screen-box">
-      <div class="lock-icon-giant" aria-hidden="true">🔐</div>
       <h2 class="lock-title">Acceso Restringido</h2>
-      <p class="lock-subtitle">Ingresa tu clave maestra para acceder al centro de mando:</p>
-
+      <p class="lock-subtitle">Ingresa tu PIN de administración para editar la vitrina:</p>
       <form id="pinAuthForm" action="javascript:void(0);">
         <div class="form-group">
-          <label for="masterPin">PIN de Seguridad:</label>
+          <label for="masterPin">PIN de Seguridad</label>
           <input type="password" id="masterPin" class="input-control" placeholder="••••" maxlength="8" autofocus required>
           <span id="pinError" class="pin-error"></span>
         </div>
         <button type="submit" class="btn-primary-action">Desbloquear Mesa de Control</button>
       </form>
-      <p style="font-size: 0.72rem; color: #64748b; margin-top: 14px;">Clave inicial predeterminada: <strong>2026</strong></p>
+      <p style="font-size: 0.74rem; color: var(--ctrl-text-muted); margin-top: 14px;">PIN predeterminado: <strong>2026</strong></p>
     </div>
 
-    <!-- Pantalla 2: Centro de Mando Desbloqueado -->
+    <!-- Pantalla 2: Panel Desbloqueado -->
     <main id="dashboardScreen" class="control-dashboard" style="display: none;">
-      
+
       <nav class="tabs-bar" role="tablist">
-        <button type="button" class="tab-btn active" onclick="switchTab('tabIdentidad')">1. Identidad & Redes</button>
-        <button type="button" class="tab-btn" onclick="switchTab('tabColores')">2. Colores en Vivo</button>
-        <button type="button" class="tab-btn" onclick="switchTab('tabProyectos')">3. Gestor de los 5 Proyectos</button>
-        <button type="button" class="tab-btn" onclick="switchTab('tabSecciones')">4. Interruptores de Secciones</button>
+        <button type="button" class="tab-btn active" data-tab="tabIdentidad">1. Identidad & Portada</button>
+        <button type="button" class="tab-btn" data-tab="tabColores">2. Modos & Colores</button>
+        <button type="button" class="tab-btn" data-tab="tabProyectos">3. Proyectos, Galería, Plano & Unidades</button>
+        <button type="button" class="tab-btn" data-tab="tabModulos">4. Módulos & Secciones</button>
       </nav>
 
       <form id="controlSettingsForm" action="javascript:void(0);">
-        
-        <!-- Pestaña 1: Identidad y Canales -->
+
+        <!-- PESTAÑA 1 -->
         <div id="tabIdentidad" class="panel-tab-content active">
           <div class="grid-fields-2">
             <div class="form-group">
-              <label for="ctrlBrandName">Nombre Comercial de la Inmobiliaria:</label>
-              <input type="text" id="ctrlBrandName" class="input-control" value="Terranova Inmobiliaria">
+              <label for="ctrlBrandName">Nombre Comercial (Cabecera y Footer)</label>
+              <input type="text" id="ctrlBrandName" class="input-control" value="TERRANOVA">
             </div>
             <div class="form-group">
-              <label for="ctrlBrandSubtitle">Especialidad o Eslogan:</label>
-              <input type="text" id="ctrlBrandSubtitle" class="input-control" value="Lotes & Parcelaciones Campestres">
+              <label for="ctrlBrandSubtitle">Subtítulo Editorial de Marca</label>
+              <input type="text" id="ctrlBrandSubtitle" class="input-control" value="PARCELACIONES & INVESTMENTS">
             </div>
             <div class="form-group">
-              <label for="ctrlWhatsapp">Número Oficial de WhatsApp (Receptor de Leads):</label>
-              <input type="tel" id="ctrlWhatsapp" class="input-control" value="573123456789">
+              <label for="ctrlWhatsapp">WhatsApp Oficial de Atención (con 57)</label>
+              <input type="tel" id="ctrlWhatsapp" class="input-control" value="573208103010">
             </div>
             <div class="form-group">
-              <label for="ctrlLogoUrl">Ruta o URL del Logotipo:</label>
-              <input type="text" id="ctrlLogoUrl" class="input-control" placeholder="assets/images/logo.png">
+              <label for="ctrlHeroKicker">Etiqueta Superior del Hero (Kicker)</label>
+              <input type="text" id="ctrlHeroKicker" class="input-control" value="DESARROLLOS RURALES DE ALTA GAMA • CUNDINAMARCA">
+            </div>
+            <div class="form-group col-span-full">
+              <label for="ctrlHeroHeadline">Titular Principal del Hero (H1)</label>
+              <input type="text" id="ctrlHeroHeadline" class="input-control" value="PATRIMONIO EN TIERRA FIRME">
+            </div>
+            <div class="form-group col-span-full">
+              <label for="ctrlHeroDescription">Descripción del Hero</label>
+              <textarea id="ctrlHeroDescription" class="textarea-control">Parcelaciones campestres con vocación de descanso, privacidad absoluta y blindaje jurídico notarial independiente.</textarea>
+            </div>
+
+            <div class="form-group col-span-full">
+              <label>Fotografía Principal de Portada (Encuadre automático 16:9)</label>
+              <div class="media-uploader-box">
+                <div class="media-uploader-row">
+                  <img id="heroPreviewImg" class="media-preview-thumb" src="" alt="Vista previa Hero">
+                  <div class="media-controls-col">
+                    <input type="file" id="heroImageFile" accept="image/*" style="display: none;">
+                    <button type="button" class="btn-upload-trigger" id="btnUploadHeroImg">Subir foto desde tu equipo</button>
+                    <input type="text" id="ctrlHeroImageUrl" class="input-control" placeholder="O pega aquí el enlace de la imagen">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="ctrlHeroVideoSource">Video Grande en Portada Principal</label>
+              <select id="ctrlHeroVideoSource" class="select-control">
+                <option value="featured">Usar automáticamente el video del Proyecto Destacado</option>
+                <option value="custom">Usar un enlace de video personalizado abajo</option>
+              </select>
             </div>
             <div class="form-group">
-              <label for="ctrlFacebook">Enlace Oficial de Facebook:</label>
-              <input type="url" id="ctrlFacebook" class="input-control" placeholder="https://facebook.com/tupagina">
-            </div>
-            <div class="form-group">
-              <label for="ctrlInstagram">Enlace Oficial de Instagram:</label>
-              <input type="url" id="ctrlInstagram" class="input-control" placeholder="https://instagram.com/tucuenta">
-            </div>
-            <div class="form-group">
-              <label for="ctrlTiktok">Enlace Oficial de TikTok:</label>
-              <input type="url" id="ctrlTiktok" class="input-control" placeholder="https://tiktok.com/@tucuenta">
-            </div>
-            <div class="form-group">
-              <label for="ctrlVideoUrl">Enlace de Video del Terreno (YouTube / MP4):</label>
+              <label for="ctrlVideoUrl">Enlace de Video Personalizado (YouTube / MP4)</label>
               <input type="url" id="ctrlVideoUrl" class="input-control" placeholder="https://youtube.com/watch?v=...">
             </div>
           </div>
         </div>
 
-        <!-- Pestaña 2: Colores Corporativos -->
+        <!-- PESTAÑA 2 -->
         <div id="tabColores" class="panel-tab-content">
-          <p style="font-size: 0.88rem; color: var(--ctrl-text-muted); margin-bottom: 20px;">
-            Selecciona los colores de la marca con un clic. La vitrina se actualiza automáticamente:
-          </p>
-          <div class="grid-fields-2">
-            <div class="form-group">
-              <label for="pickerPrimary">Color Principal (Encabezados, barra superior y footer):</label>
-              <div class="color-picker-box">
-                <input type="color" id="pickerPrimary" class="color-input-field" value="#0f172a">
-                <span id="hexPrimary" style="font-size: 0.85rem; font-family: monospace;">#0f172a</span>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="pickerAccent">Color de Acento (Botones de acción y enlaces):</label>
-              <div class="color-picker-box">
-                <input type="color" id="pickerAccent" class="color-input-field" value="#2563eb">
-                <span id="hexAccent" style="font-size: 0.85rem; font-family: monospace;">#2563eb</span>
-              </div>
-            </div>
+          <div class="form-group">
+            <label for="ctrlThemeMode">Modo Visual Activo en la Vitrina</label>
+            <select id="ctrlThemeMode" class="select-control">
+              <option value="light">Fijo 1: Modo Luminoso Discovery (Marfil #FAF9F5 / Grafito #141414)</option>
+              <option value="dark">Fijo 2: Modo Oscuro Editorial (#111111 / Marfil #F4F3EE)</option>
+              <option value="custom-1" id="optCustomTheme1">Personalizado 1</option>
+              <option value="custom-2" id="optCustomTheme2">Personalizado 2</option>
+            </select>
           </div>
+          <p style="font-size: 0.84rem; color: var(--ctrl-text-muted); margin-bottom: 16px;">
+            Los 2 modos principales están protegidos. Aquí puedes configurar hasta <strong>2 modos personalizados</strong>:
+          </p>
+          <div id="customThemesEditorList" class="grid-fields-2"></div>
         </div>
 
-        <!-- Pestaña 3: Gestor de los 5 Proyectos -->
+        <!-- PESTAÑA 3 -->
         <div id="tabProyectos" class="panel-tab-content">
-          <p style="font-size: 0.88rem; color: var(--ctrl-text-muted); margin-bottom: 16px;">
-            Edita los datos de cada uno de los 5 proyectos. El sistema adapta automáticamente las fotos a 16:9 sin deformarlas:
-          </p>
-
-          <div class="project-edit-card">
-            <div class="project-edit-header">
-              <span class="project-num-badge">PROYECTO 1</span>
-              <select id="p1_tipo" class="input-control" style="width: auto; padding: 4px 10px;">
-                <option value="lote" selected>Lote Campestre</option>
-                <option value="casa">Casa Campestre</option>
-                <option value="apartamento">Apartamento</option>
-              </select>
+          <div class="item-edit-card">
+            <div class="item-edit-header">
+              <div>
+                <span class="item-badge">TIPOLOGÍAS DE PROYECTO (MÁX. 5)</span>
+                <p style="font-size: 0.78rem; color: var(--ctrl-text-muted);">Define las categorías disponibles para clasificar tus proyectos.</p>
+              </div>
+              <button type="button" class="btn-secondary-sm" id="btnAddTypology">+ Agregar Tipología</button>
             </div>
-            <div class="grid-fields-2">
-              <div class="form-group">
-                <label>Título del Inmueble:</label>
-                <input type="text" id="p1_titulo" class="input-control" value="Reserva del Bosque - Lote #14">
-              </div>
-              <div class="form-group">
-                <label>Precio en COP:</label>
-                <input type="text" id="p1_precio" class="input-control" value="$ 115.000.000">
-              </div>
-              <div class="form-group">
-                <label>Metraje / Área:</label>
-                <input type="text" id="p1_area" class="input-control" value="500 m² Planos">
-              </div>
-              <div class="form-group">
-                <label>Estado Comercial:</label>
-                <select id="p1_estado" class="input-control">
-                  <option value="disponible" selected>Disponible</option>
-                  <option value="preventa">En Preventa</option>
-                  <option value="vendido">Vendido</option>
-                </select>
-              </div>
-              <div class="form-group" style="grid-column: 1 / -1;">
-                <label>Ruta o URL de la Foto Principal:</label>
-                <input type="text" id="p1_foto" class="input-control" placeholder="assets/images/lote1.jpg">
-              </div>
-            </div>
+            <div id="typologiesEditorList" class="grid-fields-2"></div>
           </div>
 
-          <div class="project-edit-card">
-            <div class="project-edit-header">
-              <span class="project-num-badge">PROYECTO 2</span>
-              <select id="p2_tipo" class="input-control" style="width: auto; padding: 4px 10px;">
-                <option value="lote">Lote Campestre</option>
-                <option value="casa" selected>Casa Campestre</option>
-                <option value="apartamento">Apartamento</option>
-              </select>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin: 22px 0 14px;">
+            <div>
+              <h3 style="font-size: 0.95rem; color: var(--ctrl-primary);">Proyectos Inmobiliarios (Máx. 5)</h3>
+              <p style="font-size: 0.78rem; color: var(--ctrl-text-muted);">Edita portada, video, plano general, hasta 5 fotos de galería y unidades.</p>
             </div>
-            <div class="grid-fields-2">
-              <div class="form-group">
-                <label>Título del Inmueble:</label>
-                <input type="text" id="p2_titulo" class="input-control" value="Villa Campestre Los Pinos - Modelo A">
-              </div>
-              <div class="form-group">
-                <label>Precio en COP:</label>
-                <input type="text" id="p2_precio" class="input-control" value="$ 340.000.000">
-              </div>
-              <div class="form-group">
-                <label>Metraje / Área:</label>
-                <input type="text" id="p2_area" class="input-control" value="180 m² Construidos">
-              </div>
-              <div class="form-group">
-                <label>Estado Comercial:</label>
-                <select id="p2_estado" class="input-control">
-                  <option value="disponible">Disponible</option>
-                  <option value="preventa" selected>En Preventa</option>
-                  <option value="vendido">Vendido</option>
-                </select>
-              </div>
-              <div class="form-group" style="grid-column: 1 / -1;">
-                <label>Ruta o URL de la Foto Principal:</label>
-                <input type="text" id="p2_foto" class="input-control" placeholder="assets/images/casa1.jpg">
-              </div>
-            </div>
+            <button type="button" class="btn-secondary-sm" id="btnAddProject">+ Nuevo Proyecto</button>
           </div>
+
+          <div id="projectsEditorList"></div>
         </div>
 
-        <!-- Pestaña 4: Interruptores de Secciones -->
-        <div id="tabSecciones" class="panel-tab-content">
-          <p style="font-size: 0.88rem; color: var(--ctrl-text-muted); margin-bottom: 16px;">
-            Enciende o apaga secciones completas de la vitrina comercial con un clic:
-          </p>
-
+        <!-- PESTAÑA 4 -->
+        <div id="tabModulos" class="panel-tab-content">
+          <h3 style="font-size: 0.95rem; margin-bottom: 12px; color: var(--ctrl-primary);">Secciones Base de Portada</h3>
           <div class="toggle-row">
-            <span class="toggle-label-text">Barra Superior de Legalidad y Redes</span>
-            <input type="checkbox" id="toggle_announcement" class="toggle-switch" checked>
-          </div>
-
-          <div class="toggle-row">
-            <span class="toggle-label-text">Módulo de Beneficios & Legalidad</span>
+            <span>Módulo de Criterios Técnicos & Urbanismo</span>
             <input type="checkbox" id="toggle_benefits" class="toggle-switch" checked>
           </div>
-
           <div class="toggle-row">
-            <span class="toggle-label-text">Módulo de Video Showcase del Terreno</span>
+            <span>Módulo de Inspección Aérea en Video 16:9</span>
             <input type="checkbox" id="toggle_video" class="toggle-switch" checked>
           </div>
-
           <div class="toggle-row">
-            <span class="toggle-label-text">Módulo de Proceso de Compra en 4 Pasos</span>
+            <span>Módulo de Metodología Notarial en 4 Pasos</span>
             <input type="checkbox" id="toggle_process" class="toggle-switch" checked>
           </div>
-
           <div class="toggle-row">
-            <span class="toggle-label-text">Módulo de Preguntas Frecuentes (FAQ)</span>
+            <span>Módulo de Preguntas Frecuentes (en Contacto)</span>
             <input type="checkbox" id="toggle_faq" class="toggle-switch" checked>
           </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin: 28px 0 14px;">
+            <div>
+              <h3 style="font-size: 0.95rem; color: var(--ctrl-primary);">Secciones Modulares Personalizadas</h3>
+              <p style="font-size: 0.78rem; color: var(--ctrl-text-muted);">Crea módulos adicionales en portada sin tocar código.</p>
+            </div>
+            <button type="button" class="btn-secondary-sm" id="btnAddCustomSection">+ Nueva Sección</button>
+          </div>
+          <div id="customSectionsList"></div>
         </div>
 
-        <!-- Barra Inferior de Acciones con Importador de Empalme en 1 Clic -->
         <div class="save-actions-bar">
-          <!-- Selector de archivo oculto -->
-          <input type="file" id="importFileInput" accept=".json" style="display: none;" onchange="importBackup(event)">
-          
-          <!-- Botón Oficial Directiva 9 -->
-          <button type="button" class="btn-import-backup" onclick="document.getElementById('importFileInput').click()">⚡ Importador de Empalme en 1 Clic</button>
-          
-          <button type="button" class="btn-export-backup" onclick="exportBackup()">📥 Descargar Respaldo JSON</button>
-          <button type="submit" class="btn-save-live">💾 Guardar Cambios en Vivo</button>
+          <button type="submit" class="btn-save-live">Guardar Cambios en Vivo</button>
         </div>
+
       </form>
     </main>
 
   </div>
 
-  <div id="saveToast" class="toast-notice">✅ Cambios guardados con éxito. Refresca la vitrina para verlos.</div>
+  <div id="saveToast" class="toast-notice"></div>
 
+  <script src="js/data-projects.js"></script>
   <script>
-    const MASTER_PIN = "2026";
+    (function () {
+      'use strict';
 
-    // 1. Acceso Seguro con PIN
-    document.getElementById('pinAuthForm').addEventListener('submit', function() {
-      const pin = document.getElementById('masterPin').value.trim();
-      const err = document.getElementById('pinError');
-      if (pin === MASTER_PIN) {
-        document.getElementById('authScreen').style.display = 'none';
-        document.getElementById('dashboardScreen').style.display = 'block';
-        loadSettingsToForm();
-      } else {
-        err.textContent = "PIN incorrecto. Intenta nuevamente.";
+      const MASTER_PIN = '2026';
+      const CONFIG_KEY = 'TERRANOVA_SITE_CONFIG';
+      const PROJECTS_KEY = 'TERRANOVA_PROJECTS_DATA';
+
+      const DEFAULT_TYPOLOGIES = [
+        { id: 'lote', label: 'Lotes Campestres' },
+        { id: 'casa', label: 'Casas Campestres' },
+        { id: 'apartamento', label: 'Apartamentos de Montaña' }
+      ];
+
+      const DEFAULT_CUSTOM_THEMES = [
+        { id: 'custom-1', name: 'Luz Azul', bgCanvas: '#F2F6FA', bgSurface: '#FFFFFF', textMain: '#102136', textMuted: '#4A5D73' },
+        { id: 'custom-2', name: 'Oscuro Profundo', bgCanvas: '#0B111A', bgSurface: '#131C2B', textMain: '#E8EEF5', textMuted: '#91A3B8' }
+      ];
+
+      let typologiesState = [];
+      let projectsState = [];
+      let customThemesState = [];
+      let customSectionsState = [];
+
+      document.getElementById('pinAuthForm').addEventListener('submit', () => {
+        const pin = document.getElementById('masterPin').value.trim();
+        if (pin === MASTER_PIN) {
+          document.getElementById('authScreen').style.display = 'none';
+          document.getElementById('dashboardScreen').style.display = 'block';
+          loadAllIntoControl();
+        } else {
+          document.getElementById('pinError').textContent = 'PIN incorrecto. Intenta nuevamente.';
+        }
+      });
+
+      document.querySelectorAll('.tab-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
+          document.querySelectorAll('.panel-tab-content').forEach((p) => p.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
+        });
+      });
+
+      function compressImageTo16_9(file, callback) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = 1280; canvas.height = 720;
+            const ctx = canvas.getContext('2d');
+            const srcRatio = img.width / img.height;
+            const dstRatio = 16 / 9;
+            let sx = 0, sy = 0, sw = img.width, sh = img.height;
+            if (srcRatio > dstRatio) { sw = img.height * dstRatio; sx = (img.width - sw) / 2; }
+            else { sh = img.width / dstRatio; sy = (img.height - sh) / 2; }
+            ctx.drawImage(img, sx, sy, sw, sh, 0, 0, 1280, 720);
+            callback(canvas.toDataURL('image/jpeg', 0.8));
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
       }
-    });
 
-    // 2. Navegación por Pestañas
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.panel-tab-content').forEach(panel => panel.classList.remove('active'));
-      event.target.classList.add('active');
-      document.getElementById(tabId).classList.add('active');
-    }
+      function compressBlueprintFull(file, callback) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            const maxDim = 1200;
+            const scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+            const canvas = document.createElement('canvas');
+            canvas.width = Math.round(img.width * scale);
+            canvas.height = Math.round(img.height * scale);
+            canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+            callback(canvas.toDataURL('image/jpeg', 0.82));
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
 
-    // 3. Sincronización de Color en Tiempo Real
-    document.getElementById('pickerPrimary').addEventListener('input', e => {
-      document.getElementById('hexPrimary').textContent = e.target.value;
-    });
-    document.getElementById('pickerAccent').addEventListener('input', e => {
-      document.getElementById('hexAccent').textContent = e.target.value;
-    });
+      const heroUrlInput = document.getElementById('ctrlHeroImageUrl');
+      const heroPreview = document.getElementById('heroPreviewImg');
+      const heroFileInput = document.getElementById('heroImageFile');
 
-    // 4. Guardar Configuración Manual
-    document.getElementById('controlSettingsForm').addEventListener('submit', function() {
-      saveFormDataToStorage();
-      showToast("✅ Cambios guardados con éxito en la memoria.");
-    });
+      heroUrlInput.addEventListener('input', () => { heroPreview.src = heroUrlInput.value; });
+      document.getElementById('btnUploadHeroImg').addEventListener('click', () => heroFileInput.click());
+      heroFileInput.addEventListener('change', (e) => {
+        if (!e.target.files[0]) return;
+        compressImageTo16_9(e.target.files[0], (dataUrl) => {
+          heroUrlInput.value = dataUrl; heroPreview.src = dataUrl;
+          showToast('Foto Hero optimizada a 16:9.');
+        });
+      });
 
-    function saveFormDataToStorage() {
-      const configData = {
-        brandName: document.getElementById('ctrlBrandName').value,
-        brandSubtitle: document.getElementById('ctrlBrandSubtitle').value,
-        whatsapp: document.getElementById('ctrlWhatsapp').value,
-        logoUrl: document.getElementById('ctrlLogoUrl').value,
-        facebook: document.getElementById('ctrlFacebook').value,
-        instagram: document.getElementById('ctrlInstagram').value,
-        tiktok: document.getElementById('ctrlTiktok').value,
-        videoUrl: document.getElementById('ctrlVideoUrl').value,
-        colorPrimary: document.getElementById('pickerPrimary').value,
-        colorAccent: document.getElementById('pickerAccent').value,
-        toggles: {
-          announcement: document.getElementById('toggle_announcement').checked,
-          benefits: document.getElementById('toggle_benefits').checked,
-          video: document.getElementById('toggle_video').checked,
-          process: document.getElementById('toggle_process').checked,
-          faq: document.getElementById('toggle_faq').checked
+      function renderCustomThemesEditor() {
+        const container = document.getElementById('customThemesEditorList');
+        container.innerHTML = customThemesState.map((theme, idx) => `
+          <div class="item-edit-card" data-theme-idx="${idx}">
+            <div class="item-edit-header"><span class="item-badge">MODO PERSONALIZADO ${idx + 1}</span></div>
+            <div class="form-group">
+              <label>Nombre del Modo</label>
+              <input type="text" class="input-control" data-tfield="name" value="${escapeAttr(theme.name)}">
+            </div>
+            <div class="grid-fields-2">
+              <div class="form-group"><label>Fondo General</label><div class="color-picker-box"><input type="color" class="color-input-field" data-tfield="bgCanvas" value="${escapeAttr(theme.bgCanvas)}"><span style="font-family:monospace;font-size:0.82rem;">${escapeHtml(theme.bgCanvas)}</span></div></div>
+              <div class="form-group"><label>Fondo Tarjetas</label><div class="color-picker-box"><input type="color" class="color-input-field" data-tfield="bgSurface" value="${escapeAttr(theme.bgSurface)}"><span style="font-family:monospace;font-size:0.82rem;">${escapeHtml(theme.bgSurface)}</span></div></div>
+              <div class="form-group"><label>Color Textos / Botones</label><div class="color-picker-box"><input type="color" class="color-input-field" data-tfield="textMain" value="${escapeAttr(theme.textMain)}"><span style="font-family:monospace;font-size:0.82rem;">${escapeHtml(theme.textMain)}</span></div></div>
+              <div class="form-group"><label>Textos Secundarios</label><div class="color-picker-box"><input type="color" class="color-input-field" data-tfield="textMuted" value="${escapeAttr(theme.textMuted)}"><span style="font-family:monospace;font-size:0.82rem;">${escapeHtml(theme.textMuted)}</span></div></div>
+            </div>
+          </div>
+        `).join('');
+
+        const opt1 = document.getElementById('optCustomTheme1');
+        const opt2 = document.getElementById('optCustomTheme2');
+        if (opt1 && customThemesState[0]) opt1.textContent = `Personalizado 1: ${customThemesState[0].name}`;
+        if (opt2 && customThemesState[1]) opt2.textContent = `Personalizado 2: ${customThemesState[1].name}`;
+
+        container.querySelectorAll('input[type="color"]').forEach((picker) => {
+          picker.addEventListener('input', (e) => { e.target.nextElementSibling.textContent = e.target.value.toUpperCase(); });
+        });
+      }
+
+      function syncCustomThemesFromInputs() {
+        document.querySelectorAll('#customThemesEditorList [data-theme-idx]').forEach((card) => {
+          const idx = Number(card.getAttribute('data-theme-idx'));
+          if (!customThemesState[idx]) return;
+          card.querySelectorAll('[data-tfield]').forEach((inp) => { customThemesState[idx][inp.getAttribute('data-tfield')] = inp.value; });
+        });
+      }
+
+      function renderTypologiesEditor() {
+        const container = document.getElementById('typologiesEditorList');
+        document.getElementById('btnAddTypology').disabled = typologiesState.length >= 5;
+
+        container.innerHTML = typologiesState.map((t, idx) => `
+          <div style="display:flex;gap:8px;align-items:center;">
+            <input type="text" class="input-control" data-typo-idx="${idx}" value="${escapeAttr(t.label)}" placeholder="Ej: Lote Rural">
+            <button type="button" class="btn-danger-sm" data-del-typo="${idx}" ${typologiesState.length <= 1 ? 'disabled' : ''}>✕</button>
+          </div>
+        `).join('');
+
+        container.querySelectorAll('[data-typo-idx]').forEach((inp) => {
+          inp.addEventListener('input', () => {
+            const i = Number(inp.getAttribute('data-typo-idx'));
+            typologiesState[i].label = inp.value;
+            typologiesState[i].id = slugify(inp.value) || typologiesState[i].id;
+          });
+        });
+
+        container.querySelectorAll('[data-del-typo]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            if (typologiesState.length <= 1) return;
+            typologiesState.splice(Number(btn.getAttribute('data-del-typo')), 1);
+            renderTypologiesEditor(); syncProjectsFromInputs(); renderProjectsEditor();
+          });
+        });
+      }
+
+      document.getElementById('btnAddTypology').addEventListener('click', () => {
+        if (typologiesState.length >= 5) return;
+        const num = typologiesState.length + 1;
+        typologiesState.push({ id: 'tipo-' + num, label: `Nueva Tipología ${num}` });
+        renderTypologiesEditor(); syncProjectsFromInputs(); renderProjectsEditor();
+      });
+
+      function renderProjectsEditor() {
+        const container = document.getElementById('projectsEditorList');
+        document.getElementById('btnAddProject').disabled = projectsState.length >= 5;
+
+        container.innerHTML = projectsState.map((proj, idx) => {
+          const units = Array.isArray(proj.unidadesInventario) ? proj.unidadesInventario : [];
+          const gallery = Array.isArray(proj.galeria) ? proj.galeria : [];
+          const typoOptions = typologiesState.map((t) =>
+            `<option value="${escapeAttr(t.id)}" ${proj.categoriaFiltro === t.id || proj.tipologia === t.label ? 'selected' : ''}>${escapeHtml(t.label)}</option>`
+          ).join('');
+
+          const galleryRowsHtml = gallery.map((g, gIdx) => `
+            <div class="gallery-edit-row" data-gal-idx="${gIdx}">
+              <img class="media-preview-thumb" style="width:84px;" id="galPrev_${idx}_${gIdx}" src="${escapeAttr(g.url)}" alt="Foto ${gIdx + 1}">
+              <div style="flex:1;min-width:200px;display:flex;flex-direction:column;gap:6px;">
+                <input type="file" id="galFile_${idx}_${gIdx}" accept="image/*" style="display:none;" data-gal-file="${idx}:${gIdx}">
+                <div style="display:flex;gap:8px;align-items:center;">
+                  <button type="button" class="btn-upload-trigger" data-trigger-gal="${idx}:${gIdx}">Subir foto</button>
+                  <input type="text" class="input-control" style="padding:7px 10px;font-size:0.84rem;" data-gfield="url" value="${escapeAttr(g.url)}" placeholder="O enlace de foto">
+                </div>
+                <input type="text" class="input-control" style="padding:7px 10px;font-size:0.84rem;" data-gfield="caption" value="${escapeAttr(g.caption || '')}" placeholder="Descripción (ej: Licencia Alcaldía)">
+              </div>
+              <button type="button" class="btn-danger-sm" data-del-gal="${idx}:${gIdx}">✕</button>
+            </div>
+          `).join('');
+
+          const unitsRowsHtml = units.map((u, uIdx) => `
+            <div class="unit-edit-row" data-unit-idx="${uIdx}">
+              <input type="text" data-ufield="codigo" value="${escapeAttr(u.codigo)}" placeholder="Lote 01">
+              <input type="text" data-ufield="area" value="${escapeAttr(u.area)}" placeholder="1.500 m²">
+              <input type="number" data-ufield="precioCOP" value="${escapeAttr(u.precioCOP)}" placeholder="150000000">
+              <select data-ufield="estado">
+                <option value="Disponible" ${u.estado === 'Disponible' ? 'selected' : ''}>Disponible</option>
+                <option value="Reservado" ${u.estado === 'Reservado' ? 'selected' : ''}>Reservado</option>
+                <option value="Vendido" ${u.estado === 'Vendido' ? 'selected' : ''}>Vendido</option>
+              </select>
+              <input type="text" data-ufield="matricula" value="${escapeAttr(u.matricula)}" placeholder="FMI-50N-...">
+              <button type="button" class="btn-danger-sm" data-del-unit="${idx}:${uIdx}">✕</button>
+            </div>
+          `).join('');
+
+          return `
+            <div class="item-edit-card" data-proj-idx="${idx}">
+              <div class="item-edit-header">
+                <span class="item-badge">PROYECTO 0${idx + 1}</span>
+                <div class="header-ctrl-group">
+                  <label class="inline-check-label"><input type="checkbox" data-pfield="visible" ${proj.visible !== false ? 'checked' : ''}> Visible en Web</label>
+                  <label class="inline-check-label"><input type="radio" name="featuredProjectRadio" value="${idx}" ${proj.destacado ? 'checked' : ''}> Destacado (Video Portada)</label>
+                  <select class="select-control" style="width:auto;padding:6px 10px;" data-pfield="categoriaFiltro">${typoOptions}</select>
+                  <button type="button" class="btn-danger-sm" data-del-proj="${idx}" ${projectsState.length <= 1 ? 'disabled' : ''}>Eliminar</button>
+                </div>
+              </div>
+
+              <div class="grid-fields-2">
+                <div class="form-group"><label>Nombre del Proyecto</label><input type="text" class="input-control" data-pfield="nombre" value="${escapeAttr(proj.nombre)}"></div>
+                <div class="form-group"><label>Municipio</label><input type="text" class="input-control" data-pfield="municipio" value="${escapeAttr(proj.municipio)}"></div>
+                <div class="form-group"><label>Rango de Áreas</label><input type="text" class="input-control" data-pfield="rangoAreas" value="${escapeAttr(proj.rangoAreas)}"></div>
+                <div class="form-group"><label>Inversión Desde (Texto)</label><input type="text" class="input-control" data-pfield="precioDesdeFormato" value="${escapeAttr(proj.precioDesdeFormato)}"></div>
+
+                <div class="form-group col-span-full">
+                  <label>Foto Principal del Proyecto (16:9 automático)</label>
+                  <div class="media-uploader-box">
+                    <div class="media-uploader-row">
+                      <img class="media-preview-thumb" id="projPreview_${idx}" src="${escapeAttr(proj.fotoPrincipal16_9)}" alt="Portada">
+                      <div class="media-controls-col">
+                        <input type="file" id="projFile_${idx}" accept="image/*" style="display:none;" data-proj-file="${idx}">
+                        <button type="button" class="btn-upload-trigger" data-trigger-proj-img="${idx}">Subir foto desde tu equipo</button>
+                        <input type="text" class="input-control" data-pfield="fotoPrincipal16_9" value="${escapeAttr(proj.fotoPrincipal16_9)}">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group col-span-full">
+                  <label>Plano Topográfico General (Se muestra completo sin recortes)</label>
+                  <div class="media-uploader-box">
+                    <div class="media-uploader-row">
+                      <img class="media-preview-thumb is-blueprint" id="planoPreview_${idx}" src="${escapeAttr(proj.planoUrl || '')}" alt="Plano">
+                      <div class="media-controls-col">
+                        <input type="file" id="planoFile_${idx}" accept="image/*" style="display:none;" data-plano-file="${idx}">
+                        <button type="button" class="btn-upload-trigger" data-trigger-plano="${idx}">Subir plano desde tu equipo</button>
+                        <input type="text" class="input-control" data-pfield="planoUrl" value="${escapeAttr(proj.planoUrl || '')}" placeholder="Ej: assets/images/plano-proj-01.jpeg">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group col-span-full">
+                  <label>Video del Proyecto (YouTube / Vimeo / MP4)</label>
+                  <input type="url" class="input-control" data-pfield="videoUrl" value="${escapeAttr(proj.videoUrl || '')}" placeholder="https://www.youtube.com/watch?v=...">
+                </div>
+
+                <div class="form-group col-span-full">
+                  <label>Descripción Editorial</label>
+                  <textarea class="textarea-control" data-pfield="descripcionEditorial">${escapeHtml(proj.descripcionEditorial)}</textarea>
+                </div>
+
+                <!-- Galería hasta 5 fotos -->
+                <div class="form-group col-span-full">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                    <label style="margin:0;">Galería del Proyecto (Máx. 5 Fotos — Licencias, Renders, Vistas)</label>
+                    <button type="button" class="btn-secondary-sm" data-add-gal="${idx}" ${gallery.length >= 5 ? 'disabled' : ''}>+ Agregar Foto (${gallery.length}/5)</button>
+                  </div>
+                  <div class="gallery-list-wrap">${galleryRowsHtml || '<p style="font-size:0.8rem;color:var(--ctrl-text-muted);">Sin fotos adicionales en galería.</p>'}</div>
+                </div>
+
+                <!-- Unidades Visuales -->
+                <div class="form-group col-span-full">
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <label style="margin:0;">Unidades Individuales (Unidad • Área • Precio COP • Estado • Matrícula)</label>
+                    <button type="button" class="btn-secondary-sm" data-add-unit="${idx}">+ Agregar Unidad</button>
+                  </div>
+                  <div class="units-visual-wrap">${unitsRowsHtml || '<p style="font-size:0.8rem;color:var(--ctrl-text-muted);">Sin unidades cargadas.</p>'}</div>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        // Eventos fotos principales
+        container.querySelectorAll('[data-trigger-proj-img]').forEach((b) => {
+          b.addEventListener('click', () => document.getElementById(`projFile_${b.getAttribute('data-trigger-proj-img')}`).click());
+        });
+        container.querySelectorAll('[data-proj-file]').forEach((inp) => {
+          inp.addEventListener('change', (e) => {
+            if (!e.target.files[0]) return;
+            const i = Number(inp.getAttribute('data-proj-file'));
+            compressImageTo16_9(e.target.files[0], (url) => {
+              projectsState[i].fotoPrincipal16_9 = url;
+              container.querySelector(`[data-proj-idx="${i}"] [data-pfield="fotoPrincipal16_9"]`).value = url;
+              document.getElementById(`projPreview_${i}`).src = url;
+              showToast(`Foto principal del Proyecto 0${i + 1} optimizada.`);
+            });
+          });
+        });
+
+        // Eventos planos
+        container.querySelectorAll('[data-trigger-plano]').forEach((b) => {
+          b.addEventListener('click', () => document.getElementById(`planoFile_${b.getAttribute('data-trigger-plano')}`).click());
+        });
+        container.querySelectorAll('[data-plano-file]').forEach((inp) => {
+          inp.addEventListener('change', (e) => {
+            if (!e.target.files[0]) return;
+            const i = Number(inp.getAttribute('data-plano-file'));
+            compressBlueprintFull(e.target.files[0], (url) => {
+              projectsState[i].planoUrl = url;
+              container.querySelector(`[data-proj-idx="${i}"] [data-pfield="planoUrl"]`).value = url;
+              document.getElementById(`planoPreview_${i}`).src = url;
+              showToast(`Plano del Proyecto 0${i + 1} cargado.`);
+            });
+          });
+        });
+
+        // Eventos galería (máx. 5)
+        container.querySelectorAll('[data-add-gal]').forEach((b) => {
+          b.addEventListener('click', () => {
+            syncProjectsFromInputs();
+            const i = Number(b.getAttribute('data-add-gal'));
+            projectsState[i].galeria = projectsState[i].galeria || [];
+            if (projectsState[i].galeria.length >= 5) return;
+            projectsState[i].galeria.push({ url: '', caption: `Registro 0${projectsState[i].galeria.length + 1}` });
+            renderProjectsEditor();
+          });
+        });
+        container.querySelectorAll('[data-del-gal]').forEach((b) => {
+          b.addEventListener('click', () => {
+            syncProjectsFromInputs();
+            const [pIdx, gIdx] = b.getAttribute('data-del-gal').split(':').map(Number);
+            projectsState[pIdx].galeria.splice(gIdx, 1);
+            renderProjectsEditor();
+          });
+        });
+        container.querySelectorAll('[data-trigger-gal]').forEach((b) => {
+          b.addEventListener('click', () => {
+            const [pIdx, gIdx] = b.getAttribute('data-trigger-gal').split(':');
+            document.getElementById(`galFile_${pIdx}_${gIdx}`).click();
+          });
+        });
+        container.querySelectorAll('[data-gal-file]').forEach((inp) => {
+          inp.addEventListener('change', (e) => {
+            if (!e.target.files[0]) return;
+            const [pIdx, gIdx] = inp.getAttribute('data-gal-file').split(':').map(Number);
+            compressImageTo16_9(e.target.files[0], (url) => {
+              projectsState[pIdx].galeria[gIdx].url = url;
+              document.getElementById(`galPrev_${pIdx}_${gIdx}`).src = url;
+              const row = container.querySelector(`[data-proj-idx="${pIdx}"] [data-gal-idx="${gIdx}"]`);
+              if (row) row.querySelector('[data-gfield="url"]').value = url;
+              showToast('Foto de galería optimizada a 16:9.');
+            });
+          });
+        });
+
+        // Eventos unidades y proyectos
+        container.querySelectorAll('[data-add-unit]').forEach((b) => {
+          b.addEventListener('click', () => {
+            syncProjectsFromInputs();
+            const i = Number(b.getAttribute('data-add-unit'));
+            projectsState[i].unidadesInventario = projectsState[i].unidadesInventario || [];
+            projectsState[i].unidadesInventario.push({ codigo: `Lote ${projectsState[i].unidadesInventario.length + 1}`, area: '1.200 m²', precioCOP: 120000000, estado: 'Disponible', matricula: 'FMI-50N-000000' });
+            renderProjectsEditor();
+          });
+        });
+        container.querySelectorAll('[data-del-unit]').forEach((b) => {
+          b.addEventListener('click', () => {
+            syncProjectsFromInputs();
+            const [pIdx, uIdx] = b.getAttribute('data-del-unit').split(':').map(Number);
+            projectsState[pIdx].unidadesInventario.splice(uIdx, 1);
+            renderProjectsEditor();
+          });
+        });
+        container.querySelectorAll('[data-del-proj]').forEach((b) => {
+          b.addEventListener('click', () => {
+            if (projectsState.length <= 1) return;
+            syncProjectsFromInputs();
+            projectsState.splice(Number(b.getAttribute('data-del-proj')), 1);
+            renderProjectsEditor();
+          });
+        });
+      }
+
+      document.getElementById('btnAddProject').addEventListener('click', () => {
+        if (projectsState.length >= 5) return;
+        syncProjectsFromInputs();
+        const num = projectsState.length + 1;
+        const firstTypo = typologiesState[0] || { id: 'lote', label: 'Lotes Campestres' };
+        projectsState.push({
+          id: `proj-0${Date.now().toString().slice(-4)}`, slug: `nuevo-proyecto-${num}`,
+          nombre: `Nuevo Proyecto Campestre ${num}`, tipologia: firstTypo.label, categoriaFiltro: firstTypo.id,
+          municipio: 'Cundinamarca', distanciaBogota: '45 min desde Bogotá', rangoAreas: '1.500 m² a 3.000 m²',
+          precioDesdeCOP: 150000000, precioDesdeFormato: '$ 150.000.000 COP',
+          estadoNotarialGeneral: 'Licencia Vigente • Matrículas Individuales',
+          descripcionEditorial: 'Descripción editorial del nuevo proyecto campestre.',
+          fotoPrincipal16_9: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1280&h=720&q=80',
+          planoUrl: '', videoUrl: '', galeria: [], visible: true, destacado: false,
+          serviciosPublicos: ['Energía eléctrica', 'Acueducto veredal', 'Vías internas estabilizadas'],
+          unidadesInventario: [{ codigo: 'Lote 01', area: '1.500 m²', precioCOP: 150000000, estado: 'Disponible', matricula: 'FMI-50N-000001' }]
+        });
+        renderProjectsEditor();
+      });
+
+      function syncProjectsFromInputs() {
+        const featuredRadio = document.querySelector('input[name="featuredProjectRadio"]:checked');
+        const featuredIdx = featuredRadio ? Number(featuredRadio.value) : 0;
+
+        document.querySelectorAll('#projectsEditorList [data-proj-idx]').forEach((card) => {
+          const idx = Number(card.getAttribute('data-proj-idx'));
+          const proj = projectsState[idx];
+          if (!proj) return;
+          proj.destacado = (idx === featuredIdx);
+
+          card.querySelectorAll('[data-pfield]').forEach((inp) => {
+            const field = inp.getAttribute('data-pfield');
+            if (field === 'visible') proj.visible = inp.checked;
+            else if (field === 'categoriaFiltro') {
+              proj.categoriaFiltro = inp.value;
+              const foundTypo = typologiesState.find((t) => t.id === inp.value);
+              if (foundTypo) proj.tipologia = foundTypo.label;
+            } else proj[field] = inp.value;
+          });
+
+          const newGal = [];
+          card.querySelectorAll('[data-gal-idx]').forEach((gRow) => {
+            const urlVal = gRow.querySelector('[data-gfield="url"]').value.trim();
+            const capVal = gRow.querySelector('[data-gfield="caption"]').value.trim();
+            if (urlVal) newGal.push({ url: urlVal, caption: capVal });
+          });
+          proj.galeria = newGal.slice(0, 5);
+
+          const oldUnits = Array.isArray(proj.unidadesInventario) ? proj.unidadesInventario : [];
+          const newUnits = [];
+          card.querySelectorAll('.unit-edit-row').forEach((row, uIdx) => {
+            const prev = oldUnits[uIdx] || {};
+            const unitObj = { ...prev }; // Preserva x, y, w, h del plano si existen
+            row.querySelectorAll('[data-ufield]').forEach((uInp) => {
+              const uf = uInp.getAttribute('data-ufield');
+              unitObj[uf] = uf === 'precioCOP' ? Number(uInp.value || 0) : uInp.value;
+            });
+            newUnits.push(unitObj);
+          });
+          proj.unidadesInventario = newUnits;
+        });
+      }
+
+      function renderCustomSectionsEditor() {
+        const container = document.getElementById('customSectionsList');
+        if (customSectionsState.length === 0) {
+          container.innerHTML = '<p style="font-size:0.82rem;color:var(--ctrl-text-muted);">No hay secciones personalizadas creadas aún.</p>';
+          return;
         }
-      };
-      localStorage.setItem('TERRANOVA_SITE_CONFIG', JSON.stringify(configData));
-    }
+        container.innerHTML = customSectionsState.map((sec, idx) => `
+          <div class="item-edit-card" data-sec-idx="${idx}">
+            <div class="item-edit-header">
+              <span class="item-badge">MÓDULO PERSONALIZADO #${idx + 1}</span>
+              <button type="button" class="btn-danger-sm" data-remove-sec="${idx}">Eliminar</button>
+            </div>
+            <div class="grid-fields-2">
+              <div class="form-group"><label>Etiqueta (Kicker)</label><input type="text" class="input-control" data-sfield="kicker" value="${escapeAttr(sec.kicker || '')}"></div>
+              <div class="form-group"><label>Título Editorial</label><input type="text" class="input-control" data-sfield="title" value="${escapeAttr(sec.title || '')}"></div>
+              <div class="form-group col-span-full"><label>Narrativa</label><textarea class="textarea-control" data-sfield="body">${escapeHtml(sec.body || '')}</textarea></div>
+              <div class="form-group"><label>Imagen 16:9 Opcional (URL)</label><input type="text" class="input-control" data-sfield="imageUrl" value="${escapeAttr(sec.imageUrl || '')}"></div>
+              <div class="form-group"><label>Botón y Enlace</label><div style="display:flex;gap:8px;"><input type="text" class="input-control" data-sfield="ctaText" value="${escapeAttr(sec.ctaText || 'CONOCER MÁS →')}"><input type="text" class="input-control" data-sfield="ctaLink" value="${escapeAttr(sec.ctaLink || 'contacto.html')}"></div></div>
+            </div>
+          </div>
+        `).join('');
 
-    // 5. Cargar Configuración al Formulario
-    function loadSettingsToForm() {
-      const saved = localStorage.getItem('TERRANOVA_SITE_CONFIG');
-      if (!saved) return;
-      try {
-        const data = JSON.parse(saved);
-        if (data.brandName) document.getElementById('ctrlBrandName').value = data.brandName;
-        if (data.brandSubtitle) document.getElementById('ctrlBrandSubtitle').value = data.brandSubtitle;
-        if (data.whatsapp) document.getElementById('ctrlWhatsapp').value = data.whatsapp;
-        if (data.logoUrl) document.getElementById('ctrlLogoUrl').value = data.logoUrl;
-        if (data.facebook) document.getElementById('ctrlFacebook').value = data.facebook;
-        if (data.instagram) document.getElementById('ctrlInstagram').value = data.instagram;
-        if (data.tiktok) document.getElementById('ctrlTiktok').value = data.tiktok;
-        if (data.videoUrl) document.getElementById('ctrlVideoUrl').value = data.videoUrl;
-        if (data.colorPrimary) {
-          document.getElementById('pickerPrimary').value = data.colorPrimary;
-          document.getElementById('hexPrimary').textContent = data.colorPrimary;
+        container.querySelectorAll('[data-remove-sec]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            syncCustomSectionsFromInputs();
+            customSectionsState.splice(Number(btn.getAttribute('data-remove-sec')), 1);
+            renderCustomSectionsEditor();
+          });
+        });
+      }
+
+      document.getElementById('btnAddCustomSection').addEventListener('click', () => {
+        syncCustomSectionsFromInputs();
+        customSectionsState.push({
+          id: 'custom-' + Date.now(), kicker: `0${customSectionsState.length + 6}. EXPERIENCIA`,
+          title: 'Nueva Sección Modular', body: 'Contenido editable desde el panel sin tocar código.',
+          imageUrl: '', ctaText: 'SOLICITAR INFORMACIÓN →', ctaLink: 'contacto.html'
+        });
+        renderCustomSectionsEditor();
+      });
+
+      function syncCustomSectionsFromInputs() {
+        document.querySelectorAll('#customSectionsList [data-sec-idx]').forEach((card) => {
+          const idx = Number(card.getAttribute('data-sec-idx'));
+          if (!customSectionsState[idx]) return;
+          card.querySelectorAll('[data-sfield]').forEach((inp) => { customSectionsState[idx][inp.getAttribute('data-sfield')] = inp.value; });
+        });
+      }
+
+      function loadAllIntoControl() {
+        const savedCfg = JSON.parse(localStorage.getItem(CONFIG_KEY) || '{}');
+        if (savedCfg.brandName) document.getElementById('ctrlBrandName').value = savedCfg.brandName;
+        if (savedCfg.brandSubtitle) document.getElementById('ctrlBrandSubtitle').value = savedCfg.brandSubtitle;
+        if (savedCfg.whatsapp) document.getElementById('ctrlWhatsapp').value = savedCfg.whatsapp;
+        if (savedCfg.heroKicker) document.getElementById('ctrlHeroKicker').value = savedCfg.heroKicker;
+        if (savedCfg.heroHeadline) document.getElementById('ctrlHeroHeadline').value = savedCfg.heroHeadline;
+        if (savedCfg.heroDescription) document.getElementById('ctrlHeroDescription').value = savedCfg.heroDescription;
+        if (savedCfg.heroImageUrl) heroUrlInput.value = savedCfg.heroImageUrl;
+        heroPreview.src = heroUrlInput.value;
+
+        if (savedCfg.heroVideoSource) document.getElementById('ctrlHeroVideoSource').value = savedCfg.heroVideoSource;
+        if (savedCfg.videoUrl) document.getElementById('ctrlVideoUrl').value = savedCfg.videoUrl;
+        if (savedCfg.themeMode) document.getElementById('ctrlThemeMode').value = savedCfg.themeMode;
+
+        if (savedCfg.toggles) {
+          document.getElementById('toggle_benefits').checked = savedCfg.toggles.benefits !== false;
+          document.getElementById('toggle_video').checked = savedCfg.toggles.video !== false;
+          document.getElementById('toggle_process').checked = savedCfg.toggles.process !== false;
+          document.getElementById('toggle_faq').checked = savedCfg.toggles.faq !== false;
         }
-        if (data.colorAccent) {
-          document.getElementById('pickerAccent').value = data.colorAccent;
-          document.getElementById('hexAccent').textContent = data.colorAccent;
-        }
-        if (data.toggles) {
-          document.getElementById('toggle_announcement').checked = data.toggles.announcement;
-          document.getElementById('toggle_benefits').checked = data.toggles.benefits;
-          document.getElementById('toggle_video').checked = data.toggles.video;
-          document.getElementById('toggle_process').checked = data.toggles.process;
-          document.getElementById('toggle_faq').checked = data.toggles.faq;
-        }
-      } catch(e) {}
-    }
 
-    // 6. Exportar Respaldo JSON
-    function exportBackup() {
-      const saved = localStorage.getItem('TERRANOVA_SITE_CONFIG') || "{}";
-      const blob = new Blob([saved], { type: "application/json" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `respaldo_empalme_${new Date().toISOString().slice(0,10)}.json`;
-      a.click();
-      URL.revokeObjectURL(url);
-    }
+        typologiesState = Array.isArray(savedCfg.typologies) && savedCfg.typologies.length > 0 ? savedCfg.typologies : JSON.parse(JSON.stringify(DEFAULT_TYPOLOGIES));
+        customThemesState = Array.isArray(savedCfg.customThemes) && savedCfg.customThemes.length === 2 ? savedCfg.customThemes : JSON.parse(JSON.stringify(DEFAULT_CUSTOM_THEMES));
+        customSectionsState = Array.isArray(savedCfg.customSections) ? savedCfg.customSections : [];
 
-    // 7. MECANISMO A (DIRECTIVA 9): IMPORTADOR DE EMPALME EN 1 CLIC
-    function importBackup(event) {
-      const file = event.target.files[0];
-      if (!file) return;
+        const defaultProjs = (window.TERRANOVA_PROJECTS && window.TERRANOVA_PROJECTS.DEFAULT_PROJECTS) || [];
+        const savedProjs = JSON.parse(localStorage.getItem(PROJECTS_KEY) || 'null');
+        projectsState = Array.isArray(savedProjs) && savedProjs.length > 0 ? savedProjs : JSON.parse(JSON.stringify(defaultProjs));
+        if (!projectsState.some((p) => p.destacado) && projectsState[0]) projectsState[0].destacado = true;
 
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        try {
-          const importedData = JSON.parse(e.target.result);
-          // Inyección inmediata en LocalStorage
-          localStorage.setItem('TERRANOVA_SITE_CONFIG', JSON.stringify(importedData));
-          // Relleno inmediato de todos los campos en pantalla
-          loadSettingsToForm();
-          showToast("⚡ Empalme completado: Datos inyectados en 1 clic.");
-        } catch (err) {
-          alert("Error: El archivo seleccionado no tiene un formato JSON válido.");
-        }
-      };
-      reader.readAsText(file);
-      // Limpiar input para permitir recargar el mismo archivo si se desea
-      event.target.value = "";
-    }
+        renderCustomThemesEditor(); renderTypologiesEditor(); renderProjectsEditor(); renderCustomSectionsEditor();
+      }
 
-    function showToast(msg) {
-      const toast = document.getElementById('saveToast');
-      toast.textContent = msg;
-      toast.style.display = 'block';
-      setTimeout(() => { toast.style.display = 'none'; }, 3500);
-    }
+      document.getElementById('controlSettingsForm').addEventListener('submit', () => {
+        syncCustomThemesFromInputs(); syncCustomSectionsFromInputs(); syncProjectsFromInputs();
+
+        const existingCfg = JSON.parse(localStorage.getItem(CONFIG_KEY) || '{}');
+        const configPayload = {
+          ...existingCfg,
+          brandName: document.getElementById('ctrlBrandName').value.trim(),
+          brandSubtitle: document.getElementById('ctrlBrandSubtitle').value.trim(),
+          whatsapp: document.getElementById('ctrlWhatsapp').value.trim(),
+          heroKicker: document.getElementById('ctrlHeroKicker').value.trim(),
+          heroHeadline: document.getElementById('ctrlHeroHeadline').value.trim(),
+          heroDescription: document.getElementById('ctrlHeroDescription').value.trim(),
+          heroImageUrl: heroUrlInput.value.trim(),
+          heroVideoSource: document.getElementById('ctrlHeroVideoSource').value,
+          videoUrl: document.getElementById('ctrlVideoUrl').value.trim(),
+          themeMode: document.getElementById('ctrlThemeMode').value,
+          customThemes: customThemesState, typologies: typologiesState,
+          toggles: {
+            benefits: document.getElementById('toggle_benefits').checked,
+            video: document.getElementById('toggle_video').checked,
+            process: document.getElementById('toggle_process').checked,
+            faq: document.getElementById('toggle_faq').checked
+          },
+          customSections: customSectionsState
+        };
+
+        localStorage.setItem(CONFIG_KEY, JSON.stringify(configPayload));
+        localStorage.setItem(PROJECTS_KEY, JSON.stringify(projectsState));
+        renderCustomThemesEditor();
+        showToast('Cambios guardados en vivo. Refresca la vitrina para verlos.');
+      });
+
+      function showToast(msg) {
+        const toast = document.getElementById('saveToast');
+        toast.textContent = msg; toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 3500);
+      }
+      function slugify(text) {
+        return String(text || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      }
+      function escapeHtml(str) { return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+      function escapeAttr(str) { return escapeHtml(str).replace(/"/g, '&quot;'); }
+    })();
   </script>
 </body>
 </html>

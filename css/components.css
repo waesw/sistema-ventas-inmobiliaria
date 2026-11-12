@@ -3,7 +3,7 @@
  * TERRANOVA DESARROLLOS INMOBILIARIOS
  * ARCHIVO: css/components.css
  * ESTÁNDAR: Discovery Land Company (Quiet Luxury Luminoso)
- * PROPÓSITO: Tarjetas de proyectos, modal de inventario, video 16:9 y estados
+ * PROPÓSITO: Tarjetas, modal, video 16:9, galería (máx. 5) y pines circulares en plano
  * DIRECTIVAS: D2 (16:9), D4 (Touch >=44px), D6 (<1.000 líneas), D7 (Modelo real)
  * ========================================================================
  */
@@ -27,7 +27,6 @@
   border-color: var(--color-border-medium);
 }
 
-/* Chasis Visual 16:9 (Directiva 2: Cero Deformaciones) */
 .project-card-visual-chassis {
   position: relative;
   width: 100%;
@@ -66,7 +65,6 @@
   pointer-events: none;
 }
 
-/* Etiquetas Superiores Discretas sobre Fotografía */
 .project-top-badges {
   position: absolute;
   top: var(--space-md);
@@ -101,7 +99,6 @@
   padding: 5px 12px;
 }
 
-/* Cuerpo Editorial de la Tarjeta */
 .project-card-data-body {
   display: flex;
   flex-direction: column;
@@ -141,7 +138,6 @@
   margin-top: var(--space-2xs);
 }
 
-/* Ficha Técnica en Columnas Finas */
 .project-specs-quiet-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -174,7 +170,6 @@
   line-height: 1.35;
 }
 
-/* Garantía Jurídica Discreta (Cero Sello Chillón) */
 .project-notarial-guarantee {
   display: flex;
   align-items: center;
@@ -197,7 +192,6 @@
   line-height: 1.4;
 }
 
-/* Acciones Monocromáticas de la Tarjeta (Directiva 4: >= 44px) */
 .project-actions-footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -266,7 +260,7 @@
 }
 
 /* ------------------------------------------------------------------------
- * 2. MODAL DE INSPECCIÓN DE UNIDADES INDIVIDUALES (Lotes / Casas / Suites)
+ * 2. MODAL DE INSPECCIÓN Y VISOR DE IMÁGENES
  * ------------------------------------------------------------------------ */
 .terranova-quiet-modal-backdrop {
   position: fixed;
@@ -421,19 +415,19 @@
 
 .badge-status-dot {
   display: inline-block;
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   margin-right: 6px;
   vertical-align: middle;
 }
 
 .badge-status-dot.dot-active {
-  background-color: #4A6B53; /* Verde bosque orgánico y sobrio */
+  background-color: #3A6B4C;
 }
 
 .badge-status-dot.dot-reserved {
-  background-color: var(--color-oro-viejo);
+  background-color: #C98A2C;
 }
 
 .modal-footer-cta {
@@ -443,8 +437,7 @@
 }
 
 /* ------------------------------------------------------------------------
- * 3. AJUSTES DEL REPRODUCTOR DE VIDEO EMBED 16:9
- * Garantiza centrado perfecto del botón Play y acople del iframe.
+ * 3. REPRODUCTOR DE VIDEO EMBED 16:9
  * ------------------------------------------------------------------------ */
 .cinema-embed-target {
   position: absolute;
@@ -464,14 +457,196 @@
 }
 
 /* ------------------------------------------------------------------------
- * 4. ESTADOS DE VALIDACIÓN Y FEEDBACK DE FORMULARIO
+ * 4. GALERÍA EDITORIAL DEL PROYECTO (MÁX. 5 FOTOS EN 16:9)
+ * ------------------------------------------------------------------------ */
+.project-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.gallery-photo-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.gallery-photo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+.gallery-photo-card img {
+  width: 100%;
+  aspect-ratio: var(--aspect-cinematic);
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-photo-caption {
+  padding: 12px 16px;
+  font-family: var(--font-sans-technical);
+  font-size: 0.68rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+/* ------------------------------------------------------------------------
+ * 5. PLANO TOPOGRÁFICO INTERACTIVO CON CÍRCULOS NUMERADOS POR ESTADO
+ * ------------------------------------------------------------------------ */
+.blueprint-master-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.blueprint-header-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.blueprint-legend-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans-technical);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-text-main);
+}
+
+.legend-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  display: inline-block;
+}
+
+.swatch-disponible { background-color: #3A6B4C; }
+.swatch-reservado { background-color: #C98A2C; }
+.swatch-vendido { background-color: #A62B2B; }
+
+.blueprint-stage-center {
+  width: 100%;
+  max-width: 720px;
+  margin-inline: auto;
+  border: 1px solid var(--color-border-subtle);
+  background-color: #FFFFFF;
+}
+
+.blueprint-interactive-stage {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.blueprint-base-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Círculo Centrado Numerado por Lote */
+.blueprint-lot-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans-technical);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 4;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+/* Área táctil mínima invisible 44x44 (Directiva 4) */
+.blueprint-lot-pin::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+}
+
+.blueprint-lot-pin.pin-disponible { background-color: #3A6B4C; }
+.blueprint-lot-pin.pin-reservado { background-color: #C98A2C; }
+.blueprint-lot-pin.pin-vendido { background-color: #A62B2B; cursor: not-allowed; opacity: 0.92; }
+
+.blueprint-lot-pin:hover,
+.blueprint-lot-pin:focus-visible {
+  transform: translate(-50%, -50%) scale(1.18);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  outline: none;
+}
+
+/* Tooltip flotante sutil al señalar el círculo */
+.pin-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #141414;
+  color: #FFFFFF;
+  font-family: var(--font-sans-technical);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 5px 10px;
+  border-radius: 3px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.blueprint-lot-pin:hover .pin-tooltip,
+.blueprint-lot-pin:focus-visible .pin-tooltip {
+  opacity: 1;
+}
+
+/* ------------------------------------------------------------------------
+ * 6. ESTADOS DE VALIDACIÓN Y FEEDBACK DE FORMULARIO
  * ------------------------------------------------------------------------ */
 .field-input-tech.is-invalid {
-  border-color: #8C3B3B; /* Terracota oscuro sobrio, cero rojo chillón */
+  border-color: #8C3B3B;
 }
 
 .field-input-tech.is-valid {
-  border-color: #4A6B53;
+  border-color: #3A6B4C;
 }
 
 .field-feedback-note.is-error {
@@ -483,7 +658,6 @@
   cursor: wait;
 }
 
-/* Toast de confirmación sutil tras envío */
 .luxury-toast-alert {
   position: fixed;
   bottom: calc(var(--safe-area-bottom) + 24px);

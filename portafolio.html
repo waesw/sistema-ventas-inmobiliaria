@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Portafolio exclusivo de 5 proyectos inmobiliarios campestres en Cundinamarca. Parcelaciones, casas campestres y lodges de montaña con titulación individual.">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#FAF9F5">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>PORTAFOLIO | TERRANOVA Desarrollos Campestres</title>
+
+  <!-- Hojas de Estilo Desacopladas (Estética Quiet Luxury intacta) -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body class="luxury-body">
+
+  <!-- ========================================================================
+       1. CABECERA FLOTANTE TRANSPARENTE (Idéntica a index.html)
+       ======================================================================== -->
+  <header class="site-header-luxury" id="siteHeader" data-section="header">
+    <div class="header-shell">
+
+      <div class="header-block-left">
+        <button type="button" class="btn-menu-trigger" id="menuToggleBtn" aria-expanded="false" aria-controls="luxuryDrawer" aria-label="Abrir menú de navegación">
+          <span class="menu-icon-bars" aria-hidden="true">
+            <span class="bar-line"></span>
+            <span class="bar-line"></span>
+          </span>
+          <span class="menu-text-label">MENU</span>
+        </button>
+        <span class="header-divider-pipe" aria-hidden="true">|</span>
+        <a href="portafolio.html" class="header-nav-anchor">PORTAFOLIO</a>
+      </div>
+
+      <div class="header-block-center">
+        <a href="index.html" class="brand-monogram-link" aria-label="Terranova - Inicio">
+          <svg class="brand-compass-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <polygon points="12,3 14.5,9.5 21,12 14.5,14.5 12,21 9.5,14.5 3,12 9.5,9.5 12,3" fill="currentColor" fill-opacity="0.15"/>
+          </svg>
+          <span class="brand-title-serif" data-bind="brandName">TERRANOVA</span>
+          <span class="brand-subtitle-tech" data-bind="brandSubtitle">PARCELACIONES & INVESTMENTS</span>
+        </a>
+      </div>
+
+      <div class="header-block-right">
+        <a href="inventario.html" class="header-nav-anchor">INVENTARIO</a>
+        <span class="header-divider-pipe" aria-hidden="true">|</span>
+        <a href="contacto.html" class="btn-concierge-ghost">CONTACTO</a>
+      </div>
+
+    </div>
+
+    <!-- Menú Desplegable Multipágina -->
+    <div class="luxury-drawer-overlay" id="luxuryDrawer" aria-hidden="true">
+      <div class="drawer-inner-content">
+        <div class="drawer-header-bar">
+          <span class="drawer-tag">NAVEGACIÓN GENERAL</span>
+          <button type="button" class="btn-drawer-close" id="drawerCloseBtn" aria-label="Cerrar menú">✕</button>
+        </div>
+        <nav class="drawer-nav-list" aria-label="Navegación principal">
+          <a href="index.html" class="drawer-link"><span class="drawer-num">01.</span> INICIO</a>
+          <a href="portafolio.html" class="drawer-link"><span class="drawer-num">02.</span> PORTAFOLIO DE PROYECTOS</a>
+          <a href="inventario.html" class="drawer-link"><span class="drawer-num">03.</span> INVENTARIO DE UNIDADES</a>
+          <a href="index.html#criterios" class="drawer-link"><span class="drawer-num">04.</span> CRITERIOS & URBANISMO</a>
+          <a href="index.html#recorrido-aereo" class="drawer-link"><span class="drawer-num">05.</span> INSPECCIÓN CINEMATOGRÁFICA</a>
+          <a href="contacto.html" class="drawer-link"><span class="drawer-num">06.</span> CONCIERGE & CITAS</a>
+        </nav>
+        <div class="drawer-footer-meta">
+          <p><span data-bind="brandName">TERRANOVA</span> • Cundinamarca, Colombia</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- ========================================================================
+         2. HERO DE PORTAFOLIO (Equivalente a /communities/ en Discovery)
+         ======================================================================== -->
+    <section class="hero-cinematic-100vh" id="inicio" data-section="hero">
+      <div class="hero-backdrop-container">
+        <div class="hero-media-wrapper">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80"
+               alt="Paisaje panorámico de valles y montañas de Cundinamarca"
+               class="hero-media-cover">
+        </div>
+        <div class="hero-vignette-overlay" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero-forefront-content">
+        <div class="hero-editorial-group">
+          <span class="hero-kicker-label">NUESTROS DESARROLLOS • CUNDINAMARCA</span>
+          <h1 class="hero-serif-title">
+            COLECCIÓN DE PROYECTOS
+          </h1>
+          <p class="hero-tagline-text">
+            Cinco comunidades campestres concebidas bajo estrictos estándares de baja densidad, paisaje perpetuo y seguridad jurídica individual.
+          </p>
+        </div>
+
+        <!-- Barra Píldora de Filtro Rápido por Tipología -->
+        <div class="hero-pill-bar" id="portfolioFilterBar">
+          <button type="button" class="pill-action-item is-active" data-filter-type="todos">TODOS (05)</button>
+          <span class="pill-dot-sep">•</span>
+          <button type="button" class="pill-action-item" data-filter-type="lote">LOTES</button>
+          <span class="pill-dot-sep">•</span>
+          <button type="button" class="pill-action-item" data-filter-type="casa">CASAS</button>
+          <span class="pill-dot-sep">•</span>
+          <button type="button" class="pill-action-item" data-filter-type="apartamento">LODGES</button>
+        </div>
+      </div>
+
+      <div class="hero-dock-bar">
+        <div class="dock-left-controls">
+          <a href="inventario.html" class="btn-hero-sound">VER INVENTARIO GLOBAL →</a>
+        </div>
+        <div class="dock-right-scroll">
+          <a href="#catalogo-completo" class="hero-scroll-indicator" aria-label="Desplazarse al catálogo completo">
+            <span class="scroll-wordmark">EXPLORAR</span>
+            <span class="scroll-arrow-down" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         3. CATÁLOGO COMPLETO DE LOS 5 PROYECTOS MACRO
+         ======================================================================== -->
+    <section class="master-portfolio-section" id="catalogo-completo" data-section="projects">
+      <div class="luxury-container">
+
+        <header class="section-editorial-header">
+          <div class="header-titles-stack">
+            <span class="section-numeric-tag">01. DESARROLLOS ACTIVOS</span>
+            <h2 class="section-serif-headline">Portafolio Oficial de Parcelaciones</h2>
+            <p class="section-lead-paragraph">
+              Seleccione cualquier desarrollo para abrir su página dedicada con galería completa, especificaciones de servicios e inventario detallado de unidades disponibles.
+            </p>
+          </div>
+          <div class="header-summary-badge">
+            <span class="badge-number">05</span>
+            <span class="badge-text">PROYECTOS<br>VERIFICADOS</span>
+          </div>
+        </header>
+
+        <!-- Contenedor dinámico renderizado por js/data-projects.js en modo completo -->
+        <div class="projects-editorial-grid" id="projectsContainer" data-mode="full">
+          <noscript>
+            <p class="noscript-alert">Se requiere activar JavaScript para visualizar el catálogo completo de proyectos.</p>
+          </noscript>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         4. INVITACIÓN A CONTACTO PRIVADO
+         ======================================================================== -->
+    <section class="concierge-inquiry-section" data-section="capture">
+      <div class="luxury-container reading-width">
+        <header class="section-editorial-header text-center-block">
+          <span class="section-numeric-tag">02. ASESORÍA PERSONALIZADA</span>
+          <h2 class="section-serif-headline">¿Busca una Ubicación o Metraje Específico?</h2>
+          <p class="section-lead-paragraph">
+            Nuestro equipo le orientará sobre disponibilidad actualizada, planos topográficos y condiciones de financiación directa en cada proyecto.
+          </p>
+          <div style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
+            <a href="contacto.html" class="btn-submit-luxury">
+              <span>AGENDAR CITA PRIVADA</span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="inventario.html" class="btn-project-inspect-quick">
+              FILTRAR UNIDADES DISPONIBLES
+            </a>
+          </div>
+        </header>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       5. CONCIERGE FLOTANTE DISCRETO
+       ======================================================================== -->
+  <aside class="floating-concierge-zone" data-section="floating-contact" aria-label="Atención personalizada">
+    <a href="contacto.html" class="concierge-quiet-pill" id="floatingConciergeLink" aria-label="Solicitar atención privada">
+      <span class="concierge-dot-live"></span>
+      <span class="concierge-pill-text">ASESORÍA PRIVADA</span>
+    </a>
+  </aside>
+
+  <!-- ========================================================================
+       6. PIE DE PÁGINA EDITORIAL
+       ======================================================================== -->
+  <footer class="site-footer-luxury" data-section="footer">
+    <div class="luxury-container">
+      <div class="footer-grid-layout">
+
+        <div class="footer-col-brand">
+          <div class="brand-monogram-link is-footer">
+            <span class="brand-title-serif" data-bind="brandName">TERRANOVA</span>
+            <span class="brand-subtitle-tech" data-bind="brandSubtitle">DESARROLLOS INMOBILIARIOS & PARCELACIONES</span>
+          </div>
+          <p class="footer-manifesto-text">
+            Compañía estructuradora de parcelaciones campestres de alto valor patrimonial en Colombia. Urbanismo de baja densidad y preservación del entorno natural.
+          </p>
+        </div>
+
+        <div class="footer-col-nav">
+          <span class="footer-label-tech">EXPLORACIÓN</span>
+          <ul class="footer-clean-menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="portafolio.html">Portafolio de Proyectos</a></li>
+            <li><a href="inventario.html">Inventario de Unidades</a></li>
+            <li><a href="contacto.html">Contacto & Citas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col-legal">
+          <span class="footer-label-tech">MARCO JURÍDICO</span>
+          <p class="footer-legal-copy">
+            Proyectos desarrollados en estricto cumplimiento de la Ley 388 de 1997, normas de ordenamiento territorial ambiental (CAR) y decretos reglamentarios de parcelación rural.
+          </p>
+          <div class="footer-copyright-tag">
+            © 2026 <span data-bind="brandName">TERRANOVA</span> DESARROLLOS. TODOS LOS DERECHOS RESERVADOS.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts con Carga Diferida -->
+  <script src="js/config.js" defer></script>
+  <script src="js/data-projects.js" defer></script>
+  <script src="js/form-validation.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
