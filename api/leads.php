@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/bootstrap.php';
+require_once __DIR__ . '/notify.php';
 
 init_secure_session();
 $method = strtoupper((string) ($_SERVER['REQUEST_METHOD'] ?? 'GET'));
@@ -25,49 +26,6 @@ function normalize_colombian_phone(string $raw): ?string
         return null;
     }
     return '57' . $digits;
-}
-
-function dispatch_webhook_async(string $url, array $payload): bool
-{
-    if ($url === '' || !str_starts_with($url, 'https://')) {
-        return false;
-    }
-
-    $json = json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-    if ($json === false) {
-        return false;
-    }
-
-    if (function_exists('curl_init')) {
-        $ch = curl_init($url);
-        if ($ch !== false) {
-            curl_setopt_array($ch, [
-                CURLOPT_POST => true,
-                CURLOPT_POSTFIELDS => $json,
-                CURLOPT_HTTPHEADER => ['Content-Type: application/json', 'Accept: application/json'],
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_TIMEOUT => 3,
-                CURLOPT_CONNECTTIMEOUT => 2,
-                CURLOPT_SSL_VERIFYPEER => true,
-            ]);
-            @curl_exec($ch);
-            $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            curl_close($ch);
-            return $code >= 200 && $code < 300;
-        }
-    }
-
-    $ctx = stream_context_create([
-        'http' => [
-            'method' => 'POST',
-            'header' => "Content-Type: application/json\r\nAccept: application/json\r\n",
-            'content' => $json,
-            'timeout' => 3,
-            'ignore_errors' => true,
-        ],
-    ]);
-    $res = @file_get_contents($url, false, $ctx);
-    return $res !== false;
 }
 
 if ($method === 'GET') {
@@ -205,18 +163,12 @@ if (!write_private_json('leads.json', $leads)) {
 }
 
 $secrets = load_secrets();
-$webhookUrl = (string) ($secrets['webhook_url'] ?? '');
-$webhookSent = false;
-if ($webhookUrl !== '') {
-    $webhookSent = dispatch_webhook_async($webhookUrl, [
-        'event' => 'new_lead',
-        'lead' => $lead,
-    ]);
-}
+$config = read_private_json('config.json', []);
+$alerts = dispatch_double_alert($secrets, is_array($config) ? $config : [], $lead);
 
 json_response([
     'ok' => true,
     'lead_id' => $lead['id'],
-    'webhook_dispatched' => $webhookSent,
+    'alerts' => $alerts,
     'message' => 'Solicitud registrada de forma segura.',
 ], 201);
