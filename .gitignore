@@ -1,0 +1,22 @@
+# Carpetas privadas de datos, sesiones y secretos
+_inmobiliaria_private/
+inmobiliaria_private/
+private/
+*.env
+.env*
+
+# Archivos sensibles y registros locales
+secrets.json
+leads.json
+*.log
+error_log
+
+# Paquetes generados manualmente
+js/site-bundle.js
+
+# Archivos del sistema y editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

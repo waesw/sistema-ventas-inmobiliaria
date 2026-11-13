@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Atención privada y agendamiento de recorridos en terreno para proyectos campestres Terranova Desarrollos.">
+  <meta name="description" content="Atención privada y agendamiento de recorridos en terreno para proyectos campestres.">
   <meta name="format-detection" content="telephone=no">
   <meta name="theme-color" content="#FAF9F5">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>CONTACTO | TERRANOVA Desarrollos Campestres</title>
 
-  <!-- Hojas de Estilo Desacopladas (Estética Quiet Luxury intacta) -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -19,9 +18,7 @@
 </head>
 <body class="luxury-body" data-page="contact">
 
-  <!-- ========================================================================
-       1. CABECERA FLOTANTE TRANSPARENTE (Idéntica a index.html)
-       ======================================================================== -->
+  <!-- 1. CABECERA FLOTANTE TRANSPARENTE -->
   <header class="site-header-luxury" id="siteHeader" data-section="header">
     <div class="header-shell">
 
@@ -38,7 +35,7 @@
       </div>
 
       <div class="header-block-center">
-        <a href="index.html" class="brand-monogram-link" aria-label="Terranova - Inicio">
+        <a href="index.html" class="brand-monogram-link" aria-label="Inicio">
           <svg class="brand-compass-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
             <circle cx="12" cy="12" r="10"/>
             <polygon points="12,3 14.5,9.5 21,12 14.5,14.5 12,21 9.5,14.5 3,12 9.5,9.5 12,3" fill="currentColor" fill-opacity="0.15"/>
@@ -56,7 +53,6 @@
 
     </div>
 
-    <!-- Menú Desplegable Multipágina -->
     <div class="luxury-drawer-overlay" id="luxuryDrawer" aria-hidden="true">
       <div class="drawer-inner-content">
         <div class="drawer-header-bar">
@@ -79,9 +75,7 @@
 
   <main id="mainContent">
 
-    <!-- ========================================================================
-         2. HERO DE CONTACTO PRIVADO (Equivalente a /contact/ en Discovery)
-         ======================================================================== -->
+    <!-- 2. HERO DE CONTACTO PRIVADO -->
     <section class="hero-cinematic-100vh" id="inicio" data-section="hero">
       <div class="hero-backdrop-container">
         <div class="hero-media-wrapper">
@@ -95,9 +89,7 @@
       <div class="hero-forefront-content">
         <div class="hero-editorial-group">
           <span class="hero-kicker-label">CONCIERGE INMOBILIARIO • CUNDINAMARCA</span>
-          <h1 class="hero-serif-title">
-            ATENCIÓN PRIVADA
-          </h1>
+          <h1 class="hero-serif-title">ATENCIÓN PRIVADA</h1>
           <p class="hero-tagline-text">
             Coordine una visita personalizada en terreno o solicite la carpeta jurídica y de amortización de cualquiera de nuestros desarrollos.
           </p>
@@ -117,9 +109,7 @@
       </div>
     </section>
 
-    <!-- ========================================================================
-         3. FORMULARIO DE CAPTURA & DOSSIER POR WHATSAPP
-         ======================================================================== -->
+    <!-- 3. FORMULARIO DE CAPTURA & DOSSIER POR WHATSAPP -->
     <section class="concierge-inquiry-section" id="formulario-privado" data-section="capture">
       <div class="luxury-container">
         <div class="concierge-double-card">
@@ -150,6 +140,9 @@
           <div class="concierge-form-side">
             <form id="mainLeadForm" class="inquiry-clean-form" action="javascript:void(0);" novalidate>
               <input type="hidden" name="origen" value="contacto_luxury_2026">
+              <!-- Campo trampa antispam (invisible para humanos) -->
+              <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"
+                     style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;">
 
               <div class="input-field-group">
                 <label for="leadName" class="field-label-tech">NOMBRE Y APELLIDO</label>
@@ -171,11 +164,7 @@
                 <div class="select-clean-wrap">
                   <select id="leadProject" name="proyecto" class="field-select-tech">
                     <option value="General">Deseo recibir el portafolio integral de todos los proyectos</option>
-                    <option value="Reserva del Bosque Condominio">Reserva del Bosque (Subachoque)</option>
-                    <option value="Altos del Valle Parcelación">Altos del Valle (Sopó)</option>
-                    <option value="Hacienda Las Palmas">Hacienda Las Palmas (Tabio)</option>
-                    <option value="Villas del Country Club">Villas del Country (La Calera)</option>
-                    <option value="Torre Andina Mountain Lodges">Torre Andina (Guasca)</option>
+                    <option value="Proyecto Mirador del Arrayán">Proyecto Mirador del Arrayán (San Francisco, Cundinamarca)</option>
                   </select>
                 </div>
               </div>
@@ -195,9 +184,7 @@
       </div>
     </section>
 
-    <!-- ========================================================================
-         4. PREGUNTAS FRECUENTES (02. RESOLUCIÓN DE DUDAS)
-         ======================================================================== -->
+    <!-- 4. PREGUNTAS FRECUENTES -->
     <section class="faq-luxury-section" id="faq" data-section="faq">
       <div class="luxury-container reading-width">
 
@@ -255,9 +242,7 @@
 
   </main>
 
-  <!-- ========================================================================
-       5. PIE DE PÁGINA EDITORIAL
-       ======================================================================== -->
+  <!-- 5. PIE DE PÁGINA EDITORIAL -->
   <footer class="site-footer-luxury" data-section="footer">
     <div class="luxury-container">
       <div class="footer-grid-layout">
@@ -297,9 +282,33 @@
   </footer>
 
   <!-- Scripts con Carga Diferida -->
+  <script src="js/api-client.js" defer></script>
   <script src="js/config.js" defer></script>
   <script src="js/data-projects.js" defer></script>
   <script src="js/form-validation.js" defer></script>
   <script src="js/main.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const populateProjectSelect = () => {
+        const select = document.getElementById('leadProject');
+        if (!select || typeof window.getProjectsData !== 'function') return;
+        const projects = window.getProjectsData().filter((p) => p && p.visible !== false);
+        if (!projects.length) return;
+        const current = select.value;
+        select.innerHTML = '<option value="General">Deseo recibir el portafolio integral de todos los proyectos</option>';
+        projects.forEach((p) => {
+          const title = p.nombre || p.name || 'Proyecto Campestre';
+          const place = p.municipio || p.location || '';
+          const opt = document.createElement('option');
+          opt.value = title;
+          opt.textContent = place ? `${title} (${place})` : title;
+          select.appendChild(opt);
+        });
+        if (current) select.value = current;
+      };
+      populateProjectSelect();
+      window.addEventListener('terranova:data-synced', populateProjectSelect);
+    });
+  </script>
 </body>
 </html>

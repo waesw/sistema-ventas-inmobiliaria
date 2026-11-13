@@ -15,10 +15,6 @@
   const CURRENT_CATALOG_VERSION = '2026-arrayan-v1';
   const FALLBACK_AERIAL_VIDEO = 'https://www.youtube.com/watch?v=gU5AYz8x0YU';
 
-  /**
-   * 1. CATÁLOGO MODELO DE LOS 5 PROYECTOS CAMPESTRES (Directiva 7)
-   * Proyecto 1 cargado con datos reales de "Proyecto Mirador del Arrayán" (14 lotes)
-   */
   const DEFAULT_PROJECTS = [
     {
       id: 'proj-01',
@@ -202,9 +198,6 @@
     }
   ];
 
-  /**
-   * Migra automáticamente pruebas viejas (ej. Lote 16) al catálogo real de Mirador del Arrayán
-   */
   function ensureCatalogVersion() {
     try {
       const savedVer = localStorage.getItem(CATALOG_VERSION_KEY);
@@ -432,9 +425,6 @@
     });
   }
 
-  /**
-   * 5. HIDRATADOR DE PÁGINA INDIVIDUAL DE PROYECTO (proyecto.html?id=...)
-   */
   function renderProjectDetailPage() {
     if (document.body.getAttribute('data-page') !== 'project-detail') return;
 
@@ -509,14 +499,13 @@
       gallerySection.style.display = 'none';
     }
 
-    // Plano Topográfico con Círculos Centrados Numerados
     const blueprintCard = document.getElementById('projectBlueprintCard');
     const blueprintStage = document.getElementById('blueprintInteractiveStage');
     const effectivePlano = (proj.planoUrl && proj.planoUrl.trim()) || (defaultProj && defaultProj.planoUrl) || '';
 
     if (blueprintCard && blueprintStage && effectivePlano) {
       blueprintCard.style.display = 'block';
-      const pinsHtml = units.filter((u) => u.cx !== undefined && u.cy !== undefined).map((unit, idx) => {
+      const pinsHtml = units.filter((u) => u.cx !== undefined && u.cy !== undefined && u.cx !== null && u.cy !== null).map((unit, idx) => {
         const estadoLower = String(unit.estado || 'Disponible').toLowerCase();
         const pinClass = estadoLower === 'vendido'
           ? 'pin-vendido'
@@ -594,9 +583,6 @@
     }
   }
 
-  /**
-   * 6. LISTADO Y FILTROS GLOBALES DE INVENTARIO (inventario.html)
-   */
   function initGlobalInventoryPage() {
     if (document.body.getAttribute('data-page') !== 'inventory') return;
 
@@ -697,10 +683,12 @@
   }
 
   window.addEventListener('terranova:config-updated', initAll);
+  window.addEventListener('terranova:data-synced', initAll);
   window.addEventListener('storage', (e) => {
     if (e.key === PROJECTS_STORAGE_KEY) initAll();
   });
 
+  global.getProjectsData = getProjects;
   global.TERRANOVA_PROJECTS = {
     STORAGE_KEY: PROJECTS_STORAGE_KEY,
     DEFAULT_PROJECTS,

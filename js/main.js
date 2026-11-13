@@ -2,7 +2,7 @@
  * ========================================================================
  * TERRANOVA DESARROLLOS INMOBILIARIOS
  * ARCHIVO: js/main.js
- * PROPÓSITO: Controlador de cabecera, drawer, video destacado/proyecto y WhatsApp
+ * PROPÓSITO: Controlador de cabecera, drawer, video destacado/proyecto y WhatsApp + Leads PHP 8
  * DIRECTIVAS: D2 (Video diferido), D3 (<0.4s), D4 (Ergonomía), D6 (<1.000 líneas)
  * ========================================================================
  */
@@ -137,7 +137,6 @@
     if (parsed.type === 'video') {
       targetEl.innerHTML = `<video src="${parsed.src}" controls autoplay playsinline></video>`;
     } else if (isLocalFile) {
-      // Evita el Error 153 de YouTube al abrir archivos HTML directo desde el disco local (file:///)
       targetEl.innerHTML = `
         <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;text-align:center;background:#141414;color:#FAF9F5;">
           <span style="font-family:var(--font-sans-technical);font-size:0.7rem;letter-spacing:0.2em;color:#C5A880;text-transform:uppercase;">MODO LOCAL (FILE://)</span>
@@ -205,14 +204,40 @@
   }
 
   /**
-   * 6. CAPTURA DE PROSPECTOS & DISPARADOR DE WHATSAPP (contacto.html)
+   * 6. REGISTRO PRIVADO EN SERVIDOR PHP 8 + DISPARADOR DE WHATSAPP (contacto.html)
    */
+  async function persistLeadInServer(payload) {
+    if (global.InmobiliariaAPI && typeof global.InmobiliariaAPI.submitLead === 'function') {
+      return global.InmobiliariaAPI.submitLead(payload);
+    }
+
+    const proto = window.location.protocol;
+    const host = window.location.hostname || '';
+    if (proto === 'file:' || host.endsWith('.github.io')) {
+      return { ok: false, offline: true };
+    }
+
+    try {
+      const res = await fetch('api/leads.php', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.assign({ action: 'create' }, payload))
+      });
+      const ct = res.headers.get('content-type') || '';
+      if (!ct.includes('application/json')) return { ok: false };
+      return await res.json();
+    } catch (err) {
+      return { ok: false, offline: true };
+    }
+  }
+
   function initLeadSubmission() {
     const form = document.getElementById('mainLeadForm');
     const submitBtn = document.getElementById('mainSubmitButton');
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       if (!global.TERRANOVA_VALIDATOR) return;
@@ -221,8 +246,19 @@
 
       if (submitBtn) submitBtn.classList.add('is-loading');
 
+      const honeypotEl = form.querySelector('[name="website"]');
+      const origenEl = form.querySelector('[name="origen"]');
+
+      await persistLeadInServer({
+        nombre: result.data.nombre,
+        whatsapp: result.data.telefono,
+        proyecto: result.data.proyecto,
+        origen: origenEl ? origenEl.value : 'contacto_web',
+        website: honeypotEl ? honeypotEl.value : ''
+      });
+
       const cfg = global.TERRANOVA_CONFIG ? global.TERRANOVA_CONFIG.get() : {};
-      const waRaw = (cfg.whatsapp && cfg.whatsapp !== '573100000000') ? cfg.whatsapp : '573208103010';
+      const waRaw = (cfg.whatsappNumber || cfg.whatsapp || '573208103010');
       const waNumber = String(waRaw).replace(/[^0-9]/g, '');
 
       const leadMsg = [
@@ -233,12 +269,12 @@
 
       const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(leadMsg)}`;
 
-      showLuxuryToast('Solicitud validada. Conectando con su asesor privado...');
+      showLuxuryToast('Solicitud registrada. Conectando con su asesor privado...');
 
       setTimeout(() => {
         if (submitBtn) submitBtn.classList.remove('is-loading');
         window.open(waUrl, '_blank', 'noopener,noreferrer');
-      }, 600);
+      }, 450);
     });
   }
 
