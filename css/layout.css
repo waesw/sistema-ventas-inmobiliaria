@@ -58,7 +58,7 @@ body.luxury-body {
 /* ------------------------------------------------------------------------
  * 3. CABECERA FLOTANTE TRANSPARENTE (Estándar Discovery Land Co)
  * Sobre el Hero: transparente con tipografía blanca.
- * Al hacer scroll: fondo marfil suave con tipografía grafito oscuro.
+ * Al hacer scroll: fondo marfil suave en ::before (no atrapa position:fixed del drawer).
  * ------------------------------------------------------------------------ */
 .site-header-luxury {
   position: fixed;
@@ -75,12 +75,21 @@ body.luxury-body {
 }
 
 .site-header-luxury.is-scrolled {
-  background-color: var(--color-bg-dock);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background-color: transparent;
   border-bottom: 1px solid var(--color-border-subtle);
   padding-top: calc(var(--safe-area-top) + 12px);
   padding-bottom: 12px;
+}
+
+.site-header-luxury.is-scrolled::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--color-bg-dock);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  pointer-events: none;
 }
 
 .header-shell {
@@ -289,14 +298,18 @@ body.luxury-body {
 }
 
 /* ------------------------------------------------------------------------
- * 4. DRAWER MINIMALISTA PANTALLA COMPLETA (Luminoso Marfil / Grafito)
+ * 4. DRAWER MINIMALISTA PANTALLA COMPLETA (Fondo Sólido 100dvh)
  * ------------------------------------------------------------------------ */
 .luxury-drawer-overlay {
   position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
   z-index: var(--z-drawer-overlay);
-  background-color: var(--color-bg-canvas);
+  background-color: var(--color-bg-canvas, #FAF9F5);
   color: var(--color-text-main);
+  overflow-y: auto;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -314,7 +327,7 @@ body.luxury-body {
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   max-width: var(--container-max-width);
   margin-inline: auto;
   padding: calc(var(--safe-area-top) + var(--space-xl)) var(--container-padding) calc(var(--safe-area-bottom) + var(--space-xl));
@@ -405,7 +418,6 @@ body.luxury-body {
 
 /* ------------------------------------------------------------------------
  * 5. HERO CINEMATOGRÁFICO A PANTALLA COMPLETA (100vh)
- * Con despeje obligatorio superior (--header-clearance) contra colisiones.
  * ------------------------------------------------------------------------ */
 .hero-cinematic-100vh {
   position: relative;
@@ -749,7 +761,7 @@ body.luxury-body {
   line-height: var(--leading-relaxed);
 }
 
-/* Chassis de Video 16:9 (Corrección de capas para centrado perfecto del botón Play) */
+/* Chassis de Video 16:9 */
 .cinema-screen-chassis {
   width: 100%;
   max-width: 1200px;
@@ -982,7 +994,6 @@ body.luxury-body {
   text-transform: uppercase;
 }
 
-/* Directiva 4: inputs a 16px para iOS Safari y altura >= 48px */
 .field-input-tech,
 .field-select-tech {
   width: 100%;

@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Terranova Desarrollos. Portafolio privado de parcelaciones campestres y fincas de recreo en Cundinamarca. Urbanismo de baja densidad y tradición notarial garantizada.">
+  <meta name="description" content="Portafolio privado de parcelaciones campestres y fincas de recreo en Cundinamarca.">
   <meta name="format-detection" content="telephone=no">
   <meta name="theme-color" content="#FAF9F5">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>TERRANOVA | Parcelaciones Campestres & Private Estates</title>
 
-  <!-- Hojas de Estilo Desacopladas (Límite < 1.000 líneas cada una) -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -19,63 +18,54 @@
 </head>
 <body class="luxury-body">
 
-  <!-- ========================================================================
-       1. CABECERA FLOTANTE TRANSPARENTE (Arquitectura Multipágina Discovery)
-       ======================================================================== -->
+  <!-- 1. CABECERA FLOTANTE TRANSPARENTE -->
   <header class="site-header-luxury" id="siteHeader" data-section="header">
     <div class="header-shell">
 
-      <!-- Bloque Izquierdo: Menú + Portafolio -->
       <div class="header-block-left">
         <button type="button" class="btn-menu-trigger" id="menuToggleBtn" aria-expanded="false" aria-controls="luxuryDrawer" aria-label="Abrir menú de navegación">
           <span class="menu-icon-bars" aria-hidden="true">
             <span class="bar-line"></span>
             <span class="bar-line"></span>
           </span>
-          <span class="menu-text-label">MENU</span>
+          <span class="menu-text-label" data-bind="navMenu">MENU</span>
         </button>
         <span class="header-divider-pipe" aria-hidden="true">|</span>
-        <a href="portafolio.html" class="header-nav-anchor">PORTAFOLIO</a>
+        <a href="portafolio.html" class="header-nav-anchor" data-bind="navPortafolio">PORTAFOLIO</a>
       </div>
 
-      <!-- Bloque Central: Emblema Blindado (28px) y Monograma -->
       <div class="header-block-center">
-        <a href="index.html" class="brand-monogram-link" aria-label="Terranova - Inicio">
-          <svg class="brand-compass-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"/>
-            <polygon points="12,3 14.5,9.5 21,12 14.5,14.5 12,21 9.5,14.5 3,12 9.5,9.5 12,3" fill="currentColor" fill-opacity="0.15"/>
-          </svg>
+        <a href="index.html" class="brand-monogram-link" aria-label="Inicio">
+          <img src="assets/images/logo-garzon.svg" alt="Logo" width="84" height="25" style="width:84px;height:25px;object-fit:contain;margin-bottom:4px;display:block;">
           <span class="brand-title-serif" data-bind="brandName">TERRANOVA</span>
           <span class="brand-subtitle-tech" data-bind="brandSubtitle">PARCELACIONES & INVESTMENTS</span>
         </a>
       </div>
 
-      <!-- Bloque Derecho: Inventario y Contacto -->
       <div class="header-block-right">
-        <a href="inventario.html" class="header-nav-anchor">INVENTARIO</a>
+        <a href="inventario.html" class="header-nav-anchor" data-bind="navInventario">INVENTARIO</a>
         <span class="header-divider-pipe" aria-hidden="true">|</span>
-        <a href="contacto.html" class="btn-concierge-ghost">CONTACTO</a>
+        <a href="contacto.html" class="btn-concierge-ghost" data-bind="navContacto">CONTACTO</a>
       </div>
 
     </div>
 
-    <!-- Menú Desplegable Multipágina (Side / Fullscreen Drawer) -->
     <div class="luxury-drawer-overlay" id="luxuryDrawer" aria-hidden="true">
       <div class="drawer-inner-content">
         <div class="drawer-header-bar">
-          <span class="drawer-tag">NAVEGACIÓN GENERAL</span>
+          <span class="drawer-tag" data-bind="drawerHeaderTag">NAVEGACIÓN GENERAL</span>
           <button type="button" class="btn-drawer-close" id="drawerCloseBtn" aria-label="Cerrar menú">✕</button>
         </div>
         <nav class="drawer-nav-list" aria-label="Navegación principal">
-          <a href="index.html" class="drawer-link"><span class="drawer-num">01.</span> INICIO</a>
-          <a href="portafolio.html" class="drawer-link"><span class="drawer-num">02.</span> PORTAFOLIO DE PROYECTOS</a>
-          <a href="inventario.html" class="drawer-link"><span class="drawer-num">03.</span> INVENTARIO DE UNIDADES</a>
-          <a href="#criterios" class="drawer-link"><span class="drawer-num">04.</span> CRITERIOS & URBANISMO</a>
-          <a href="#recorrido-aereo" class="drawer-link"><span class="drawer-num">05.</span> INSPECCIÓN CINEMATOGRÁFICA</a>
-          <a href="contacto.html" class="drawer-link"><span class="drawer-num">06.</span> CONCIERGE & CITAS</a>
+          <a href="index.html" class="drawer-link"><span class="drawer-num">01.</span> <span data-bind="navInicio">INICIO</span></a>
+          <a href="portafolio.html" class="drawer-link"><span class="drawer-num">02.</span> <span data-bind="navPortafolio">PORTAFOLIO DE PROYECTOS</span></a>
+          <a href="inventario.html" class="drawer-link"><span class="drawer-num">03.</span> <span data-bind="navInventario">INVENTARIO DE UNIDADES</span></a>
+          <a href="#criterios" class="drawer-link"><span class="drawer-num">04.</span> <span data-bind="navCriterios">CRITERIOS & URBANISMO</span></a>
+          <a href="#recorrido-aereo" class="drawer-link"><span class="drawer-num">05.</span> <span data-bind="navVideo">INSPECCIÓN CINEMATOGRÁFICA</span></a>
+          <a href="contacto.html" class="drawer-link"><span class="drawer-num">06.</span> <span data-bind="navContacto">CONCIERGE & CITAS</span></a>
         </nav>
         <div class="drawer-footer-meta">
-          <p><span data-bind="brandName">TERRANOVA</span> • Cundinamarca, Colombia</p>
+          <p><span data-bind="brandName">TERRANOVA</span> • <span data-bind="officeAddress">Cundinamarca, Colombia</span></p>
         </div>
       </div>
     </div>
@@ -83,9 +73,7 @@
 
   <main id="mainContent">
 
-    <!-- ========================================================================
-         2. HERO CINEMATOGRÁFICO A PANTALLA COMPLETA (100vh)
-         ======================================================================== -->
+    <!-- 2. HERO CINEMATOGRÁFICO A PANTALLA COMPLETA (100vh) -->
     <section class="hero-cinematic-100vh" id="inicio" data-section="hero">
 
       <div class="hero-backdrop-container">
@@ -101,23 +89,20 @@
       <div class="hero-forefront-content">
         <div class="hero-editorial-group">
           <span class="hero-kicker-label" data-bind="heroKicker">DESARROLLOS RURALES DE ALTA GAMA • CUNDINAMARCA</span>
-          <h1 class="hero-serif-title" data-bind="heroHeadline">
-            PATRIMONIO EN TIERRA FIRME
-          </h1>
+          <h1 class="hero-serif-title" data-bind="heroHeadline">PATRIMONIO EN TIERRA FIRME</h1>
           <p class="hero-tagline-text" data-bind="heroDescription">
             Parcelaciones campestres con vocación de descanso, privacidad absoluta y blindaje jurídico notarial independiente.
           </p>
         </div>
 
-        <!-- Barra Píldora Flotante con Enlaces Multipágina Reales -->
         <div class="hero-pill-bar">
-          <a href="portafolio.html" class="pill-action-item is-active">PORTAFOLIO</a>
+          <a href="portafolio.html" class="pill-action-item is-active" data-bind="navPortafolio">PORTAFOLIO</a>
           <span class="pill-dot-sep">•</span>
-          <a href="inventario.html" class="pill-action-item">INVENTARIO</a>
+          <a href="inventario.html" class="pill-action-item" data-bind="navInventario">INVENTARIO</a>
           <span class="pill-dot-sep">•</span>
-          <a href="#recorrido-aereo" class="pill-action-item">VIDEO 4K</a>
+          <a href="#recorrido-aereo" class="pill-action-item" data-bind="homeHeroPillVideo">VIDEO 4K</a>
           <span class="pill-dot-sep">•</span>
-          <a href="contacto.html" class="pill-action-item">CONTACTO</a>
+          <a href="contacto.html" class="pill-action-item" data-bind="navContacto">CONTACTO</a>
         </div>
       </div>
 
@@ -125,12 +110,12 @@
         <div class="dock-left-controls">
           <button type="button" class="btn-hero-sound" id="btnMediaToggle" aria-label="Control de reproducción audiovisual">
             <span class="sound-icon-symbol">||</span>
-            <span class="sound-label-text">PAUSA</span>
+            <span class="sound-label-text" data-bind="homeHeroPauseBtn">PAUSA</span>
           </button>
         </div>
         <div class="dock-right-scroll">
           <a href="#portafolio-resumen" class="hero-scroll-indicator" aria-label="Desplazarse al resumen del portafolio">
-            <span class="scroll-wordmark">DESCUBRIR</span>
+            <span class="scroll-wordmark" data-bind="homeHeroScrollWordmark">DESCUBRIR</span>
             <span class="scroll-arrow-down" aria-hidden="true">↓</span>
           </a>
         </div>
@@ -138,26 +123,23 @@
 
     </section>
 
-    <!-- ========================================================================
-         3. VISTA PREVIA EDITORIAL DEL PORTAFOLIO (Enlaza a portafolio.html y proyecto.html)
-         ======================================================================== -->
+    <!-- 3. VISTA PREVIA EDITORIAL DEL PORTAFOLIO -->
     <section class="master-portfolio-section" id="portafolio-resumen" data-section="projects">
       <div class="luxury-container">
 
         <header class="section-editorial-header">
           <div class="header-titles-stack">
-            <span class="section-numeric-tag">01. COLECCIÓN EXCLUSIVA</span>
-            <h2 class="section-serif-headline">Nuestros Desarrollos Campestres</h2>
-            <p class="section-lead-paragraph">
-              Explore nuestra selección de 5 proyectos urbanísticos en Cundinamarca. Cada desarrollo cuenta con su propia ficha técnica, galería e inventario de unidades disponibles.
+            <span class="section-numeric-tag" data-bind="homePortfolioTag">01. COLECCIÓN EXCLUSIVA</span>
+            <h2 class="section-serif-headline" data-bind="homePortfolioTitle">Nuestros Desarrollos Campestres</h2>
+            <p class="section-lead-paragraph" data-bind="homePortfolioSubtitle">
+              Explore nuestra selección de proyectos urbanísticos en Cundinamarca. Cada desarrollo cuenta con su propia ficha técnica, galería e inventario de unidades disponibles.
             </p>
           </div>
           <div class="header-summary-badge">
-            <a href="portafolio.html" class="btn-project-inspect-quick">EXPLORAR PORTAFOLIO →</a>
+            <a href="portafolio.html" class="btn-project-inspect-quick" data-bind="homePortfolioBtn">EXPLORAR PORTAFOLIO →</a>
           </div>
         </header>
 
-        <!-- Cuadrícula de Proyectos (Renderizada por js/data-projects.js con acceso directo a proyecto.html) -->
         <div class="projects-editorial-grid" id="projectsContainer" data-mode="preview">
           <noscript>
             <p class="noscript-alert">Se requiere activar JavaScript para visualizar los proyectos disponibles.</p>
@@ -167,69 +149,31 @@
       </div>
     </section>
 
-    <!-- ========================================================================
-         4. ESTÁNDAR DE URBANISMO & BLINDAJE JURÍDICO (02. CRITERIOS)
-         ======================================================================== -->
+    <!-- 4. ESTÁNDAR DE URBANISMO & BLINDAJE JURÍDICO -->
     <section class="urbanism-criteria-section" id="criterios" data-section="benefits">
       <div class="luxury-container">
 
         <header class="section-editorial-header text-center-block">
-          <span class="section-numeric-tag">02. ESTÁNDARES TÉCNICOS</span>
-          <h2 class="section-serif-headline">Blindaje Jurídico & Urbanismo Sostenible</h2>
-          <p class="section-lead-paragraph">
+          <span class="section-numeric-tag" data-bind="homeCriteriaTag">02. ESTÁNDARES TÉCNICOS</span>
+          <h2 class="section-serif-headline" data-bind="homeCriteriaTitle">Blindaje Jurídico & Urbanismo Sostenible</h2>
+          <p class="section-lead-paragraph" data-bind="homeCriteriaSubtitle">
             La adquisición de tierra de alto valor exige certezas absolutas. Estructuramos cada desarrollo con los más altos estándares de ingeniería y ordenamiento territorial.
           </p>
         </header>
 
-        <div class="criteria-cards-grid">
-
-          <article class="criterion-luxury-card">
-            <span class="criterion-counter">01</span>
-            <h3 class="criterion-title">Tradición Jurídica Notarial</h3>
-            <p class="criterion-body">
-              Cada lote e inmueble dispone de su propia matrícula inmobiliaria individual debidamente inscrita en la Oficina de Registro de Instrumentos Públicos. Cero esquemas de proindiviso.
-            </p>
-          </article>
-
-          <article class="criterion-luxury-card">
-            <span class="criterion-counter">02</span>
-            <h3 class="criterion-title">Vías y Topografía Seleccionada</h3>
-            <p class="criterion-body">
-              Acceso vial desde corredores intermunicipales consolidados. Vías internas con cunetas técnicas, recebado compactado y linderos topográficos georreferenciados.
-            </p>
-          </article>
-
-          <article class="criterion-luxury-card">
-            <span class="criterion-counter">03</span>
-            <h3 class="criterion-title">Redes de Servicios Públicos</h3>
-            <p class="criterion-body">
-              Acometidas de energía eléctrica certificadas ante el operador regional y disponibilidad hídrica para conexión inmediata al momento de entrega de la posesión.
-            </p>
-          </article>
-
-          <article class="criterion-luxury-card">
-            <span class="criterion-counter">04</span>
-            <h3 class="criterion-title">Financiación Directa en Pesos</h3>
-            <p class="criterion-body">
-              Esquemas flexibles acordados directamente con la desarrolladora. Cuota inicial pactada y saldo financiado sin intermediación bancaria tradicional.
-            </p>
-          </article>
-
-        </div>
+        <div class="criteria-cards-grid" id="homeCriteriaGrid"></div>
 
       </div>
     </section>
 
-    <!-- ========================================================================
-         5. RECORRIDO CINEMATOGRÁFICO EN VIDEO (03. INSPECCIÓN)
-         ======================================================================== -->
+    <!-- 5. RECORRIDO CINEMATOGRÁFICO EN VIDEO -->
     <section class="cinema-showcase-section" id="recorrido-aereo" data-section="video-showcase">
       <div class="luxury-container">
 
         <header class="section-editorial-header text-center-block">
-          <span class="section-numeric-tag">03. INSPECCIÓN AÉREA</span>
-          <h2 class="section-serif-headline">Topografía y Entorno en Alta Definición</h2>
-          <p class="section-lead-paragraph">
+          <span class="section-numeric-tag" data-bind="homeVideoTag">03. INSPECCIÓN AÉREA</span>
+          <h2 class="section-serif-headline" data-bind="featuredVideoTitle">Topografía y Entorno en Alta Definición</h2>
+          <p class="section-lead-paragraph" data-bind="featuredVideoSubtitle">
             Recorrido visual completo del paisaje, avance de obras civiles, accesos viales y delimitación de predios.
           </p>
         </header>
@@ -249,8 +193,8 @@
               </button>
 
               <div class="cinema-caption-meta">
-                <span class="caption-tag">REGISTRO EN CAMPO</span>
-                <p class="caption-lead">Levantamiento topográfico y corredores verdes de la parcelación</p>
+                <span class="caption-tag" data-bind="homeVideoCaptionTag">REGISTRO EN CAMPO</span>
+                <p class="caption-lead" data-bind="homeVideoCaptionLead">Levantamiento topográfico y corredores verdes de la parcelación</p>
               </div>
             </div>
 
@@ -261,76 +205,38 @@
       </div>
     </section>
 
-    <!-- ========================================================================
-         6. METODOLOGÍA NOTARIAL EN 4 PASOS (04. ADQUISICIÓN)
-         ======================================================================== -->
+    <!-- 6. METODOLOGÍA NOTARIAL -->
     <section class="notarial-process-section" id="adquisicion" data-section="process">
       <div class="luxury-container">
 
         <header class="section-editorial-header text-center-block">
-          <span class="section-numeric-tag">04. METODOLOGÍA NOTARIAL</span>
-          <h2 class="section-serif-headline">El Protocolo Hacia Su Título de Propiedad</h2>
-          <p class="section-lead-paragraph">
+          <span class="section-numeric-tag" data-bind="homeProcessTag">04. METODOLOGÍA NOTARIAL</span>
+          <h2 class="section-serif-headline" data-bind="homeProcessTitle">El Protocolo Hacia Su Título de Propiedad</h2>
+          <p class="section-lead-paragraph" data-bind="homeProcessSubtitle">
             Un itinerario claro, transparente y con respaldo legal en cada hito del proceso.
           </p>
         </header>
 
-        <div class="protocol-steps-grid">
-
-          <div class="protocol-step-box">
-            <span class="step-large-num">01</span>
-            <h4 class="step-title">Selección del Predio</h4>
-            <p class="step-text">
-              Definición de la unidad campestre según metraje, orientación solar y topografía deseada.
-            </p>
-          </div>
-
-          <div class="protocol-step-box">
-            <span class="step-large-num">02</span>
-            <h4 class="step-title">Dossier Técnico Notarial</h4>
-            <p class="step-text">
-              Recepción digital del folio de matrícula, certificado de libertad y tradición, plano topográfico y minuta.
-            </p>
-          </div>
-
-          <div class="protocol-step-box">
-            <span class="step-large-num">03</span>
-            <h4 class="step-title">Inspección Presencial</h4>
-            <p class="step-text">
-              Recorrido privado guiado en terreno con validación de mojones, linderos y vías internas.
-            </p>
-          </div>
-
-          <div class="protocol-step-box">
-            <span class="step-large-num">04</span>
-            <h4 class="step-title">Escrituración Pública</h4>
-            <p class="step-text">
-              Firma formal de la escritura pública individual de compraventa ante Notaría con entrega de posesión.
-            </p>
-          </div>
-
-        </div>
+        <div class="protocol-steps-grid" id="homeProcessGrid"></div>
 
       </div>
     </section>
 
-    <!-- ========================================================================
-         7. INVITACIÓN EDITORIAL A CONTACTO PRIVADO (Enlaza a contacto.html)
-         ======================================================================== -->
+    <!-- 7. INVITACIÓN EDITORIAL A CONTACTO PRIVADO -->
     <section class="concierge-inquiry-section" data-section="capture">
       <div class="luxury-container reading-width">
         <header class="section-editorial-header text-center-block">
-          <span class="section-numeric-tag">05. ATENCIÓN PRIVADA</span>
-          <h2 class="section-serif-headline">Programe un Recorrido Privado en Terreno</h2>
-          <p class="section-lead-paragraph">
+          <span class="section-numeric-tag" data-bind="homeClosingTag">05. ATENCIÓN PRIVADA</span>
+          <h2 class="section-serif-headline" data-bind="homeClosingTitle">Programe un Recorrido Privado en Terreno</h2>
+          <p class="section-lead-paragraph" data-bind="homeClosingSubtitle">
             Nuestro equipo comercial y asesoría jurídica le atenderán de forma personalizada para revisar planos, disponibilidad y esquemas de financiación directa.
           </p>
           <div style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
             <a href="contacto.html" class="btn-submit-luxury">
-              <span>SOLICITAR ASESORÍA PRIVADA</span>
+              <span data-bind="homeClosingPrimaryBtn">SOLICITAR ASESORÍA PRIVADA</span>
               <span class="btn-arrow" aria-hidden="true">→</span>
             </a>
-            <a href="inventario.html" class="btn-project-inspect-quick">
+            <a href="inventario.html" class="btn-project-inspect-quick" data-bind="homeClosingSecondaryBtn">
               VER INVENTARIO DISPONIBLE
             </a>
           </div>
@@ -340,19 +246,15 @@
 
   </main>
 
-  <!-- ========================================================================
-       8. ENLACE DE CONCIERGE FLOTANTE DISCRETO
-       ======================================================================== -->
+  <!-- 8. ENLACE DE CONCIERGE FLOTANTE DISCRETO -->
   <aside class="floating-concierge-zone" data-section="floating-contact" aria-label="Atención personalizada">
     <a href="contacto.html" class="concierge-quiet-pill" id="floatingConciergeLink" aria-label="Solicitar atención privada">
       <span class="concierge-dot-live"></span>
-      <span class="concierge-pill-text">ASESORÍA PRIVADA</span>
+      <span class="concierge-pill-text" data-bind="floatingCtaText">ASESORÍA PRIVADA</span>
     </a>
   </aside>
 
-  <!-- ========================================================================
-       9. PIE DE PÁGINA EDITORIAL & LEGAL (Con enlaces multipágina reales)
-       ======================================================================== -->
+  <!-- 9. PIE DE PÁGINA EDITORIAL & LEGAL -->
   <footer class="site-footer-luxury" data-section="footer">
     <div class="luxury-container">
       <div class="footer-grid-layout">
@@ -362,29 +264,29 @@
             <span class="brand-title-serif" data-bind="brandName">TERRANOVA</span>
             <span class="brand-subtitle-tech" data-bind="brandSubtitle">DESARROLLOS INMOBILIARIOS & PARCELACIONES</span>
           </div>
-          <p class="footer-manifesto-text">
+          <p class="footer-manifesto-text" data-bind="footerManifesto">
             Compañía estructuradora de parcelaciones campestres de alto valor patrimonial en Colombia. Urbanismo de baja densidad y preservación del entorno natural.
           </p>
         </div>
 
         <div class="footer-col-nav">
-          <span class="footer-label-tech">EXPLORACIÓN</span>
+          <span class="footer-label-tech" data-bind="footerNavTitle">EXPLORACIÓN</span>
           <ul class="footer-clean-menu">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="portafolio.html">Portafolio de Proyectos</a></li>
-            <li><a href="inventario.html">Inventario de Unidades</a></li>
-            <li><a href="#criterios">Criterios Técnicos</a></li>
-            <li><a href="contacto.html">Contacto & Citas</a></li>
+            <li><a href="index.html" data-bind="navInicio">Inicio</a></li>
+            <li><a href="portafolio.html" data-bind="navPortafolio">Portafolio de Proyectos</a></li>
+            <li><a href="inventario.html" data-bind="navInventario">Inventario de Unidades</a></li>
+            <li><a href="#criterios" data-bind="navCriterios">Criterios Técnicos</a></li>
+            <li><a href="contacto.html" data-bind="navContacto">Contacto & Citas</a></li>
           </ul>
         </div>
 
         <div class="footer-col-legal">
-          <span class="footer-label-tech">MARCO JURÍDICO</span>
-          <p class="footer-legal-copy">
+          <span class="footer-label-tech" data-bind="footerLegalTitle">MARCO JURÍDICO</span>
+          <p class="footer-legal-copy" data-bind="footerLegal">
             Proyectos desarrollados en estricto cumplimiento de la Ley 388 de 1997, normas de ordenamiento territorial ambiental (CAR) y decretos reglamentarios de parcelación rural.
           </p>
           <div class="footer-copyright-tag">
-            © 2026 <span data-bind="brandName">TERRANOVA</span> DESARROLLOS. TODOS LOS DERECHOS RESERVADOS.
+            © <span data-bind="footerCopyrightYear">2026</span> <span data-bind="brandName">TERRANOVA</span> <span data-bind="footerCopyrightSuffix">DESARROLLOS. TODOS LOS DERECHOS RESERVADOS.</span>
           </div>
         </div>
 
@@ -392,7 +294,7 @@
     </div>
   </footer>
 
-  <!-- Scripts con Carga Diferida (Directiva 3 - Rendimiento < 0.4s) -->
+  <!-- Scripts con Carga Diferida -->
   <script src="js/config.js" defer></script>
   <script src="js/data-projects.js" defer></script>
   <script src="js/form-validation.js" defer></script>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="95 240 810 240" width="810" height="240" role="img" aria-label="Garzón Campestre">
+  <g fill="#C5A467">
+    <path fill-rule="evenodd" d="M 321.5,245 L 100,475 L 164,475 L 321.5,311.5 L 462,457 L 648,457 L 657,475 L 682,475 L 691,457 L 721,457 L 730,475 L 755,475 L 764,457 L 794,457 L 803,475 L 828,475 L 837,457 L 864,457 L 900,427.5 L 864,398 L 474,398 L 321.5,245 Z M 183,389 L 183,326 L 219,326 L 219,352 Z M 505,412 L 852,412 L 852,419 L 505,419 Z" />
+    <rect x="287" y="407" width="29" height="29" />
+    <rect x="327" y="407" width="29" height="29" />
+    <rect x="287" y="446" width="29" height="29" />
+    <rect x="327" y="446" width="29" height="29" />
+  </g>
+</svg>

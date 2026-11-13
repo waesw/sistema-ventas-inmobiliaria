@@ -157,16 +157,62 @@
     targetEl.style.display = 'block';
   }
 
+  function getFeaturedProjectForHome() {
+    let list = [];
+    if (typeof global.getProjectsData === 'function') {
+      list = global.getProjectsData();
+    } else {
+      try { list = JSON.parse(localStorage.getItem('TERRANOVA_PROJECTS_DATA') || '[]'); } catch (e) { list = []; }
+    }
+    if (!Array.isArray(list) || !list.length) return null;
+    return list.find((p) => p && p.destacado && p.visible !== false)
+      || list.find((p) => p && p.destacado)
+      || list.find((p) => p && p.visible !== false && p.videoUrl)
+      || null;
+  }
+
+  function syncHomeFeaturedVideoUI() {
+    const homeFacade = document.getElementById('videoFacade');
+    if (!homeFacade) return null;
+
+    const proj = getFeaturedProjectForHome();
+    if (!proj) return null;
+
+    const setBind = (key, val) => {
+      if (!val) return;
+      document.querySelectorAll(`[data-bind="${key}"]`).forEach((el) => { el.textContent = val; });
+    };
+
+    setBind('featuredVideoTitle', proj.videoTitulo);
+    setBind('featuredVideoSubtitle', proj.videoSubtitulo);
+    setBind('homeVideoCaptionTag', proj.videoEtiqueta);
+    setBind('homeVideoCaptionLead', proj.videoPie);
+
+    const facadeImg = homeFacade.querySelector('.cinema-facade-img');
+    if (facadeImg && proj.fotoPrincipal16_9) {
+      facadeImg.src = proj.fotoPrincipal16_9;
+      facadeImg.alt = proj.nombre || facadeImg.alt;
+    }
+
+    return proj.videoUrl || null;
+  }
+
   function initCinemaShowcases() {
     const homeTrigger = document.getElementById('btnTriggerVideo');
     const homeFacade = document.getElementById('videoFacade');
     const homeTarget = document.getElementById('videoEmbedTarget');
 
     if (homeTrigger && homeFacade && homeTarget) {
+      syncHomeFeaturedVideoUI();
+      window.addEventListener('terranova:data-synced', syncHomeFeaturedVideoUI);
+      window.addEventListener('terranova:config-updated', syncHomeFeaturedVideoUI);
+
       homeTrigger.addEventListener('click', () => {
-        const videoUrl = (global.TERRANOVA_CONFIG && typeof global.TERRANOVA_CONFIG.getFeaturedVideoUrl === 'function')
-          ? global.TERRANOVA_CONFIG.getFeaturedVideoUrl()
-          : 'https://www.youtube.com/watch?v=gU5AYz8x0YU';
+        const proj = getFeaturedProjectForHome();
+        const videoUrl = (proj && proj.videoUrl)
+          || ((global.TERRANOVA_CONFIG && typeof global.TERRANOVA_CONFIG.getFeaturedVideoUrl === 'function')
+            ? global.TERRANOVA_CONFIG.getFeaturedVideoUrl()
+            : 'https://www.youtube.com/watch?v=gU5AYz8x0YU');
         mountVideoPlayer(videoUrl, homeFacade, homeTarget);
       });
     }

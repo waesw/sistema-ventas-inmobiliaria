@@ -2,7 +2,7 @@
  * ========================================================================
  * TERRANOVA DESARROLLOS INMOBILIARIOS
  * ARCHIVO: js/data-projects.js
- * PROPÓSITO: Motor multipágina, Galería (máx. 5) y Pines Circulares en Plano
+ * PROPÓSITO: Motor multipágina, Galería (máx. 5), Pines Circulares y Textos Dinámicos por Proyecto
  * DIRECTIVAS: D1 (Cero código), D2 (Fotos/Videos 16:9), D6 (<1.000 líneas), D7 (Modelo real)
  * ========================================================================
  */
@@ -33,6 +33,8 @@
       fotoPrincipal16_9: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1280&h=720&q=80',
       fotoAlt: 'Panorámica del Proyecto Mirador del Arrayán en San Francisco',
       videoUrl: 'https://www.youtube.com/watch?v=gU5AYz8x0YU',
+      videoTitulo: 'Inspección Audiovisual del Predio',
+      videoSubtitulo: 'Recorrido en terreno, topografía real y accesos viales de este desarrollo.',
       planoUrl: 'assets/images/plano-proj-01.jpeg',
       galeria: [
         { url: 'assets/images/permiso-proj-01.jpeg', caption: 'Licencia Oficial de Construcción — Res. 225 (Alcaldía San Francisco de Sales)' },
@@ -42,10 +44,10 @@
       visible: true,
       destacado: true,
       serviciosPublicos: [
-        'Excelentes vías de acceso desde el casco urbano de San Francisco (7 min)',
-        'Licencia de construcción vigente (Res. 225 - Vigencia 36 meses)',
-        'Vía interna vehicular y urbanismo campestre delimitado',
-        'Topografía seleccionada con vistas abiertas hacia la montaña'
+        { titulo: 'Accesibilidad Vial', detalle: 'Excelentes vías de acceso desde el casco urbano de San Francisco (7 min).' },
+        { titulo: 'Respaldo Oficial', detalle: 'Licencia de construcción vigente (Res. 225 - Vigencia 36 meses).' },
+        { titulo: 'Urbanismo Campestre', detalle: 'Vía interna vehicular y urbanismo campestre delimitado.' },
+        { titulo: 'Topografía y Paisaje', detalle: 'Topografía seleccionada con vistas abiertas hacia la montaña.' }
       ],
       unidadesInventario: [
         { codigo: 'Lote 01', num: '1', area: '2.208 m²', precioCOP: 220800000, estado: 'Disponible', matricula: 'FMI-Vereda-Arrayan-01', cx: 73, cy: 19 },
@@ -81,15 +83,17 @@
       fotoPrincipal16_9: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1280&h=720&q=80',
       fotoAlt: 'Vista panorámica de meseta y accesos viales en Altos del Valle',
       videoUrl: 'https://www.youtube.com/watch?v=EOYNmEsvHYw',
+      videoTitulo: 'Inspección Audiovisual del Predio',
+      videoSubtitulo: 'Recorrido en terreno, topografía real y accesos viales de este desarrollo.',
       planoUrl: '',
       galeria: [],
       visible: true,
       destacado: false,
       serviciosPublicos: [
-        'Red eléctrica normalizada con transformador propio',
-        'Acueducto veredal con tanque de reserva de 50.000 L',
-        'Vías internas estabilizadas con iluminación solar',
-        'Senderos peatonales y ecuestres perimetrales'
+        { titulo: 'Red Eléctrica', detalle: 'Red eléctrica normalizada con transformador propio.' },
+        { titulo: 'Recurso Hídrico', detalle: 'Acueducto veredal con tanque de reserva de 50.000 L.' },
+        { titulo: 'Vías Internas', detalle: 'Vías internas estabilizadas con iluminación solar.' },
+        { titulo: 'Senderos', detalle: 'Senderos peatonales y ecuestres perimetrales.' }
       ],
       unidadesInventario: [
         { codigo: 'Lote 02', area: '2.050 m²', precioCOP: 450000000, estado: 'Disponible', matricula: 'FMI-50N-1983001' },
@@ -114,15 +118,17 @@
       fotoPrincipal16_9: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1280&h=720&q=80',
       fotoAlt: 'Planicie campestre fértil en Hacienda Las Palmas',
       videoUrl: 'https://www.youtube.com/watch?v=H7zHICiwoa4',
+      videoTitulo: 'Inspección Audiovisual del Predio',
+      videoSubtitulo: 'Recorrido en terreno, topografía real y accesos viales de este desarrollo.',
       planoUrl: '',
       galeria: [],
       visible: true,
       destacado: false,
       serviciosPublicos: [
-        'Postería perimetral instalada y acometida en lindero',
-        'Disponibilidad de agua de riego y potable',
-        'Vía de acceso en placa-huella y recebo compactado',
-        'Cerramiento frontal uniforme en madera inmunizada'
+        { titulo: 'Acometida Eléctrica', detalle: 'Postería perimetral instalada y acometida en lindero.' },
+        { titulo: 'Agua Potable y Riego', detalle: 'Disponibilidad de agua de riego y potable.' },
+        { titulo: 'Vía de Acceso', detalle: 'Vía de acceso en placa-huella y recebo compactado.' },
+        { titulo: 'Cerramiento', detalle: 'Cerramiento frontal uniforme en madera inmunizada.' }
       ],
       unidadesInventario: [
         { codigo: 'Quinta 01', area: '1.500 m²', precioCOP: 285000000, estado: 'Disponible', matricula: 'FMI-50N-334101' },
@@ -147,15 +153,17 @@
       fotoPrincipal16_9: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1280&h=720&q=80',
       fotoAlt: 'Fachada contemporánea en piedra y cristal en Villas del Country',
       videoUrl: 'https://www.youtube.com/watch?v=QLHjG0TJUQc',
+      videoTitulo: 'Inspección Audiovisual del Predio',
+      videoSubtitulo: 'Recorrido en terreno, topografía real y accesos viales de este desarrollo.',
       planoUrl: '',
       galeria: [],
       visible: true,
       destacado: false,
       serviciosPublicos: [
-        'Gas natural por red domiciliaria',
-        'Planta de tratamiento de aguas residuales (PTAR)',
-        'Fibra óptica dedicada para teletrabajo',
-        'Club House privado con zona húmeda y caballerizas'
+        { titulo: 'Gas Natural', detalle: 'Gas natural por red domiciliaria.' },
+        { titulo: 'Saneamiento PTAR', detalle: 'Planta de tratamiento de aguas residuales (PTAR).' },
+        { titulo: 'Conectividad', detalle: 'Fibra óptica dedicada para teletrabajo.' },
+        { titulo: 'Club House', detalle: 'Club House privado con zona húmeda y caballerizas.' }
       ],
       unidadesInventario: [
         { codigo: 'Villa Roble A', area: '245 m² / Lote 1.600 m²', precioCOP: 980000000, estado: 'Disponible', matricula: 'FMI-50N-776201' },
@@ -180,15 +188,17 @@
       fotoPrincipal16_9: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1280&h=720&q=80',
       fotoAlt: 'Suites contemporáneas de montaña en Guasca',
       videoUrl: 'https://www.youtube.com/watch?v=gU5AYz8x0YU',
+      videoTitulo: 'Inspección Audiovisual del Predio',
+      videoSubtitulo: 'Recorrido en terreno, topografía real y accesos viales de este desarrollo.',
       planoUrl: '',
       galeria: [],
       visible: true,
       destacado: false,
       serviciosPublicos: [
-        'Calefacción pasiva y paneles solares complementarios',
-        'Planta de tratamiento de agua potable certificada',
-        'Servicio de conserjería y operación hotelera',
-        'Senderos ecológicos hacia reserva de alta montaña'
+        { titulo: 'Energía Limpia', detalle: 'Calefacción pasiva y paneles solares complementarios.' },
+        { titulo: 'Agua Potable', detalle: 'Planta de tratamiento de agua potable certificada.' },
+        { titulo: 'Operación Hotelera', detalle: 'Servicio de conserjería y operación hotelera.' },
+        { titulo: 'Reserva Ecológica', detalle: 'Senderos ecológicos hacia reserva de alta montaña.' }
       ],
       unidadesInventario: [
         { codigo: 'Suite 102', area: '85 m²', precioCOP: 410000000, estado: 'Disponible', matricula: 'FMI-50N-998102' },
@@ -205,7 +215,7 @@
         localStorage.removeItem(PROJECTS_STORAGE_KEY);
         localStorage.setItem(CATALOG_VERSION_KEY, CURRENT_CATALOG_VERSION);
       }
-    } catch (e) { /* Ignorar si storage está restringido */ }
+    } catch (e) { /* noop */ }
   }
 
   function getProjects() {
@@ -224,12 +234,16 @@
     return getProjects().slice(0, 5).filter((p) => p.visible !== false);
   }
 
+  function getSiteConfigSafe() {
+    return (global.TERRANOVA_CONFIG && typeof global.TERRANOVA_CONFIG.get === 'function')
+      ? global.TERRANOVA_CONFIG.get()
+      : {};
+  }
+
   function getActiveTypologies() {
-    if (global.TERRANOVA_CONFIG && typeof global.TERRANOVA_CONFIG.get === 'function') {
-      const cfg = global.TERRANOVA_CONFIG.get();
-      if (Array.isArray(cfg.typologies) && cfg.typologies.length > 0) {
-        return cfg.typologies.slice(0, 5);
-      }
+    const cfg = getSiteConfigSafe();
+    if (Array.isArray(cfg.typologies) && cfg.typologies.length > 0) {
+      return cfg.typologies.slice(0, 5);
     }
     return [
       { id: 'lote', label: 'Lotes Campestres' },
@@ -239,11 +253,9 @@
   }
 
   function getActiveWhatsApp() {
-    if (global.TERRANOVA_CONFIG && typeof global.TERRANOVA_CONFIG.get === 'function') {
-      const cfg = global.TERRANOVA_CONFIG.get();
-      if (cfg.whatsapp && cfg.whatsapp !== '573100000000') {
-        return String(cfg.whatsapp).replace(/[^0-9]/g, '');
-      }
+    const cfg = getSiteConfigSafe();
+    if (cfg.whatsapp && cfg.whatsapp !== '573100000000') {
+      return String(cfg.whatsapp).replace(/[^0-9]/g, '');
     }
     return '573208103010';
   }
@@ -260,12 +272,8 @@
   }
 
   function getUnitStatusBadgeHtml(estado) {
-    if (estado === 'Disponible') {
-      return `<span class="badge-status-dot dot-active"></span>Disponible`;
-    }
-    if (estado === 'Vendido') {
-      return `<span class="badge-status-dot" style="background-color: #A62B2B;"></span>Vendido`;
-    }
+    if (estado === 'Disponible') return `<span class="badge-status-dot dot-active"></span>Disponible`;
+    if (estado === 'Vendido') return `<span class="badge-status-dot" style="background-color: #A62B2B;"></span>Vendido`;
     return `<span class="badge-status-dot dot-reserved"></span>${escapeHtml(estado || 'Reservado')}`;
   }
 
@@ -310,12 +318,7 @@
     if (!facade) return;
 
     const img = facade.querySelector('.cinema-facade-img');
-    const tag = facade.querySelector('.caption-tag');
-    const lead = facade.querySelector('.caption-lead');
-
     if (img && featured.fotoPrincipal16_9) img.src = featured.fotoPrincipal16_9;
-    if (tag) tag.textContent = `PROYECTO DESTACADO • ${featured.municipio.toUpperCase()}`;
-    if (lead) lead.textContent = `${featured.nombre} — Recorrido aéreo y linderos`;
   }
 
   function renderCatalog(filterType) {
@@ -329,9 +332,7 @@
       : visibleProjects.filter((p) => (p.categoriaFiltro || '').toLowerCase() === activeFilter.toLowerCase());
 
     const badgeNum = document.querySelector('.header-summary-badge .badge-number');
-    if (badgeNum) {
-      badgeNum.textContent = String(filtered.length).padStart(2, '0');
-    }
+    if (badgeNum) badgeNum.textContent = String(filtered.length).padStart(2, '0');
 
     if (filtered.length === 0) {
       container.innerHTML = `<p class="noscript-alert">No hay proyectos visibles registrados bajo esta tipología.</p>`;
@@ -434,12 +435,15 @@
     const proj = visible.find((p) => p.id === requestedId || p.slug === requestedId) || visible[0];
     if (!proj) return;
 
+    const cfg = getSiteConfigSafe();
+    const pp = cfg.projectPage || {};
     const defaultProj = DEFAULT_PROJECTS.find((d) => d.id === proj.id);
-    document.title = `${proj.nombre} | TERRANOVA Desarrollos`;
+    const brandName = cfg.brandName || 'TERRANOVA';
+    document.title = `${proj.nombre} | ${brandName}`;
 
     const setText = (id, value) => {
       const el = document.getElementById(id);
-      if (el && value !== undefined) el.textContent = value;
+      if (el && value !== undefined && value !== '') el.textContent = value;
     };
 
     const heroImg = document.getElementById('projectHeroImg');
@@ -472,6 +476,10 @@
       videoSection.style.display = 'block';
       videoBtn.setAttribute('data-video-url', effectiveVideo);
       if (videoFacadeImg && proj.fotoPrincipal16_9) videoFacadeImg.src = proj.fotoPrincipal16_9;
+      setText('projectVideoTitle', proj.videoTitulo || pp.videoTitle);
+      setText('projectVideoSubtitle', proj.videoSubtitulo || pp.videoSubtitle);
+      setText('projectVideoCaptionTag', proj.videoEtiqueta || pp.videoCaptionTag);
+      setText('projectVideoCaption', proj.videoPie || pp.videoCaptionLead);
     }
 
     const gallerySection = document.getElementById('projectGallerySection');
@@ -507,9 +515,7 @@
       blueprintCard.style.display = 'block';
       const pinsHtml = units.filter((u) => u.cx !== undefined && u.cy !== undefined && u.cx !== null && u.cy !== null).map((unit, idx) => {
         const estadoLower = String(unit.estado || 'Disponible').toLowerCase();
-        const pinClass = estadoLower === 'vendido'
-          ? 'pin-vendido'
-          : (estadoLower === 'reservado' ? 'pin-reservado' : 'pin-disponible');
+        const pinClass = estadoLower === 'vendido' ? 'pin-vendido' : (estadoLower === 'reservado' ? 'pin-reservado' : 'pin-disponible');
         const priceFmt = `$ ${Number(unit.precioCOP || 0).toLocaleString('es-CO')} COP`;
         const waHref = estadoLower === 'vendido'
           ? 'javascript:void(0);'
@@ -529,10 +535,7 @@
         `;
       }).join('');
 
-      blueprintStage.innerHTML = `
-        <img src="${escapeHtml(effectivePlano)}" alt="Plano general de ${escapeHtml(proj.nombre)}" class="blueprint-base-img">
-        ${pinsHtml}
-      `;
+      blueprintStage.innerHTML = `<img src="${escapeHtml(effectivePlano)}" alt="Plano general de ${escapeHtml(proj.nombre)}" class="blueprint-base-img">${pinsHtml}`;
     } else if (blueprintCard) {
       blueprintCard.style.display = 'none';
     }
@@ -546,13 +549,17 @@
 
     const amenitiesGrid = document.getElementById('projectAmenitiesGrid');
     if (amenitiesGrid && Array.isArray(proj.serviciosPublicos)) {
-      amenitiesGrid.innerHTML = proj.serviciosPublicos.map((item, idx) => `
-        <article class="criterion-luxury-card">
-          <span class="criterion-counter">${String(idx + 1).padStart(2, '0')}</span>
-          <h3 class="criterion-title">Especificación Técnica</h3>
-          <p class="criterion-body">${escapeHtml(item)}</p>
-        </article>
-      `).join('');
+      amenitiesGrid.innerHTML = proj.serviciosPublicos.map((item, idx) => {
+        const title = (item && typeof item === 'object') ? (item.titulo || 'Especificación Técnica') : 'Especificación Técnica';
+        const body = (item && typeof item === 'object') ? (item.detalle || '') : String(item || '');
+        return `
+          <article class="criterion-luxury-card">
+            <span class="criterion-counter">${String(idx + 1).padStart(2, '0')}</span>
+            <h3 class="criterion-title">${escapeHtml(title)}</h3>
+            <p class="criterion-body">${escapeHtml(body)}</p>
+          </article>
+        `;
+      }).join('');
     }
 
     const tableBody = document.getElementById('projectUnitsTableBody');
