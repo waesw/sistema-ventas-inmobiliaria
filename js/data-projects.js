@@ -231,7 +231,7 @@
   }
 
   function getVisibleProjects() {
-    return getProjects().slice(0, 5).filter((p) => p.visible !== false);
+    return getProjects().slice(0, 10).filter((p) => p.visible !== false);
   }
 
   function getSiteConfigSafe() {
@@ -243,7 +243,7 @@
   function getActiveTypologies() {
     const cfg = getSiteConfigSafe();
     if (Array.isArray(cfg.typologies) && cfg.typologies.length > 0) {
-      return cfg.typologies.slice(0, 5);
+      return cfg.typologies.slice(0, 10);
     }
     return [
       { id: 'lote', label: 'Lotes Campestres' },
@@ -485,8 +485,8 @@
     const gallerySection = document.getElementById('projectGallerySection');
     const galleryGrid = document.getElementById('projectGalleryGrid');
     const galleryItems = (Array.isArray(proj.galeria) && proj.galeria.length > 0)
-      ? proj.galeria.slice(0, 5)
-      : (defaultProj && Array.isArray(defaultProj.galeria) ? defaultProj.galeria.slice(0, 5) : []);
+      ? proj.galeria.slice(0, 10)
+      : (defaultProj && Array.isArray(defaultProj.galeria) ? defaultProj.galeria.slice(0, 10) : []);
 
     if (gallerySection && galleryGrid && galleryItems.length > 0) {
       gallerySection.style.display = 'block';
