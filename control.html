@@ -250,7 +250,7 @@
                 </div>
 
                 <div class="card">
-                    <h3>Sección 04: Galería del Proyecto (Máx. 5 Fotos 16:9 — Caption Editable)</h3>
+                    <h3>Sección 04: Galería del Proyecto (Máx. 10 Fotos 16:9 — Caption Editable)</h3>
                     <input type="file" id="proj-galleryFile" accept="image/*" multiple>
                     <div id="proj-gallery-grid" class="gallery-grid"></div>
                 </div>
@@ -822,7 +822,7 @@
                 if (!p) return;
                 p.galeria = p.galeria || [];
                 for (const file of e.target.files) {
-                    if (p.galeria.length >= 5) { notify('Máximo 5 fotos por proyecto.', true); break; }
+                    if (p.galeria.length >= 10) { notify('Máximo 5 fotos por proyecto.', true); break; }
                     p.galeria.push({ url: await compressImage(file, 1280, 0.8), caption: file.name.replace(/\.[^.]+$/, '') });
                 }
                 e.target.value = ''; renderGallery();
